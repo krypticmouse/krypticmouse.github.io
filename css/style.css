@@ -1,0 +1,54 @@
+@-webkit-keyframes fade-in{
+    from{
+        opacity:1;
+    }
+    to{
+        opacity:0;
+    }
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-size: xx-large;
+    background-image: url(../images/texture-back.jpg);
+    background-repeat: repeat;
+    color: white;
+}
+
+.type{
+    text-align: center;
+}
+
+img:hover {
+    -webkit-filter: drop-shadow(6px 6px 6px rgba(255, 255, 255, 1));
+}
+
+a {
+    visibility: visible;
+}
+
+#social{
+    text-align: center;
+}
+
+#container{
+    margin-top: 100px;
+    text-align: center;
+}
+
+#alias{
+    font-size: 45px;
+}
+
+#boundary{
+    -webkit-animation:fade-in 2s infinite;
+    -webkit-animation-delay: 1s;
+}
+
+#name{
+    color: gold;
+}
+
+#userid{
+    color:lightgreen;
+}
