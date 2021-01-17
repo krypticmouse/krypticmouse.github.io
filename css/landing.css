@@ -66,6 +66,7 @@ button {
 body{
     font-family: 'Montserrat', sans-serif;
     font-size: xx-large;
+    align-items: center;
     background-image: url(../images/texture-back.jpg);
     background-repeat: repeat;
     color: white;
@@ -75,7 +76,7 @@ body{
     text-align: center;
 }
 
-img:hover {
+#social img:hover {
     -webkit-filter: drop-shadow(6px 6px 6px rgba(255, 255, 255, 1));
 }
 
@@ -84,7 +85,6 @@ img:hover {
 }
 
 #container{
-    margin-top: 100px;
     text-align: center;
 }
 
@@ -103,4 +103,28 @@ img:hover {
 
 #userid{
     color:lightgreen;
+}
+
+#logo{
+    margin-top: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+}
+
+@-webkit-keyframes rotate-left{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(1800deg);
+    }
+}
+
+
+#logo {
+    -webkit-animation:rotate-left 5s infinite;
+    -webkit-animation-delay: 5s;
+    
 }

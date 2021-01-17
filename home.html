@@ -1,74 +1,61 @@
 <!DOCTYPE html>
-    <head>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet">
-        <link rel="icon" href="images/logo.jpg">
-        <link rel="stylesheet" href="css/home_parallax.css" />
-        <title>Herumb Shandilya | krypticmouse</title>
+<html lang="en">
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    </head>
-    <body>
-          <div class="wrapper">
-                <header>
-                      <nav>
-                            <div class="menu-icon">
-                                  <i class="fa fa-bars fa-2x"></i>
-                            </div>
-    
-                            <div class="logo">
-                                <a href="index.html"><img src = "images/logo.jpg" style="width:50%"></a> 
-                            </div>
-    
-                            <div class="menu">
-                                  <ul>
-                                        <li><a href="home.html">About Me</a></li>
-                                        <li><a href="#">Experience</a></li>
-                                        <li><a href="#">Education</a></li>
-                                        <li><a href="#">Skills</a></li>
-                                        <li><a href="projects.html">Projects</a></li>
-                                        <li><a href="resume.html">Resume</a></li>
-                                        <li><a href="contact.html">Contact Me</a></li>
-                                  </ul>
-                            </div>
-                      </nav>
-                </header>
-                
-                <div class="content">
-                      <p>
-                        I am a pretty simple guy in terms of almost everything. If the topic is interesting I'll be exicited to learn it, if your idea is interesting I'm exicited to hear it or if you want maybe collab to make it. I love Machine Learning and Robotics, from being able to predict an outcome to being able to train a model to generate something completely new, it all seems magical to me and I love magic. If you wanna talk about anything even remotely related to Machine Learning or anything interesting then my friend I'm in for (a long) chat😃. There isn't one particular field that I'll say I'm interested in but currently Reinforcement Learning is something thats blowing my mind so I guess I'll be checking that out.
-                      </p>
-                </div>
-          </div>
-    
-          <script type="text/javascript">
-    
-          // Menu-toggle button
-    
-          $(document).ready(function() {
-                $(".menu-icon").on("click", function() {
-                      $("nav ul").toggleClass("showing");
-                });
-          });
-    
-          // Scrolling Effect
-    
-          $(window).on("scroll", function() {
-                if($(window).scrollTop()) {
-                      $('nav').addClass('black');
-                }
-    
-                else {
-                      $('nav').removeClass('black');
-                }
-          })
-    
-    
-          </script>
-    
-    </body>
-    </html>
-    
+<head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="icon" href="images/logo.png">
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+            crossorigin="anonymous" />
+      <title>Welcome to My Web Portfolio!</title>
+</head>
+
+<body style = "background-color:rgb(0, 255, 162)">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style = "background-color:black !important; font-weight: bold;"> 
+            <div class="container-fluid">
+                  <a class="mx-3 navbar-brand" href="index.html">
+                        <img src="images/user_handle.png" width="140px">
+                  </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                              <li class="nav-item mx-lg-3">
+                                    <a class="nav-link active" aria-current="page" href="home.html">About Me</a>
+                              </li>
+                              <li class="nav-item mx-lg-3">
+                                    <a class="nav-link" href="education.html">Education</a>
+                              </li>
+                              <li class="nav-item mx-lg-3">
+                                    <a class="nav-link" href="experience.html">Experience</a>
+                              </li>
+                              <li class="nav-item mx-lg-3">
+                                    <a class="nav-link" href="projects.html">Projects</a>
+                              </li>
+                              <li class="nav-item mx-lg-3">
+                                    <a class="nav-link" href="skills.html">Skills</a>
+                              </li>
+                              <li class="nav-item mx-lg-3">
+                                    <a class="nav-link" href="resume.html">Resume</a>
+                              </li>
+                              <li class="nav-item mx-lg-3">
+                                    <a class="nav-link" href="contact.html">Contact Me</a>
+                              </li>
+                        </ul>
+                  </div>
+            </div>
+      </nav>
+      <br><br><br>
+      <p class="display-1 text-center">Hi! I am<br>Herumb Shandilya</p>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+
+</html>

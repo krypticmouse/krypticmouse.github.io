@@ -1,76 +1,260 @@
 <!DOCTYPE html>
-    <head>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet">
-        <link rel="icon" href="images/logo.jpg">
-        <link rel="stylesheet" href="css/projects.css" />
-        <title>Projects By Me</title>
+<html lang="en">
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    </head>
-    <body>
-          <div class="wrapper">
-                <header>
-                      <nav>
-                            <div class="menu-icon">
-                                  <i class="fa fa-bars fa-2x"></i>
-                            </div>
-    
-                            <div class="logo">
-                                <a href="index.html"><img src = "images/logo.jpg" style="width:50%"></a> 
-                            </div>
-    
-                            <div class="menu">
-                                  <ul>
-                                        <li><a href="home.html">About Me</a></li>
-                                        <li><a href="#">Experience</a></li>
-                                        <li><a href="#">Education</a></li>
-                                        <li><a href="#">Skills</a></li>
-                                        <li><a href="projects.html">Projects</a></li>
-                                        <li><a href="resume.html">Resume</a></li>
-                                        <li><a href="contact.html">Contact Me</a></li>
-                                  </ul>
-                            </div>
-                      </nav>
-                </header>
-                <section>
-                    <div class = "left_1">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum blanditiis neque officiis illo delectus voluptate in omnis minima aliquid ipsum aspernatur adipisci quas aut labore molestias, consectetur nemo, sed commodi. Adipisci, praesentium nisi doloribus ipsa nihil veritatis quis dignissimos quam, incidunt eius porro accusantium excepturi obcaecati aliquam nobis consequuntur expedita qui nam? Officia nam, explicabo iste deserunt delectus, atque at minus tempore exercitationem alias nemo ab soluta architecto iure facilis unde iusto amet totam deleniti eaque. Aliquid quam impedit dicta dolor quisquam quos id vero beatae rerum sequi officiis earum debitis voluptatum cum non, neque quasi at commodi recusandae. Cum.
-                    </div>
-                    <div class = "right_1">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum blanditiis neque officiis illo delectus voluptate in omnis minima aliquid ipsum aspernatur adipisci quas aut labore molestias, consectetur nemo, sed commodi. Adipisci, praesentium nisi doloribus ipsa nihil veritatis quis dignissimos quam, incidunt eius porro accusantium excepturi obcaecati aliquam nobis consequuntur expedita qui nam? Officia nam, explicabo iste deserunt delectus, atque at minus tempore exercitationem alias nemo ab soluta architecto iure facilis unde iusto amet totam deleniti eaque. Aliquid quam impedit dicta dolor quisquam quos id vero beatae rerum sequi officiis earum debitis voluptatum cum non, neque quasi at commodi recusandae. Cum.
-                    </div>
-                </section>
-          </div>
-    
-          <script type="text/javascript">
-    
-          // Menu-toggle button
-    
-          $(document).ready(function() {
-                $(".menu-icon").on("click", function() {
-                      $("nav ul").toggleClass("showing");
-                });
-          });
-    
-          // Scrolling Effect
-    
-          $(window).on("scroll", function() {
-                if($(window).scrollTop()) {
-                      $('nav').addClass('black');
-                }
-    
-                else {
-                      $('nav').removeClass('black');
-                }
-          })
-    
-    
-          </script>
-    
-    </body>
+<head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="icon" href="images/logo.png">
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+            crossorigin="anonymous" />
+      <title>My Projects</title>
+</head>
+
+<body style="background-color:rgb(0, 255, 162)">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"
+            style="background-color:black !important; font-weight: bold;">
+            <div class="container-fluid">
+                  <a class="mx-3 navbar-brand" href="index.html">
+                        <img src="images/user_handle.png" width="140px">
+                  </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                              <li class="nav-item mx-lg-3">
+                                    <a class="nav-link" href="home.html">About Me</a>
+                              </li>
+                              <li class="nav-item mx-lg-3">
+                                    <a class="nav-link" href="education.html">Education</a>
+                              </li>
+                              <li class="nav-item mx-lg-3">
+                                    <a class="nav-link" href="experience.html">Experience</a>
+                              </li>
+                              <li class="nav-item mx-lg-3">
+                                    <a class="nav-link active" aria-current="page" ref="projects.html">Projects</a>
+                              </li>
+                              <li class="nav-item mx-lg-3">
+                                    <a class="nav-link" href="skills.html">Skills</a>
+                              </li>
+                              <li class="nav-item mx-lg-3">
+                                    <a class="nav-link" href="resume.html">Resume</a>
+                              </li>
+                              <li class="nav-item mx-lg-3">
+                                    <a class="nav-link" href="contact.html">Contact Me</a>
+                              </li>
+                        </ul>
+                  </div>
+            </div>
+      </nav>
+      <p style="margin-top: 80px; text-align: center;" class="display-1">Projects I've Made</p>
+      <br>
+      <div class="container">
+            <div class="row">
+                  <div class="card p-3 col-12 col-md-5 mx-lg-5">
+                        <div class="card">
+                              <img src="images/projects/OMR.jpg" class="card-img-top">
+
+                              <div class="card-body">
+                                    <h4 class="card-title display-6">OMR Sheet Evaluator</h4>
+                                    <p class="card-text">
+                                          Deployed over web using Flask that takes the image of OMR sheet filled by the
+                                          students and answer key file to store and display the result of the student
+                                          along with the enrollment no. by finding choice he filled in OMR.
+                                          <br><br><strong>Technology Used:</strong> OpenCV, Flask, SQLite, Jinja2,
+                                          Numpy, HTML/CSS
+                                    </p>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="card p-3 col-12 col-md-5 mx-lg-5">
+                        <div class="card">
+                              <img src="images/projects/parking.jpg" class="card-img-top">
+                              <div class="card-body">
+                                    <h4 class="card-title display-6">Automated Parking System</h4>
+                                    <p class="card-text">
+                                          The task was to automate the data entry part of a parking garage, by taking in
+                                          a video as an input, I used Detectron2 to find the vehicle in the frame and
+                                          extracted, after which I extracted the License Plate by finding rectangular
+                                          contours using OpenCV and passed that as input to the OCR to get the text as
+                                          output and storing it and vehicle type in the SQLite database.
+                                          <br><br><strong>Technology Used:</strong> Detectron2, OpenCV, SQLite,
+                                          Tesseract
+                                    </p>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+            <br><br>
+            <div class="row">
+                  <div class="card p-3 col-12 col-md-5 mx-lg-5">
+                        <div class="card">
+                              <img src="images/projects/face_door.jpg" class="card-img-top">
+
+                              <div class="card-body">
+                                    <h4 class="card-title display-6">Face ID Lock for Doors using Raspberry Pi</h4>
+                                    <p class="card-text">
+                                          A Biometric Door Lock that can register a user by taking 30 snapshot of users
+                                          face detected using HAAR Cascades, captured by PiCamera, and use those
+                                          images to train a face recognizer to recognize the registered users. If the
+                                          user is recogized as a registered one then the Door was unlocked using GPIO
+                                          Zero
+                                          Library to control the lock.
+                                          <br><br><strong>Technology Used:</strong> OpenCV, Raspberry Pi
+                                    </p>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="card p-3 col-12 col-md-5 mx-lg-5">
+                        <div class="card">
+                              <img src="images/projects/social.jpg" class="card-img-top">
+
+                              <div class="card-body">
+                                    <h4 class="card-title display-6">Social Distance Surveillance</h4>
+                                    <p class="card-text">
+                                          Task is to implement a real time social distance surviellance that detects
+                                          people using Detectron2 and mark the people if they cross a threshold
+                                          distance and stream this to web. Since the video feed came from multiple
+                                          CCTV we tramitted the id of video feed's result to Firebase, this data was
+                                          fetched via NodeMCU which intructed the LED of corresponding ID to glow
+                                          alerting people.
+                                          <br><br><strong>Technology Used:</strong> PyTorch, Detectron2, HTML/CSS,
+                                          Flask, NodeMCU, Firebase,
+                                          Scipy, Numpy, OpenCV, MicroPython
+                                    </p>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+            <br><br>
+            <div class="row">
+                  <div class="card p-3 col-12 col-md-5 mx-lg-5">
+                        <div class="card">
+                              <img src="images/projects/handwriting.jpg" class="card-img-top">
+                              <div class="card-body">
+                                    <h4 class="card-title display-6">Voice Controlled Handwriting Machine</h4>
+                                    <p class="card-text">
+                                          A Device that I created to take speech as input in a app template created in
+                                          Blynk, which was coverted to text and sent to NodeMCU which instructed the
+                                          movements of motors in order to write the text on Paper
+                                          <br><br><strong>Technology Used:</strong> NodeMCU, Blynk
+                                    </p>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="card p-3 col-12 col-md-5 mx-lg-5">
+                        <div class="card">
+                              <img src="images/projects/stock.jpg" class="card-img-top">
+                              <div class="card-body">
+                                    <h4 class="card-title display-6">Stock Market Price Prediction</h4>
+                                    <p class="card-text">
+                                          This project used LSTM, ARIMA model and FbProphet that were trained over
+                                          TATA Stock Dataset. The models predicted the rest of the stock pricing and
+                                          then the results of each of them were predicted.
+                                          <br><br><strong>Technology Used:</strong> Pytorch, statsmodel, fbprophet
+                                    </p>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+            <br><br>
+            <div class="row">
+                  <div class="card p-3 col-12 col-md-5 mx-lg-5">
+                        <div class="card">
+                              <img src="images/projects/IMDB.jpg" class="card-img-top">
+                              <div class="card-body">
+                                    <h4 class="card-title display-6">ImDB Review Sentiment</h4>
+                                    <p class="card-text">
+                                          Deployed over web using Flask and trained on ImDB movie review. The review
+                                          was submitted as input via a form on web which was given a input to NN to
+                                          return weather the review was positive or negative.
+                                          <br><br><strong>Technology Used:</strong> PyTorch, HTML/CSS, Flask
+                                    </p>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="card p-3 col-12 col-md-5 mx-lg-5">
+                        <div class="card">
+                              <img src="images/projects/garbage.jpg" class="card-img-top">
+                              <div class="card-body">
+                                    <h4 class="card-title display-6">Auto Garbage Disposal System</h4>
+                                    <p class="card-text">
+                                          This consisted of a garbage bin that disposed the garbage automatically
+                                          when the garbage truck came. This was a part of the Smart City Project that
+                                          was made for Project Exhibition.
+                                          <br><br><strong>Technology Used:</strong> Arduino
+                                    </p>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+            <br><br>
+            <div class="row">
+                  <div class="card p-3 col-12 col-md-5 mx-lg-5">
+                        <div class="card">
+                              <img src="images/projects/IMDB.jpg" class="card-img-top">
+                              <div class="card-body">
+                                    <h4 class="card-title display-6">Traffic Management CRUD Application</h4>
+                                    <p class="card-text">
+                                          <br><br><strong>Technology Used:</strong> 
+                                    </p>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="card p-3 col-12 col-md-5 mx-lg-5">
+                        <div class="card">
+                              <img src="images/projects/garbage.jpg" class="card-img-top">
+                              <div class="card-body">
+                                    <h4 class="card-title display-6">Data Analysis on Women's Apparel Dataset</h4>
+                                    <p class="card-text">
+                                          
+                                          <br><br><strong>Technology Used:</strong> 
+                                    </p>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+            <br><br>
+            <div class="row">
+                  <div class="card p-3 col-12 col-md-5 mx-lg-5">
+                        <div class="card">
+                              <img src="images/projects/IMDB.jpg" class="card-img-top">
+                              <div class="card-body">
+                                    <h4 class="card-title display-6">Bluetooth/Voice Controlled Car</h4>
+                                    <p class="card-text">
+                                          Deployed over web using Flask and trained on ImDB movie review. The review
+                                          was submitted as input via a form on web which was given a input to NN to
+                                          return weather the review was positive or negative.
+                                          <br><br><strong>Technology Used:</strong> PyTorch, HTML/CSS, Flask
+                                    </p>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="card p-3 col-12 col-md-5 mx-lg-5">
+                        <div class="card">
+                              <img src="images/projects/garbage.jpg" class="card-img-top">
+                              <div class="card-body">
+                                    <h4 class="card-title display-6">Home Automation System</h4>
+                                    <p class="card-text">
+                                          This consisted of a garbage bin that disposed the garbage automatically
+                                          when the garbage truck came. This was a part of the Smart City Project that
+                                          was made for Cyber Shrishti Project Exhibition.
+                                          <br><br><strong>Technology Used:</strong> Arduino
+                                    </p>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+            <br><br>
+      </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+
 </html>
-    
