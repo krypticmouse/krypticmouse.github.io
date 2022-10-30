@@ -13,6 +13,11 @@
     <link rel = "icon" href = "./images/Krypticmouse.jpeg" type = "image/x-icon">
     
     <link rel="stylesheet" href="./css/base.css">
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
     <title>Herumb Shandilya</title>
 </head>
 
@@ -188,26 +193,26 @@
     </section>
 
     <section class="bg-gray-700 text-gray-100 body-font">
-        <div class="container px-5 py-12 mx-auto">
+        <div class="container px-5 py-12 mx-auto counter-box">
             <div class="flex flex-wrap -m-4 text-center">
                 <div class="p-4 sm:w-1/5 w-1/2">
-                    <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-100">30+</h2>
+                    <h2 class="title-font font-medium sm:text-4xl text-4xl text-gray-100"><span class="counter" data-number="30"></span>+</h2>
                     <p class="leading-relaxed">Blogs</p>
                 </div>
                 <div class="p-4 sm:w-1/5 w-1/2">
-                    <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-100">20+</h2>
+                    <h2 class="title-font font-medium sm:text-4xl text-4xl text-gray-100"><span class="counter" data-number="20"></span>+</h2>
                     <p class="leading-relaxed">Projects</p>
                 </div>
                 <div class="p-4 sm:w-1/5 w-1/2">
-                    <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-100">5+</h2>
+                    <h2 class="title-font font-medium sm:text-4xl text-4xl text-gray-100"><span class="counter" data-number="5"></span>+</h2>
                     <p class="leading-relaxed">Talks</p>
                 </div>
                 <div class="p-4 sm:w-1/5 w-1/2">
-                    <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-100">1000+</h2>
+                    <h2 class="title-font font-medium sm:text-4xl text-4xl text-gray-100"><span class="counter" data-number="1000"></span>+</h2>
                     <p class="leading-relaxed">Doubts Solved</p>
                 </div>
                 <div class="p-4 sm:w-1/5 w-1/2">
-                    <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-100">2</h2>
+                    <h2 class="title-font font-medium sm:text-4xl text-4xl text-gray-100"><span class="counter" data-number="2"></span></h2>
                     <p class="leading-relaxed">Python Libraries Created</p>
                 </div>
             </div>
@@ -217,97 +222,131 @@
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
             <p class="title-font text-5xl font-bold text-gray-700 text-center">Work History</p>
+            <div class="flex items-center lg:w-3/5 mx-auto border-t border-b py-10 my-10 border-gray-200 sm:flex-row flex-col">
+                <div class="h-24 w-24 sm:mr-16 inline-flex items-center justify-center rounded-full" data-aos="fade-right">
+                    <img src="./images/work/simplified.png" class="rounded-full">
+                </div>
+                <div class="flex-grow" data-aos="fade-left">
+                    <div class="sm:text-left text-center mt-6 sm:mt-0">
+                        <h2 class="text-gray-700 text-lg title-font font-medium mb-0">Machine Learning
+                            Engineer <a href="https://www.codingninjas.com/" target=”_blank”
+                                class="text-gray-600 font-bold hover:text-blue-600">@Simplified</a></h2>
+                        <p class="text-blue-500 font-xs mb-4 mt-0">June, 2022 - Present</p>
+                        <p class="leading-relaxed text-medium">
+                            <ul class="text-left list-disc">
+                                <li>Simplified is an AI-powered content creation platform for creators backed by tier 1 investors.</li>
+                                <li>Research, implement and improve generative models to incorporate into the product.</li>
+                                <li>Train and deploy models for image editing models for the Design Platform.</li>
+                                <li>Setting up infrastructure and deployment strategies to deploy and scale models.</li>
+                            </ul>
+                        </p>
+                    </div>
+                    <br><br>
+                    <div class="sm:text-left text-center mt-6 sm:mt-0">
+                        <h2 class="text-gray-700 text-lg title-font font-medium mb-0">Data Science Intern
+                            <a href="https://www.codingninjas.com/" target=”_blank” class="text-gray-600 font-bold hover:text-blue-600">@Simplified</a></h2>
+                        <p class="text-blue-500 font-xs mb-4 mt-0">January, 2022 - June, 2022</p>
+                        <p class="leading-relaxed text-medium">
+                        <ul class="text-left list-disc">
+                            <li>Creating and Optimizing GPT-3 prompts and finding new usecases for the same.</li>
+                            <li>Train and deploy models for image editing models for the Design Platform.</li>
+                            <li>Working with SEO team for trend analysis and data scraping for landing pages creation.</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
             <div
-                class="flex items-center lg:w-3/5 mx-auto border-t border-b py-10 my-10 border-gray-200 sm:flex-row flex-col">
-                <div class="h-20 w-20 sm:mr-20 inline-flex items-center justify-center rounded-full">
+                class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
+                <div class="h-20 w-20 sm:mr-20 inline-flex items-center justify-center rounded-full" data-aos="fade-right">
                     <img src="./images/work/crowdanalytix.png">
                 </div>
-                <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+                <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0" data-aos="fade-left">
                     <h2 class="text-gray-700 text-lg title-font font-medium mb-0">Data Science Intern <a
                             href="https://www.crowdanalytix.com/" target=”_blank”
                             class="text-gray-600 font-bold hover:text-blue-600">@CrowdANALYTIX</a></h2>
-                    <p class="text-blue-500 font-xs mb-4 mt-0">July, 2021 - Present</p>
+                    <p class="text-blue-500 font-xs mb-4 mt-0">July, 2021 - January, 2022</p>
                     <p class="leading-relaxed text-medium">
                     <ul class="text-left text-left list-disc">
-                        <li>Building ML or Deep Learning Models</li>
-                        <li>Supporting model deployment team in model code analysis and optimizations for DeployX</li>
-                        <li>Part of Platform Data Team</li>
-                        <li>Experimentation with deep learning models & architecture for DeployX</li>
-                        <li>Any other assignment communicated by team lead over email as needed</li>
+                        <li>Building ML or Deep Learning Models.</li>
+                        <li>Supporting model deployment team in model code analysis and optimizations for DeployX.</li>
+                        <li>Part of Platform Data Team.</li>
+                        <li>Experimentation with deep learning models & architecture for DeployX.</li>
+                        <li>Any other assignment communicated by team lead over email as needed.</li>
                     </ul>
                     </p>
                 </div>
             </div>
             <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
-                <div class="h-20 w-20 sm:mr-20 inline-flex items-center justify-center rounded-full">
+                <div class="h-20 w-20 sm:mr-20 inline-flex items-center justify-center rounded-full" data-aos="fade-right">
                     <img src="./images/work/drdo.png">
                 </div>
-                <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+                <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0" data-aos="fade-left">
                     <h2 class="text-gray-700 text-lg title-font font-medium mb-0">NLP Research Intern <a
                             href="https://www.drdo.gov.in/labs-and-establishments/centre-artificial-intelligence-robotics-cair"
                             target=”_blank” class="text-gray-600 font-bold hover:text-blue-600">@CAIR, DRDO</a></h2>
                     <p class="text-blue-500 font-xs mb-4 mt-0">April, 2021 - August, 2021</p>
                     <p class="leading-relaxed text-medium">
                     <ul class="text-left list-disc">
-                        <li>Building and Training Language Models for the provided task</li>
-                        <li>Deploying model as an API via Django and a GUI interface to interact with</li>
-                        <li>Tasks belonged to Audio and NLP Domain</li>
+                        <li>Building and Training Language Models for the provided task.</li>
+                        <li>Deploying model as an API via Django and a GUI interface to interact.</li>
+                        <li>Tasks belonged to Audio and NLP Domain.</li>
                         <li>Task information confidential.</li>
                     </ul>
                     </p>
                 </div>
             </div>
             <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
-                <div class="h-20 w-20 sm:mr-20 inline-flex items-center justify-center rounded-full">
+                <div class="h-24 w-24 sm:mr-16 inline-flex items-center justify-center rounded-full" data-aos="fade-right">
                     <img src="./images/work/omdena.png">
                 </div>
-                <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+                <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0" data-aos="fade-left">
                     <h2 class="text-gray-700 text-lg title-font font-medium mb-0">Jr. ML Engineer <a
                             href="https://omdena.com/" target=”_blank”
                             class="text-gray-600 font-bold hover:text-blue-600">@Omdena</a></h2>
                     <p class="text-blue-500 font-xs mb-4 mt-0">March, 2021 - May, 2021</p>
                     <p class="leading-relaxed text-medium">
                     <ul class="text-left list-disc">
-                        <li>Building Sustainable Livestock Farming Computer Vision Models on Edge Device</li>
+                        <li>Building Sustainable Livestock Farming Computer Vision Models on Edge Device.</li>
                         <li>Implemented and Experimented chicken detector based on YOLO, Mask-RCNN, etc.</li>
-                        <li>Also Implemented object tracking of the movement of each chicken frame by frame</li>
-                        <li>The model runs on the hardware Raspberry Pi 4 with a Google Coral Edge-TPU</li>
+                        <li>Also Implemented object tracking of the movement of each chicken frame by frame.</li>
+                        <li>The model runs on the hardware Raspberry Pi 4 with a Google Coral Edge-TPU.</li>
                     </ul>
                     </p>
                 </div>
             </div>
             <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
-                <div class="h-20 w-20 sm:mr-20 inline-flex items-center justify-center rounded-full">
+                <div class="h-20 w-20 sm:mr-20 inline-flex items-center justify-center rounded-full" data-aos="fade-right">
                     <img src="./images/work/gfg.png" class="rounded-full">
                 </div>
-                <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+                <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0" data-aos="fade-left">
                     <h2 class="text-gray-700 text-lg title-font font-medium mb-0">Technical Content Intern <a
                             href="https://auth.geeksforgeeks.org/user/herumbshandilya/articles" target=”_blank”
                             class="text-gray-600 font-bold hover:text-blue-600">@GeeksforGeeks</a></h2>
                     <p class="text-blue-500 font-xs mb-4 mt-0">Dec, 2020 - July, 2021</p>
                     <p class="leading-relaxed text-medium">
                     <ul class="text-left list-disc">
-                        <li>Writing articles related to Machine Learning explaining the process</li>
-                        <li>Writing code related to the topic on which the blog was written</li>
+                        <li>Writing articles related to Machine Learning explaining the process.</li>
+                        <li>Writing code related to the topic on which the blog was written.</li>
                         <li>Topics Included: PyTorch Lightning, Model Evaluation, Deep Learning, R Lang, etc.</li>
                     </ul>
                     </p>
                 </div>
             </div>
             <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
-                <div class="h-20 w-20 sm:mr-20 inline-flex items-center justify-center rounded-full">
+                <div class="h-20 w-20 sm:mr-20 inline-flex items-center justify-center rounded-full" data-aos="fade-right">
                     <img src="./images/work/cn.jpeg" class="rounded-full">
                 </div>
-                <div class="flex-grow">
+                <div class="flex-grow" data-aos="fade-left">
                     <div class="sm:text-left text-center mt-6 sm:mt-0">
                         <h2 class="text-gray-700 text-lg title-font font-medium mb-0">Data Science and Machine Learning
                             Teaching Assistant <a href="https://www.codingninjas.com/" target=”_blank”
                                 class="text-gray-600 font-bold hover:text-blue-600">@Coding Ninjas</a></h2>
                         <p class="text-blue-500 font-xs mb-4 mt-0">May, 2020 - September, 2020</p>
                         <p class="leading-relaxed text-medium">
-                        <ul class="text-left list-disc sm:list-none">
-                            <li>Mentored a group of students in their course Data Science and Machine Learning</li>
-                            <li>Evaluated and improved the projects developed by students as a part of the course</li>
+                        <ul class="text-left list-disc">
+                            <li>Mentored a group of students in their course Data Science and Machine Learning.</li>
+                            <li>Evaluated and improved the projects developed by students as a part of the course.</li>
                         </ul>
                         </p>
                     </div>
@@ -319,8 +358,8 @@
                         <p class="text-blue-500 font-xs mb-4 mt-0">December, 2019 - April, 2020</p>
                         <p class="leading-relaxed text-medium">
                         <ul class="text-left list-disc">
-                            <li>Mentored a group of students in their course Data Structure and Algorithm using C++</li>
-                            <li>Served as an influential contributor to projects developed by the students</li>
+                            <li>Mentored a group of students in their course Data Structure and Algorithm using C++.</li>
+                            <li>Served as an influential contributor to projects developed by the students.</li>
                         </ul>
                         </p>
                     </div>
@@ -466,3 +505,44 @@
 </body>
 
 </html>
+
+<script>
+    AOS.init();
+
+    var a = 0;
+    $(window).scroll(function () {
+        var oTop = $(".counter-box").offset().top - window.innerHeight;
+        console.log(oTop)
+        if (a == 0 && $(window).scrollTop() > oTop) {
+            $(".counter").each(function () {
+                var $this = $(this),
+                    countTo = $this.attr("data-number");
+                $({
+                    countNum: $this.text()
+                }).animate(
+                    {
+                        countNum: countTo
+                    },
+
+                    {
+                        duration: 850,
+                        easing: "swing",
+                        step: function () {
+                            //$this.text(Math.ceil(this.countNum));
+                            $this.text(
+                                Math.ceil(this.countNum).toLocaleString("en")
+                            );
+                        },
+                        complete: function () {
+                            $this.text(
+                                Math.ceil(this.countNum).toLocaleString("en")
+                            );
+                            //alert('finished');
+                        }
+                    }
+                );
+            });
+            a = 1;
+        }
+    });
+</script>
