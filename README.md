@@ -1,1 +1,0 @@
-# krypticmouse.github.io
