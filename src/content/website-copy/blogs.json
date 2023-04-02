@@ -1,0 +1,9 @@
+[
+    {
+        "title": "PyTorch 101: Dataset, DataLoaders, collate_fn and Samplers",
+        "desc": "We'll learn about how to create a custom dataset class, and sampler class. We'll even understand how to implement Dynamic Padding with custom collate_fn. So without any further delay let's take a dive into the bunny hole...",
+        "website": "Hackweekly",
+        "date": "TBA",
+        "tags": ["Deep Learning", "PyTorch"]
+    }
+]
