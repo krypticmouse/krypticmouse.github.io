@@ -7,7 +7,7 @@
           "PAPER DISSECTION"
        ],
        "href":"https://krypticmouse.hashnode.dev/attention-is-all-you-need",
-       "img":"/images/blogs/hashnode.png",
+       "img":"/blogs/hashnode.png",
        "date":"December 10, 2021"
     },
     {
@@ -18,7 +18,7 @@
           "PYTORCH"
        ],
        "href":"https://thehackweekly.com/activation-functions-in-neural-networks/",
-       "img":"/images/blogs/hackweekly.png",
+       "img":"/blogs/hackweekly.png",
        "date":"November 15, 2021"
     },
     {
@@ -30,7 +30,7 @@
           "PYTORCH LIGHTNING"
        ],
        "href":"https://krypticmouse.hashnode.dev/pytorch-lightning-datamodules-callbacks-tpu-and-loggers",
-       "img":"/images/blogs/hashnode.png",
+       "img":"/blogs/hashnode.png",
        "date":"June 08, 2021"
     },
     {
@@ -41,7 +41,7 @@
           "MACHINE LEARNING"
        ],
        "href":"https://krypticmouse.hashnode.dev/class-imbalance-comes-in-like-a-lion",
-       "img":"/images/blogs/hashnode.png",
+       "img":"/blogs/hashnode.png",
        "date":"June 05, 2021"
     },
     {
@@ -52,7 +52,7 @@
           "MACHINE LEARNING"
        ],
        "href":"https://krypticmouse.hashnode.dev/training-svm-over-custom-kernels",
-       "img":"/images/blogs/hashnode.png",
+       "img":"/blogs/hashnode.png",
        "date":"April 29, 2021"
     },
     {
@@ -62,7 +62,7 @@
           "PYTORCH"
        ],
        "href":"https://www.geeksforgeeks.org/computing-the-mean-and-std-of-a-dataset-in-pytorch/",
-       "img":"/images/work/gfg.png",
+       "img":"/work/gfg.png",
        "date":"July 04, 2021"
     },
     {
@@ -73,7 +73,7 @@
           "MACHINE LEARNING"
        ],
        "href":"https://www.geeksforgeeks.org/reading-rpt-files-with-pandas/",
-       "img":"/images/work/gfg.png",
+       "img":"/work/gfg.png",
        "date":"May 16, 2021"
     },
     {
@@ -84,7 +84,7 @@
           "R LANGUAGE"
        ],
        "href":"https://www.geeksforgeeks.org/how-to-add-mean-and-median-to-histogram-in-r/",
-       "img":"/images/work/gfg.png",
+       "img":"/work/gfg.png",
        "date":"April 21, 2021"
     },
     {
@@ -95,7 +95,7 @@
           "MACHINE LEARNING"
        ],
        "href":"https://www.geeksforgeeks.org/y-scrambling-for-model-validation/",
-       "img":"/images/work/gfg.png",
+       "img":"/work/gfg.png",
        "date":"April 16, 2021"
     },
     {
@@ -106,7 +106,7 @@
           "DEEP LEARNING"
        ],
        "href":"https://www.geeksforgeeks.org/training-neural-networks-with-validation-using-pytorch/",
-       "img":"/images/work/gfg.png",
+       "img":"/work/gfg.png",
        "date":"March 12, 2021"
     },
     {
@@ -117,7 +117,7 @@
           "DEEP LEARNING"
        ],
        "href":"https://www.geeksforgeeks.org/adjusting-learning-rate-of-a-neural-network-in-pytorch/",
-       "img":"/images/work/gfg.png",
+       "img":"/work/gfg.png",
        "date":"January 22, 2021"
     },
     {
@@ -128,7 +128,7 @@
           "AUTOMATED EDA"
        ],
        "href":"https://www.geeksforgeeks.org/data-exploration-using-pandas-gui/",
-       "img":"/images/work/gfg.png",
+       "img":"/work/gfg.png",
        "date":"January 4, 2021"
     },
     {
@@ -139,7 +139,7 @@
           "MACHINE LEARNING"
        ],
        "href":"https://www.geeksforgeeks.org/deploying-ml-models-as-api-using-fastapi/",
-       "img":"/images/work/gfg.png",
+       "img":"/work/gfg.png",
        "date":"January 4, 2021"
     },
     {
@@ -149,7 +149,7 @@
           "STATISTICS"
        ],
        "href":"https://medium.datadriveninvestor.com/data-and-its-types-d18ed59c95b2",
-       "img":"/images/blogs/medium.png",
+       "img":"/blogs/medium.png",
        "date":"January 3, 2021"
     },
     {
@@ -160,7 +160,7 @@
           "PYTORCH LIGHTNING"
        ],
        "href":"https://www.geeksforgeeks.org/understanding-pytorch-lightning-datamodules/",
-       "img":"/images/work/gfg.png",
+       "img":"/work/gfg.png",
        "date":"December 08, 2020"
     },
     {
@@ -171,7 +171,7 @@
           "PYTORCH LIGHTNING"
        ],
        "href":"https://www.geeksforgeeks.org/training-neural-networks-using-pytorch-lightning/",
-       "img":"/images/work/gfg.png",
+       "img":"/work/gfg.png",
        "date":"November 26, 2020"
     },
     {
@@ -182,7 +182,7 @@
           "PYTORCH"
        ],
        "href":"https://theaveragecoder.medium.com/training-and-testing-a-basic-neural-network-using-pytorch-4010300fda45",
-       "img":"/images/blogs/medium.png",
+       "img":"/blogs/medium.png",
        "date":"October 30, 2020"
     }
  ]
