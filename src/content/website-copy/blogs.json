@@ -6,17 +6,17 @@
           "DEEP LEARNING",
           "PAPER DISSECTION"
        ],
-       "href":"https: //krypticmouse.hashnode.dev/attention-is-all-you-need",
+       "href":"https://krypticmouse.hashnode.dev/attention-is-all-you-need",
        "date":"/images/blogs/hashnode.png"
     },
     {
        "title":"Activation Functions - The why you never asked!",
-       "desc":"Deep Learning is probably one of those things that everyone thinks is magical and usually, I take immense pleasure in seeing the reaction they have when I tell them it’s essentially matrices that are unlike the nodes they expect but Neural Networks aren’t limited to that and neither, is that the thing, that makes it special...",
+       "desc":"Deep Learning is probably one of those things that everyone thinks is magical and usually, I take immense pleasure in seeing the reaction they have when I tell them it's essentially matrices that are unlike the nodes they expect but Neural Networks aren't limited to that and neither, is that the thing, that makes it special...",
        "tags":[
           "DEEP LEARNING",
           "PYTORCH"
        ],
-       "href":"https: //thehackweekly.com/activation-functions-in-neural-networks/",
+       "href":"https://thehackweekly.com/activation-functions-in-neural-networks/",
        "date":"/images/blogs/hackweekly.png"
     },
     {
@@ -27,7 +27,7 @@
           "MODEL MONITORING",
           "PYTORCH LIGHTNING"
        ],
-       "href":"https: //krypticmouse.hashnode.dev/pytorch-lightning-datamodules-callbacks-tpu-and-loggers",
+       "href":"https://krypticmouse.hashnode.dev/pytorch-lightning-datamodules-callbacks-tpu-and-loggers",
        "date":"/images/blogs/hashnode.png"
     },
     {
@@ -37,7 +37,7 @@
           "DATA PRE-PROCESSING",
           "MACHINE LEARNING"
        ],
-       "href":"https: //krypticmouse.hashnode.dev/class-imbalance-comes-in-like-a-lion",
+       "href":"https://krypticmouse.hashnode.dev/class-imbalance-comes-in-like-a-lion",
        "date":"/images/blogs/hashnode.png"
     },
     {
@@ -47,7 +47,7 @@
           "SVM",
           "MACHINE LEARNING"
        ],
-       "href":"https: //krypticmouse.hashnode.dev/training-svm-over-custom-kernels",
+       "href":"https://krypticmouse.hashnode.dev/training-svm-over-custom-kernels",
        "date":"/images/blogs/hashnode.png"
     },
     {
@@ -56,47 +56,47 @@
        "tags":[
           "PYTORCH"
        ],
-       "href":"https: //www.geeksforgeeks.org/computing-the-mean-and-std-of-a-dataset-in-pytorch/",
+       "href":"https://www.geeksforgeeks.org/computing-the-mean-and-std-of-a-dataset-in-pytorch/",
        "date":"/images/work/gfg.png"
     },
     {
        "title":"Reading rpt files with Pandas",
-       "desc":"In most cases, we usually have a CSV file to load the data from, but there are other formats such as JSON, rpt, TSV, etc. that can be used to store data. Pandas provide us with the utility to load data from them. In this article, we’ll see how we can load data from an rpt file with the use of Pandas.",
+       "desc":"In most cases, we usually have a CSV file to load the data from, but there are other formats such as JSON, rpt, TSV, etc. that can be used to store data. Pandas provide us with the utility to load data from them. In this article, we'll see how we can load data from an rpt file with the use of Pandas.",
        "tags":[
           "DATA LOADING",
           "MACHINE LEARNING"
        ],
-       "href":"https: //www.geeksforgeeks.org/reading-rpt-files-with-pandas/",
+       "href":"https://www.geeksforgeeks.org/reading-rpt-files-with-pandas/",
        "date":"/images/work/gfg.png"
     },
     {
        "title":"Adding Mean and Median to Histogram in R",
-       "desc":"Visualizing data can help gather insights from it that descriptive statistics can’t. Anscombe’s Quartet shows us how those statistics could be misleading, hence it becomes to analyze the data visually. We’ll see how we can create histograms in R Programming Language and how to add mean and median lines to them.",
+       "desc":"Visualizing data can help gather insights from it that descriptive statistics can't. Anscombe's Quartet shows us how those statistics could be misleading, hence it becomes to analyze the data visually. We'll see how we can create histograms in R Programming Language and how to add mean and median lines to them.",
        "tags":[
           "STATISTICS",
           "R LANGUAGE"
        ],
-       "href":"https: //www.geeksforgeeks.org/how-to-add-mean-and-median-to-histogram-in-r/",
+       "href":"https://www.geeksforgeeks.org/how-to-add-mean-and-median-to-histogram-in-r/",
        "date":"/images/work/gfg.png"
     },
     {
        "title":"Y Scrambling for Model Validation",
-       "desc":"Y Scrambling is a method that one can use in order to test whether the predictions made by the model aren’t made just by chance. It is used in the validation of multi linear regression QSPR models.This process is amazingly simple to execute, and we’ll learn about it in detail.",
+       "desc":"Y Scrambling is a method that one can use in order to test whether the predictions made by the model aren't made just by chance. It is used in the validation of multi linear regression QSPR models.This process is amazingly simple to execute, and we'll learn about it in detail.",
        "tags":[
           "MODEL VALIDATION",
           "MACHINE LEARNING"
        ],
-       "href":"https: //www.geeksforgeeks.org/y-scrambling-for-model-validation/",
+       "href":"https://www.geeksforgeeks.org/y-scrambling-for-model-validation/",
        "date":"/images/work/gfg.png"
     },
     {
        "title":"Training Neural Networks with Validation using PyTorch",
-       "desc":"It’s important that our network performs better not only on data it’s trained on but also data that it has never seen before. Let's see how we can keep track of validation metric at each training step and also save the model weights with best performance.",
+       "desc":"It's important that our network performs better not only on data it's trained on but also data that it has never seen before. Let's see how we can keep track of validation metric at each training step and also save the model weights with best performance.",
        "tags":[
           "PYTORCH",
           "DEEP LEARNING"
        ],
-       "href":"https: //www.geeksforgeeks.org/training-neural-networks-with-validation-using-pytorch/",
+       "href":"https://www.geeksforgeeks.org/training-neural-networks-with-validation-using-pytorch/",
        "date":"/images/work/gfg.png"
     },
     {
@@ -106,7 +106,7 @@
           "PYTORCH",
           "DEEP LEARNING"
        ],
-       "href":"https: //www.geeksforgeeks.org/adjusting-learning-rate-of-a-neural-network-in-pytorch/",
+       "href":"https://www.geeksforgeeks.org/adjusting-learning-rate-of-a-neural-network-in-pytorch/",
        "date":"/images/work/gfg.png"
     },
     {
@@ -116,7 +116,7 @@
           "DATA ANALYSIS",
           "AUTOMATED EDA"
        ],
-       "href":"https: //www.geeksforgeeks.org/data-exploration-using-pandas-gui/",
+       "href":"https://www.geeksforgeeks.org/data-exploration-using-pandas-gui/",
        "date":"/images/work/gfg.png"
     },
     {
@@ -126,16 +126,16 @@
           "DEPLOYMENT",
           "MACHINE LEARNING"
        ],
-       "href":"https: //www.geeksforgeeks.org/deploying-ml-models-as-api-using-fastapi/",
+       "href":"https://www.geeksforgeeks.org/deploying-ml-models-as-api-using-fastapi/",
        "date":"/images/work/gfg.png"
     },
     {
        "title":"Data and its Types",
-       "desc":"Hello Fellow Readers. If you are here you’re probably interested in Data Science and probably willing to take a dive in a wide golden ocean called Statistics. If I had to explain what stats is I’ll say it is playing with data, and boy is it fun.",
+       "desc":"Hello Fellow Readers. If you are here you're probably interested in Data Science and probably willing to take a dive in a wide golden ocean called Statistics. If I had to explain what stats is I'll say it is playing with data, and boy is it fun.",
        "tags":[
           "STATISTICS"
        ],
-       "href":"https: //medium.datadriveninvestor.com/data-and-its-types-d18ed59c95b2",
+       "href":"https://medium.datadriveninvestor.com/data-and-its-types-d18ed59c95b2",
        "date":"/images/blogs/medium.png"
     },
     {
@@ -145,7 +145,7 @@
           "DEEP LEARNING",
           "PYTORCH LIGHTNING"
        ],
-       "href":"https: //www.geeksforgeeks.org/understanding-pytorch-lightning-datamodules/",
+       "href":"https://www.geeksforgeeks.org/understanding-pytorch-lightning-datamodules/",
        "date":"/images/work/gfg.png"
     },
     {
@@ -155,17 +155,17 @@
           "DEEP LEARNING",
           "PYTORCH LIGHTNING"
        ],
-       "href":"https: //www.geeksforgeeks.org/training-neural-networks-using-pytorch-lightning/",
+       "href":"https://www.geeksforgeeks.org/training-neural-networks-using-pytorch-lightning/",
        "date":"/images/work/gfg.png"
     },
     {
        "title":"Training and Testing a Basic Neural Network using Pytorch",
-       "desc":"Google and FaceBook have blessed us with 2 of the most popular neural nets library TensorFlow and Pytorch that make the job quite easy. For this article I’ll using Pytorch and I’ll use Tensorflow in the next one.",
+       "desc":"Google and FaceBook have blessed us with 2 of the most popular neural nets library TensorFlow and Pytorch that make the job quite easy. For this article I'll using Pytorch and I'll use Tensorflow in the next one.",
        "tags":[
           "DEEP LEARNING",
           "PYTORCH"
        ],
-       "href":"https: //theaveragecoder.medium.com/training-and-testing-a-basic-neural-network-using-pytorch-4010300fda45",
+       "href":"https://theaveragecoder.medium.com/training-and-testing-a-basic-neural-network-using-pytorch-4010300fda45",
        "date":"/images/blogs/medium.png"
     }
  ]
