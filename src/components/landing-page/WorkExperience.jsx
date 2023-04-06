@@ -16,7 +16,7 @@ function WorkExperience() {
 							<Title className='text-sky-800 text-2xl title-font font-medium'>Course Author <span className='font-extrabold hover:text-sky-500'><a href='https://www.educative.io/' target='_blank'>@Educative</a></span></Title>
 							<Text className='text-sky-600 mb-4 text-xl'>October, 2022 - Present</Text>
 							<List listStyleType='disc' className='text-sky-800 text-lg'>
-								<List.Item>Curate a curritculum and topic for the course.</List.Item>
+								<List.Item>Curate a curriculum and topic for the course.</List.Item>
 								<List.Item>Writing a course on PyTorch exploring and explaining each module in-depth.</List.Item>
 								<List.Item>Explaining added optimization in networks for training, inference and deployment.</List.Item>
 							</List>
