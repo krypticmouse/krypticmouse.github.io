@@ -10,9 +10,9 @@ import blogList from '../content/website-copy/blogs.json'
 import BlogCard from '@/components/ui/BlogCard';
 
 export default function Blog() {
-  const cards = blogList.map((blog =>
-    <BlogCard {...blog} />
-  ));
+  const cards = blogList.map((blog, index) =>
+    <BlogCard {...blog} key={index}/>
+  );
 
   return (
     <>

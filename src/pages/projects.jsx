@@ -10,9 +10,9 @@ import ProjectCard from '@/components/ui/ProjectCard'
 import projectList from '../content/website-copy/projects.json'
 
 export default function Projects() {
-  const cards = projectList.map((project =>
-    <ProjectCard {...project} />
-  ));
+  const cards = projectList.map((project, index) =>
+    <ProjectCard {...project} key={index}/>
+  );
 
   return (
     <>
