@@ -23,7 +23,7 @@ function FooterSocial() {
     <Box className='py-3 px-64 text-white bg-sky-900'>
       <Group className='w-full flex justify-between'>
         <Group>
-          <a href='/blogs'>
+          <a href='/'>
             <Image src='/Krypticmouse.jpeg' maw={64} radius='100%'/>
           </a>
           <Text>Herumb Shandilya <span>|</span> Made with Mantine — <a target='_blank' href={twitterLink} className='text-cyan-300 hover:text-cyan-600'>@krypticmouse</a></Text>

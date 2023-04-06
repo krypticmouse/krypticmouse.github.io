@@ -26,7 +26,7 @@
        "desc":"When I was getting started with PyTorch one of the things that made me jealous was the fact that Tensorflow has so much support for monitoring the model performance. I mean I have to write a training loop with redundant steps while Tensorflow beginners were just passing and chilling...",
        "tags":[
           "DEEP LEARNING",
-          "MODEL MONITORING",
+          "EXPERIMENT TRACKING",
           "PYTORCH LIGHTNING"
        ],
        "href":"https://krypticmouse.hashnode.dev/pytorch-lightning-datamodules-callbacks-tpu-and-loggers",
