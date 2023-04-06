@@ -24,7 +24,7 @@ function FooterSocial() {
       <Group className='w-full flex justify-between'>
         <Group>
           <a href='/'>
-            <Image src='/Krypticmouse.jpeg' maw={64} radius='100%'/>
+            <Image src='/Krypticmouse.jpeg' maw={64} radius='100%' alt=''/>
           </a>
           <Text>Herumb Shandilya <span>|</span> Made with Mantine — <a target='_blank' href={twitterLink} className='text-cyan-300 hover:text-cyan-600'>@krypticmouse</a></Text>
         </Group>

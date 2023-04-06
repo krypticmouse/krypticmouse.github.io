@@ -29,7 +29,7 @@ function HeaderSimple() {
     <Box className='my-4 mx-64 text-sky-700'>
       <Group className='w-full flex justify-between'>
         <a href='/'>
-          <Image src='/Krypticmouse.jpeg' maw={64} radius='100%'/>
+          <Image src='/Krypticmouse.jpeg' maw={64} radius='100%' alt=''/>
         </a>
         <Group spacing={32} className='text-xl'>
           <a href='/blogs'>
