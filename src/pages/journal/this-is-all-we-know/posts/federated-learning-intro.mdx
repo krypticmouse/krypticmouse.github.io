@@ -1,0 +1,100 @@
+---
+author: 'Herumb Shandilya'
+title: 'Federated Learning: Wisdom of the Crowd'
+description: "Whatever I've learned about Federated Learning in a nutshell and a lot of memes. Understand the working of Federated Learning and why we need it"
+date: '2020-05-01'
+---
+
+> "Grass grows, birds fly, the sun shines,
+> 
+> and brother, I protect data."
+> 
+> **– Team Fortress 2**
+
+Such a bad way to butcher a quote but that usually conveys the points of this blog. We'll know why in a short while. Anyways, coming back to the point, in ML we usually have a **model** and **data** as two key components. More the data the better we can make our model, well in most cases at least.
+
+In a classic setup, you'll aggregate this data and use it to train your model. But what if you can't get access to that data? Would you give up? Well, the good news is this is exactly the place where Federated Learning comes to our rescue.
+
+> Meme Image
+
+In this blog, we'll learn about all the important things that you need to know when it comes to Federated Learning. The structure is very much inspired by the paper [**A Survey on Federated Learning Systems: Vision, Hype and Reality for Data Privacy and Protection**](https://arxiv.org/pdf/1907.09693.pdf) which I highly recommend you to read after this.
+
+## Understanding Federated Learning
+
+Let's start by understanding why we even need a setup like this in the first place. In classical ML we usually have a server that contains the data which we use to train our model. Now, as time goes more data is collected from multiple sources and transported to this server.
+
+> Image
+
+Sometimes though this is not possible because of many reasons for example let's you want to train your breast cancer detection model based on health records. So you go to all the nearby hospitals and ask them for data. They refused, which is fair because well the data is sensitive. So what would you do?
+
+> Meme Image
+
+In such cases rather than aggregating the data from multiple sources, you can aggregate the model from multiple sources. No, I'm blabbering anything but stating the working principle of Federated Learning i.e. **Model Aggregation**. Let's see how this works.
+
+### Working of Federated Learning
+
+So, let's review the problem at hand:-
+
+* We have multiple sources where the data we wanna train on resides.
+    
+* We can't collect data on a single server due to some reason.
+    
+* We still wanna train our model **😭**
+    
+
+In federated learning, these multiple sources are called **Clients** and the server is called, **Server**. Well, not too creative but it is what is. Now rather than collecting data from clients, we collect models from them. How? Well instead of training on the server, you train your model on the client itself on the data they have.
+
+> Image
+
+Let's understand the setup more in-depth. Let's say you have a model initialized randomly or with some pre-trained weights in the **Server** and you have **N Clients**, the approach goes like this:-
+
+* You initialize the model in all clients with weights the same as that of the model in the server.
+    
+* You train the model in the client on the client data, some clients can train for 1 epoch some for 4 epochs.
+    
+* After the training, the model for each client will be different because the data they were trained on is different.
+    
+* You send these resultant models to the server in form of model parameters or maybe in form of accumulated gradients.
+    
+* You combine these parameters on the server to get the new updated model. This step is **Aggregation** and you can have many ways to do so one of the simplest one being taking the **average of the weights**. We'll discuss other ways of doing it.
+    
+
+The above steps are what **a single round of federated learning** looks like. You can do multiple such rounds with different configuration. One thing to note is that it's not necessary to aggregate from all the clients you can train and aggregate models on a subset of clients instead.
+
+### Motivation for Federated Learning
+
+Now that we have an idea about the working of Federated Learning, let's see why we need it. We've briefly touched upon it by bringing in privacy as a factor but is that it? While privacy is a big part of it there are other scenarios where Federated learning might come in handy.
+
+> Meme Image
+
+For example, if you can't collect data because of the high cost involved or something else. Now, these reasons could be high costs, rules that prevent you to get the data, etc. If there is a situation where you can't aggregate data Federated Learning becomes a good option to explore.
+
+But there are various options in Federated Learning to explore with one of them being exploring how to aggregate model parameters.
+
+## Aggregation Strategy
+
+### FedSGD
+
+### FedAvg
+
+### FedAvgM
+
+### FedIR
+
+### FedVC
+
+### FedProx
+
+## Data Partitioning
+
+## Handling Node Failures in FL
+
+## Privacy Mechanism
+
+### Exploring Differential Privacy
+
+## Communication Architecture
+
+## Scale of Federation
+
+## Federated Evaluation

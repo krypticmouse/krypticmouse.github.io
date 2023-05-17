@@ -8,27 +8,28 @@ import {
   IconDiamondsFilled,
   IconLetterG
 } from '@tabler/icons-react';
-
+import { useMediaQuery } from '@mantine/hooks';
 
 function FooterSocial() {
-  var twitterLink = 'https://twitter.com/krypticmouse/';
-  var linkedinLink = 'https://www.linkedin.com/in/herumb-s-740163131/';
-  var githubLink = 'https://github.com/krypticmouse';
-  var stackoverflowLink = 'https://stackoverflow.com/users/12089982/krypticmouse';
-  var hashnodeLink = 'https://krypticmouse.hashnode.dev/';
-  var mediumLink = 'https://theaveragecoder.medium.com/';
-  var gfgLink = 'https://auth.geeksforgeeks.org/user/herumbshandilya/articles';
-  
+  const isSmallScreen = useMediaQuery('(max-width: 767px)');
+  const twitterLink = 'https://twitter.com/krypticmouse/';
+  const linkedinLink = 'https://www.linkedin.com/in/herumb-s-740163131/';
+  const githubLink = 'https://github.com/krypticmouse';
+  const stackoverflowLink = 'https://stackoverflow.com/users/12089982/krypticmouse';
+  const hashnodeLink = 'https://krypticmouse.hashnode.dev/';
+  const mediumLink = 'https://theaveragecoder.medium.com/';
+  const gfgLink = 'https://auth.geeksforgeeks.org/user/herumbshandilya/articles';
+
   return (
-    <Box className='py-3 px-64 text-white bg-sky-900'>
-      <Group className='w-full flex justify-between'>
+    <Box className='py-3 px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 text-white bg-sky-900'>
+      <Group direction={isSmallScreen ? 'column' : 'row'} className='w-full flex justify-between'>
         <Group>
           <a href='/'>
-            <Image src='/Krypticmouse.jpeg' maw={64} radius='100%'/>
+            <Image src='/Krypticmouse.jpeg' maw={64} radius='100%' alt=''/>
           </a>
           <Text>Herumb Shandilya <span>|</span> Made with Mantine — <a target='_blank' href={twitterLink} className='text-cyan-300 hover:text-cyan-600'>@krypticmouse</a></Text>
         </Group>
-        <Group spacing={32} className='text-xl'>
+        <Group spacing={16} className='text-xl'>
           <a target='_blank' href={twitterLink}>
             <IconBrandTwitter size={28} className='hover:text-blue-500'/>
           </a>

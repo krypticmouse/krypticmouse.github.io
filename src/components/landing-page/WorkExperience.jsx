@@ -11,12 +11,12 @@ function WorkExperience() {
 				<Divider />
 				<div className='py-10'>
 					<Group>
-						<Image src='/work/educative.png' maw={88} className='mr-8'/>
+						<Image src='/work/educative.png' maw={88} className='mr-8' alt=''/>
 						<Stack spacing={0}>
 							<Title className='text-sky-800 text-2xl title-font font-medium'>Course Author <span className='font-extrabold hover:text-sky-500'><a href='https://www.educative.io/' target='_blank'>@Educative</a></span></Title>
 							<Text className='text-sky-600 mb-4 text-xl'>October, 2022 - Present</Text>
 							<List listStyleType='disc' className='text-sky-800 text-lg'>
-								<List.Item>Curate a curritculum and topic for the course.</List.Item>
+								<List.Item>Curate a curriculum and topic for the course.</List.Item>
 								<List.Item>Writing a course on PyTorch exploring and explaining each module in-depth.</List.Item>
 								<List.Item>Explaining added optimization in networks for training, inference and deployment.</List.Item>
 							</List>
@@ -26,7 +26,7 @@ function WorkExperience() {
 				<Divider />
 				<div className='py-10'>
 					<Group>
-						<Image src='/work/simplified.png' maw={88} className='mr-8'/>
+						<Image src='/work/simplified.png' maw={88} className='mr-8' alt=''/>
 						<Stack spacing={0}>
 							<Title className='text-sky-800 text-2xl title-font font-medium'>Machine Learning Engineer <span className='font-extrabold hover:text-sky-500'><a href='https://www.simplified.com/' target='_blank'>@Simplified</a></span></Title>
 							<Text className='text-sky-600 mb-4 text-xl'>June, 2022 - Present</Text>
@@ -50,7 +50,7 @@ function WorkExperience() {
 				<Divider />
 				<div className='py-10'>
 					<Group>
-						<Image src='/work/crowdanalytix.png' maw={88} className='mr-8'/>
+						<Image src='/work/crowdanalytix.png' maw={88} className='mr-8' alt=''/>
 						<Stack spacing={0}>
 							<Title className='text-sky-800 text-2xl title-font font-medium'>Data Science Intern <span className='font-extrabold hover:text-sky-500'><a href='https://www.crowdanalytix.com/' target='_blank'>@CrowdANALYTIX</a></span></Title>
 							<Text className='text-sky-600 mb-4 text-xl'>July, 2021 - January, 2022</Text>
@@ -67,7 +67,7 @@ function WorkExperience() {
 				<Divider />
 				<div className='py-10'>
 					<Group>
-						<Image src='/work/drdo.png' maw={88} className='mr-8'/>
+						<Image src='/work/drdo.png' maw={88} className='mr-8' alt=''/>
 						<Stack spacing={0}>
 							<Title className='text-sky-800 text-2xl title-font font-medium'>NLP Research Intern <span className='font-extrabold hover:text-sky-500'><a href='https://www.drdo.gov.in/labs-and-establishments/centre-artificial-intelligence-robotics-cair' target='_blank'>@CAIR, DRDO</a></span></Title>
 							<Text className='text-sky-600 mb-4 text-xl'>April, 2021 - August, 2021</Text>
@@ -83,7 +83,7 @@ function WorkExperience() {
 				<Divider />
 				<div className='py-10'>
 					<Group>
-						<Image src='/work/omdena.png' maw={88} className='mr-8'/>
+						<Image src='/work/omdena.png' maw={88} className='mr-8' alt=''/>
 						<Stack spacing={0}>
 							<Title className='text-sky-800 text-2xl title-font font-medium'>Jr. ML Engineer <span className='font-extrabold hover:text-sky-500'><a href='https://omdena.com/' target='_blank'>@Omdena</a></span></Title>
 							<Text className='text-sky-600 mb-4 text-xl'>March, 2021 - May, 2021</Text>
@@ -99,7 +99,7 @@ function WorkExperience() {
 				<Divider />
 				<div className='py-10'>
 					<Group>
-						<Image src='/work/gfg.png' maw={88} radius={100} className='mr-8'/>
+						<Image src='/work/gfg.png' maw={88} radius={100} className='mr-8' alt=''/>
 						<Stack spacing={0}>
 							<Title className='text-sky-800 text-2xl title-font font-medium'>Technical Content Intern <span className='font-extrabold hover:text-sky-500'><a href='https://auth.geeksforgeeks.org/user/herumbshandilya/articles' target='_blank'>@GeeksforGeeks</a></span></Title>
 							<Text className='text-sky-600 mb-4 text-xl'>Dec, 2020 - July, 2021</Text>
@@ -114,7 +114,7 @@ function WorkExperience() {
 				<Divider />
 				<div className='py-10'>
 					<Group>
-						<Image src='/work/cn.jpeg' maw={88} className='mr-8'/>
+						<Image src='/work/cn.jpeg' maw={88} className='mr-8' alt=''/>
 						<Stack spacing={0}>
 							<Title className='text-sky-800 text-2xl title-font font-medium'>Data Science and Machine Learning Teaching Assistant <span className='font-extrabold hover:text-sky-500'><a href='https://www.codingninjas.com/' target='_blank'>@Coding Ninjas</a></span></Title>
 							<Text className='text-sky-600 mb-4 text-xl'>May, 2020 - September, 2020</Text>
