@@ -14,7 +14,6 @@ import path from 'path';
 import matter from 'gray-matter';
 
 export default function ThisIsAllWeKnow({ allFrontMatter }) {
-  console.log(allFrontMatter);
   return (
     <>
       <Head>
