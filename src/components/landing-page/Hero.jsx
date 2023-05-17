@@ -4,15 +4,12 @@ import {
 	Text,
 	Stack
 } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 
 const useStyles = createStyles((theme) => ({
   dots: {
     position: 'absolute',
     color: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[5],
-
-    [theme.fn.smallerThan('sm')]: {
-      display: 'none',
-    },
   },
 
   dotsLeft: {
@@ -138,28 +135,38 @@ function Dots({ size = 185, radius = 2.5, ...others }) {
 
 function Hero() {
 	const { classes } = useStyles();
+  const isMediumScreen = useMediaQuery('(max-width: 992px)');
 	return (
 		<>
-			<Dots className={classes.dots} style={{ left: 50, top: 400 }} />
-			<Dots className={classes.dots} style={{ left: 250, top: 400 }} />
-			<Dots className={classes.dots} style={{ left: 50, top: 200 }} />
-			<Dots className={classes.dots} style={{ left: 250, top: 200 }} />
-			<Dots className={classes.dots} style={{ left: 50, top: 600 }} />
-			<Dots className={classes.dots} style={{ left: 250, top: 600 }} />
-
-			<Dots className={classes.dots} style={{ right: 50, top: 400 }} />
-			<Dots className={classes.dots} style={{ right: 250, top: 400 }} />
-			<Dots className={classes.dots} style={{ right: 50, top: 200 }} />
-			<Dots className={classes.dots} style={{ right: 250, top: 200 }} />
-			<Dots className={classes.dots} style={{ right: 50, top: 600 }} />
-			<Dots className={classes.dots} style={{ right: 250, top: 600 }} />
+      {
+        !isMediumScreen && (
+        <>
+          <Dots className={classes.dots} style={{ left: 50, top: 400 }} />
+          <Dots className={classes.dots} style={{ left: 250, top: 400 }} />
+          <Dots className={classes.dots} style={{ left: 50, top: 200 }} />
+          <Dots className={classes.dots} style={{ left: 250, top: 200 }} />
+          <Dots className={classes.dots} style={{ left: 50, top: 600 }} />
+          <Dots className={classes.dots} style={{ left: 250, top: 600 }} />
+        </>
+      )}
+      {
+        !isMediumScreen && (
+        <>
+          <Dots className={classes.dots} style={{ right: 50, top: 400 }} />
+          <Dots className={classes.dots} style={{ right: 250, top: 400 }} />
+          <Dots className={classes.dots} style={{ right: 50, top: 200 }} />
+          <Dots className={classes.dots} style={{ right: 250, top: 200 }} />
+          <Dots className={classes.dots} style={{ right: 50, top: 600 }} />
+          <Dots className={classes.dots} style={{ right: 250, top: 600 }} />
+        </>
+      )}
 			
 			<Stack align="center" className='mt-20' spacing={54}>
-				<Text className='dm title-font text-5xl font-extrabold text-sky-800'>ML Engineer, DL Researcher & IoT Fan Boy</Text>
+				<Text className='dm title-font text-5xl md:text-6xl font-extrabold text-sky-800'>ML Engineer, DL Researcher & IoT Fan Boy</Text>
 				<Image src='/dp.jpg' maw={240} radius='100%' alt=''/>
 				<Stack align="center" spacing={2}>
-					<Text className='dm title-font text-4xl font-medium text-sky-700'>Neat Freak Coder with an obsession for one-liners</Text>
-					<Text className='dm title-font text-3xl font-regular text-sky-600'>P.S. I stalk PyTorch in my free time</Text>
+					<Text className='dm title-font text-4xl md:text-5xl font-medium text-sky-700'>Neat Freak Coder with an obsession for one-liners</Text>
+					<Text className='dm title-font text-3xl md:text-4xl font-regular text-sky-600'>P.S. I stalk PyTorch in my free time</Text>
 				</Stack>
 				<Image src='/Background.png' maw={640} alt=''/>
 			</Stack>

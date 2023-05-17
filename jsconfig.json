@@ -1,3 +1,5 @@
+// what is wrong with the following configuration?
+
 {
   "compilerOptions": {
     "paths": {

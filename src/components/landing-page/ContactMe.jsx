@@ -78,58 +78,78 @@ const useStyles = createStyles((theme) => ({
 
 function ContactMe() {
 	const { classes } = useStyles();
-
+  
 	return (
-		<div className={`mx-96 my-24 ${classes.wrapper}`}>
-			<SimpleGrid cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
-				<div>
-					<Title className={classes.title}>Contact Me</Title>
-					<Text className={classes.description} mt='sm' mb={30}>If you are a <strong>Researcher, Founder or Student</strong>. Let's have a chat, you can drop a DM here...</Text>
-
-					<ContactIconsList />
-
-					<Group mt="xl">
-						<a href="https://twitter.com/krypticmouse/">
-							<ActionIcon key={0} size={28} className={classes.social} variant="transparent">
-								<IconBrandTwitter size="1.4rem" stroke={1.5} />
-							</ActionIcon>
-						</a>
-						<a href="https://www.linkedin.com/in/herumb-s-740163131/">
-							<ActionIcon key={0} size={28} className={classes.social} variant="transparent">
-								<IconBrandLinkedin size="1.4rem" stroke={1.5} />
-							</ActionIcon>
-						</a>
-					</Group>
-				</div>
-				<div className={classes.form}>
-					<TextInput
-						label="Email"
-						placeholder="your@email.com"
-						required
-						classNames={{ input: classes.input, label: classes.inputLabel }}
-					/>
-					<TextInput
-						label="Name"
-						placeholder="John Doe"
-						mt="md"
-						classNames={{ input: classes.input, label: classes.inputLabel }}
-					/>
-					<Textarea
-						required
-						label="Your message"
-						placeholder="Wanna collaborate over a project on..."
-						minRows={4}
-						mt="md"
-						classNames={{ input: classes.input, label: classes.inputLabel }}
-					/>
-
-					<Group position="right" mt="md">
-						<Button className={`bg-blue-400 ${classes.control}`}>Send message</Button>
-					</Group>
-				</div>
-			</SimpleGrid>
-		</div>
+	  <div className={`mx-auto my-24 sm:mx-10 md:mx-10 lg:mx-72 ${classes.wrapper}`}>
+		<SimpleGrid
+		  cols={2}
+		  spacing={50}
+		  breakpoints={[{ maxWidth: 'sm', cols: 1, spacing: 20 }]}
+		>
+		  <div>
+			<Title className={classes.title}>Contact Me</Title>
+			<Text className={classes.description} mt="sm" mb={30}>
+			  If you are a <strong>Researcher, Founder or Student</strong>. Let's
+			  have a chat, you can drop a DM here...
+			</Text>
+  
+			<ContactIconsList />
+  
+			<Group mt="xl">
+			  <a href="https://twitter.com/krypticmouse/">
+				<ActionIcon
+				  key={0}
+				  size={28}
+				  className={classes.social}
+				  variant="transparent"
+				>
+				  <IconBrandTwitter size="1.4rem" stroke={1.5} />
+				</ActionIcon>
+			  </a>
+			  <a href="https://www.linkedin.com/in/herumb-s-740163131/">
+				<ActionIcon
+				  key={0}
+				  size={28}
+				  className={classes.social}
+				  variant="transparent"
+				>
+				  <IconBrandLinkedin size="1.4rem" stroke={1.5} />
+				</ActionIcon>
+			  </a>
+			</Group>
+		  </div>
+		  <div className={classes.form}>
+			<TextInput
+			  label="Email"
+			  placeholder="your@email.com"
+			  required
+			  classNames={{ input: classes.input, label: classes.inputLabel }}
+			/>
+			<TextInput
+			  label="Name"
+			  placeholder="John Doe"
+			  mt="md"
+			  classNames={{ input: classes.input, label: classes.inputLabel }}
+			/>
+			<Textarea
+			  required
+			  label="Your message"
+			  placeholder="Wanna collaborate over a project on..."
+			  minRows={4}
+			  mt="md"
+			  classNames={{ input: classes.input, label: classes.inputLabel }}
+			/>
+  
+			<Group position="right" mt="md">
+			  <Button className={`bg-blue-400 ${classes.control}`}>
+				Send message
+			  </Button>
+			</Group>
+		  </div>
+		</SimpleGrid>
+	  </div>
 	);
-}
+  }
+  
 
 export default ContactMe;
