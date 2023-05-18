@@ -16,7 +16,6 @@ const MDXComponents = {
     ),
     ol: (props) => <ol className="list-decimal list-inside my-4">{props.children}</ol>,
     ul: (props) => <ul className="list-disc list-inside my-4">{props.children}</ul>,
-    li: (props) => <li className="text-sm sm:text-md md:text-lg text-slate-600 my-2">{props.children}</li>,
     a: (props) => (
         <Link href={props.href}>
             {props.children}
