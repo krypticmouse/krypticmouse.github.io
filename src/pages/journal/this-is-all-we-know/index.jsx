@@ -50,12 +50,14 @@ export async function getStaticProps() {
   const postsDirectory = path.join(process.cwd(), 'src', 'pages', 'journal', 'this-is-all-we-know', 'posts');
   const fileNames = fs.readdirSync(postsDirectory);
 
-  let allFrontMatter = fileNames.map((fileName) => {
-    const postFilePath = path.join(postsDirectory, fileName);
-    const source = fs.readFileSync(postFilePath, 'utf8');
-    const { data } = matter(source);
-    return data;
-  });
+  let allFrontMatter = fileNames
+    .map((fileName) => {
+      const postFilePath = path.join(postsDirectory, fileName);
+      const source = fs.readFileSync(postFilePath, 'utf8');
+      const { data } = matter(source);
+      return data.isPublished ? data : null;  // return data if isPublished is true, else return null
+    })
+    .filter(Boolean);  // this filters out any null elements
 
   // Sort by date
   allFrontMatter = allFrontMatter.sort((a, b) => {
