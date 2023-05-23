@@ -1,6 +1,6 @@
+import Link from 'next/link'
 import Head from 'next/head'
 import Header from '@/components/ui/Header'
-import Footer from '@/components/ui/Footer'
 import PostCard from '@/components/ui/PostCard';
 import {
 	Text,
@@ -26,8 +26,8 @@ export default function ThisIsAllWeKnow({ allFrontMatter }) {
         <Header />
         <Container size="lg" padding='md' className='my-24'>
           <Stack align="center" spacing={0}>
-            <Text className='title-font text-5xl md:text-7xl font-extrabold text-sky-800'>This Is All We Know</Text>
-            <Text className='dm title-font text-xl md:text-2xl font-medium mt-4 italic text-sky-600 text-opacity-60'>"Making your non-novel BS seem novel is the only thing Maths can do."</Text>
+            <Text className='title-font text-3xl md:text-5xl font-extrabold text-sky-800'>This Is All We Know</Text>
+            <Text className='dm title-font text-xl md:text-2xl font-medium mt-4 italic text-sky-600 text-opacity-60'>"Dissecting some interesting concepts in DL one step at a time."</Text>
           </Stack>
           <SimpleGrid
             cols={1}
@@ -36,11 +36,12 @@ export default function ThisIsAllWeKnow({ allFrontMatter }) {
             mt={50}
           >
             {allFrontMatter.map((frontMatter, index) => (
-              <PostCard category={"This is All We Know"} {...frontMatter} key={index} />
+              <Link href={frontMatter.slug} key={index}>
+                <PostCard category={"This is All We Know"} {...frontMatter} key={index} />
+              </Link>
             ))}
           </SimpleGrid>
         </Container>
-        <Footer />
       </main>
     </>
   )
@@ -50,11 +51,19 @@ export async function getStaticProps() {
   const postsDirectory = path.join(process.cwd(), 'src', 'pages', 'journal', 'this-is-all-we-know', 'posts');
   const fileNames = fs.readdirSync(postsDirectory);
 
-  const allFrontMatter = fileNames.map((fileName) => {
-    const postFilePath = path.join(postsDirectory, fileName);
-    const source = fs.readFileSync(postFilePath, 'utf8');
-    const { data } = matter(source);
-    return data;
+  let allFrontMatter = fileNames
+    .map((fileName) => {
+      const postFilePath = path.join(postsDirectory, fileName);
+      const source = fs.readFileSync(postFilePath, 'utf8');
+      const { data } = matter(source);
+      data.slug = '/journal/this-is-all-we-know/' + fileName.replace(/\.mdx$/, '');
+      return data.isPublished ? data : null;  // return data if isPublished is true, else return null
+    })
+    .filter(Boolean);  // this filters out any null elements
+
+  // Sort by date
+  allFrontMatter = allFrontMatter.sort((a, b) => {
+    return new Date(b.date) - new Date(a.date);
   });
 
   return {

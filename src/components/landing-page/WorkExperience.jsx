@@ -3,7 +3,7 @@ import { IconSun, IconVideo } from '@tabler/icons-react';
 
 function WorkExperience() {
 	return (
-		<Box className='w-1/2 my-24' px="auto" mx="auto">
+		<Box className='w-3/4 sm:w-1/2 my-24 mx-auto px-auto'>
 			<Title order={2} className='title-font text-5xl font-bold text-sky-700 mb-12' ta="center" mt="sm">
 				Work Experience
 			</Title>
