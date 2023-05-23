@@ -5,7 +5,8 @@ description: "One thing that always intrigued me about ML is that the more you l
 date: '2021-04-29'
 isPublished: true
 ---
-import TeX from 'react-mathjax2';
+import 'katex/dist/katex.min.css';
+import { InlineMath } from 'react-katex';
 
 One thing that always intrigued me about ML is that the more you learn about it the more you realize how little you know. One such case that happened to me a few months ago when a person asked me if I could help him in SVM and me being me I was like sure not a big deal. It was a big deal.
 
@@ -43,6 +44,14 @@ So now that we have a bit of an understanding of the use of kernels in SVM let's
 ## My Kernel, My Rules
 Every time you create an SVC() instance it has a kernel associated with it that handles the mapping part, if you don't specify it explicitly then it takes the kernel as RBF with looks like the following:-
 
+<div className="w-full text-center mb-4">
+    <InlineMath math="K(x_i,x_j) = e^{-{\gamma}||x_i-x_j||^2}      ,{\forall}{\gamma} > 0" />
+</div>
+
+<div className="w-full text-center">
+    <InlineMath math="||x_i-x_j||{\space}is{\space}the{\space}euclidean{\space}distance{\space}between{\space}x_i{\space}and{\space}x_j" />
+</div>
+
 If you don't understand what's written above then it's fine you can forget it. The important thing to understand is how it works it takes 2 points and computes the RBF for them and stores them in their location in a gram matrix. Gram Matrix is what we'll use to define relationships among pairs for the given kernel. Now 2 ways to train SVM over custom kernel is to:-
 
 - Passing the kernel function
@@ -53,6 +62,10 @@ For the innocent souls who are unaware of Gram Matrix, it is basically how your 
 ### By passing the kernel function as an argument
 
 Let's now implement a simple Linear Kernel Function and train our model over it. Linear Kernel looks like the following:-
+
+<div className="w-full text-center">
+    <InlineMath math="K(x_i,x_j) = x_i.x_j" />
+</div>
 
 Simple right? All you have to do is just perform a dot product between the pairs. Let's create a function to do the same.
 
@@ -76,7 +89,7 @@ clf2.fit(x,y)
 print(f'Accuracy on Inbuilt Kernel: {accuracy_score(y, clf2.predict(x))}')
 ``` 
 ```text 
-Output:-
+**Output:-**
 Accuracy on Custom Kernel: 0.961
 Accuracy on Inbuilt Kernel: 0.961
 ```
@@ -98,7 +111,7 @@ def RBF(x1, x2, gamma  = 1):
 
 Now that we have pre-requisites all set let's train our models and compare. Two things that'll change is:-
 - We'll pass **kernel = 'precomputed'**
-- We'll pass the data as gram matrix while passing data in fit() or predict() function
+- We'll pass the data as gram matrix while passing data in `fit()` or `predict()` function
 
 Now things are a bit different if you have a testing set. For example, if we have x_train and x_test then gram matrix to pass in fit() is computed between x_train and x_train but for predicting on x_test it is computed between x_test and x_train.
 

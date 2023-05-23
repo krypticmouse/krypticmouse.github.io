@@ -1,6 +1,6 @@
+import Link from 'next/link'
 import Head from 'next/head'
 import Header from '@/components/ui/Header'
-import Footer from '@/components/ui/Footer'
 import PostCard from '@/components/ui/PostCard';
 import {
 	Text,
@@ -36,11 +36,12 @@ export default function Journal200({ allFrontMatter }) {
             mt={50}
           >
             {allFrontMatter.map((frontMatter, index) => (
-              <PostCard category={"200"} {...frontMatter} key={index} />
+              <Link href={frontMatter.slug} key={index}>
+                <PostCard category={"200"} {...frontMatter} key={index} />
+              </Link>
             ))}
           </SimpleGrid>
         </Container>
-        <Footer />
       </main>
     </>
   )
@@ -55,6 +56,7 @@ export async function getStaticProps() {
       const postFilePath = path.join(postsDirectory, fileName);
       const source = fs.readFileSync(postFilePath, 'utf8');
       const { data } = matter(source);
+      data.slug = '/journal/200/' + fileName.replace(/\.mdx$/, '');
       return data.isPublished ? data : null;  // return data if isPublished is true, else return null
     })
     .filter(Boolean);  // this filters out any null elements

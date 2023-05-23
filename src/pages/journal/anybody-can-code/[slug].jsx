@@ -13,17 +13,17 @@ export default function DynamicPage({ source, frontMatter }) {
   return (
     <>
       <Head>
-				<title>{frontMatter.title}</title>
-				<meta name="description" content={frontMatter.title} />
+        <title>{frontMatter.title}</title>
+        <meta name="description" content={frontMatter.title} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/Krypticmouse.jpeg" />
-			</Head>
+      </Head>
       <Header />
-        <div className="w-3/5 mx-auto p-6 blog text-slate-600 mb-8">
-          <h1 className="text-center text-4xl font-extrabold">{frontMatter.title}</h1>
-          <MDXRemote {...source} components={MDXComponents} />
+        <div className="lg:w-3/5 md:w-4/5 sm:w-5/6 sm:px-4 mx-auto blog text-slate-600 mb-8">
+          <h1 className="text-center md:text-4xl text-2xl font-extrabold">{frontMatter.title}</h1>
+          <MDXRemote {...source} components={MDXComponents} lazy/>
         </div>
-			<Footer />
+      <Footer />
     </>
   );
 }
