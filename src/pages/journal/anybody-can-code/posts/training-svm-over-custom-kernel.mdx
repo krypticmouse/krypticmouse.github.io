@@ -111,7 +111,7 @@ def RBF(x1, x2, gamma  = 1):
 
 Now that we have pre-requisites all set let's train our models and compare. Two things that'll change is:-
 - We'll pass **kernel = 'precomputed'**
-- We'll pass the data as gram matrix while passing data in `fit()` or `predict()` function
+- We'll pass the data as gram matrix while passing data in **fit()** or **predict()** function
 
 Now things are a bit different if you have a testing set. For example, if we have x_train and x_test then gram matrix to pass in fit() is computed between x_train and x_train but for predicting on x_test it is computed between x_test and x_train.
 

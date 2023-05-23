@@ -8,7 +8,7 @@ import { Table } from '@mantine/core';
 function CustomCodeBlock({ code, language }) {
     return (
         <div className="overflow-x-scroll md:overflow-x-auto my-4 text-sm sm:text-base md:text-lg">
-            { language==="text" 
+            { language==="language-text" 
                 ? (
                     <div className='my-4'>
                         <CopyBlock
@@ -59,7 +59,7 @@ const MDXComponents = {
     ),
     hr: (props) => <hr className="my-4" />,
     inlineCode: (props) => <code className="text-sm sm:text-md md:text-lg bg-gray-100 px-2 py-1 rounded-md">{props.children}</code>,
-    code: (props) => <CustomCodeBlock code={props.children} language={props.className.split('-')[1]} />,
+    code: (props) => <CustomCodeBlock code={props.children} language={props.className} />,
     InlineMath,
     BlockMath,
     Table,
