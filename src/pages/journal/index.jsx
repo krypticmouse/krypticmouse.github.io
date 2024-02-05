@@ -13,11 +13,11 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-export default function TheMathematicalIdiot({ allFrontMatter }) {
+export default function Journal({ allFrontMatter }) {
   return (
     <>
       <Head>
-        <title>The Mathematical Idiot | Journal</title>
+        <title>Journal</title>
         <meta name="description" content="Web Portfolio & Research Journal of Herumb Shandilya." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/Krypticmouse.jpeg" />
@@ -26,8 +26,8 @@ export default function TheMathematicalIdiot({ allFrontMatter }) {
         <Header />
         <Container size="lg" padding='md' className='my-24'>
           <Stack align="center" spacing={0}>
-            <Text className='title-font text-3xl md:text-5xl font-extrabold text-sky-800'>The Mathematical Idiot</Text>
-            <Text className='dm title-font text-xl md:text-2xl font-medium mt-4 italic text-sky-600 text-opacity-60'>"Solving Math is hard but learning Math is Easy."</Text>
+            <Text className='title-font text-3xl md:text-5xl font-extrabold text-sky-800'>Journal</Text>
+            <Text className='dm title-font text-xl md:text-2xl font-medium mt-4 italic text-sky-600 text-opacity-60'>"Knowledge is knowing that we cannot know."</Text>
           </Stack>
           <SimpleGrid
             cols={1}
@@ -37,7 +37,7 @@ export default function TheMathematicalIdiot({ allFrontMatter }) {
           >
             {allFrontMatter.map((frontMatter, index) => (
               <Link href={frontMatter.slug} key={index}>
-                <PostCard category={"The Mathematical Idiot"} {...frontMatter} key={index} />
+                <PostCard category={"BLOG"} {...frontMatter} key={index} />
               </Link>
             ))}
           </SimpleGrid>
@@ -48,7 +48,7 @@ export default function TheMathematicalIdiot({ allFrontMatter }) {
 }
 
 export async function getStaticProps() {
-  const postsDirectory = path.join(process.cwd(), 'src', 'pages', 'journal', 'the-mathematical-idiot', 'posts');
+  const postsDirectory = path.join(process.cwd(), 'src', 'pages', 'journal', 'posts');
   const fileNames = fs.readdirSync(postsDirectory);
 
   let allFrontMatter = fileNames
@@ -56,7 +56,7 @@ export async function getStaticProps() {
       const postFilePath = path.join(postsDirectory, fileName);
       const source = fs.readFileSync(postFilePath, 'utf8');
       const { data } = matter(source);
-      data.slug = '/journal/the-mathematical-idiot/' + fileName.replace(/\.mdx$/, '');
+      data.slug = '/journal/' + fileName.replace(/\.mdx$/, '');
       return data.isPublished ? data : null;  // return data if isPublished is true, else return null
     })
     .filter(Boolean);  // this filters out any null elements

@@ -1,202 +1,212 @@
 [
-    {
-       "title":"Terse.ai - AudioBook Summarization and Sharing Platform",
-       "desc":"Terse.ai is a new audio book summarization and sharing platform. Terse allows users to quickly summarize audiobooks in a few minutes, creating a text-based summary that can be easily shared with others. You can read and hear summaries made public by users around the globe. This makes it easy for people to get a quick overview of the most important points from an audiobook, without having to listen to the entire thing.",
-       "tags":[
-          "AUDIO",
-          "NLP",
-          "WEB"
-       ],
-       "stack":"HuggingFace, TailwindCSS, PyTorch, Pytube, Flask, AWS, Moviepy, HTML/CSS/JS"
-    },
-    {
-       "title":"WeCare - Torn down Medicine Strip Prediction",
-       "desc":"The WeCare was created to help elderly people find and identify the medicine strip from torn strips. Wecare is designed with a simple and easy-to-use interface that allows users to quickly scan the torn strips and match them with the correct medicine. Once the strip is identified we also provide the target disease of the medicine along with side-effects in case the user forgot.",
-       "tags":[
-          "COMPUTER VISION",
-          "NLP",
-          "WEB",
-          "WEB SCRAPING"
-       ],
-       "stack":"OpenCV, Flask, Bootstrap, NLTK, Tesseract OCR, Requests, BeautifulSoup, HTML/CSS/JS"
-    },
-    {
-       "title":"Knots - Cyclone Speed Prediction from Satellite Images",
-       "desc":"Knots is a web app that uses satellite images to predict the intensity of a cyclone. It provides information on cyclone speed, it's severity, and countermeasures so users can make informed decisions about their safety. The app can be used by weather forecasters to provide early warning of a cyclone's speed and intensity. Along with that it provides a weather card that gives you real time details of your area including wind speed, temperature, humidity etc.",
-       "tags":[
-          "ML",
-          "WEB"
-       ],
-       "stack":"PyTorch, Flask, Pillow, WeatherAPI, Bootstrap, GCP, HTML/CSS/JS"
-    },
-    {
-       "title":"Social Distance Surveillance with Physical Alerts and Streaming",
-       "desc":"During the early stages of COVID-19, I built a security system that can monitor CCTV footages and tell which frame has violation of social distancing, it also provides live video streaming and physical alerts via alarm and NodeMCU. This system was created when social distancing was newly implemented. However, I wanted a system that would be able to be of practical use and not just a POC. Hence, we included an alarm system and streaming option so it could function like and an actual security system.",
-       "tags":[
-          "ML",
-          "IOT",
-          "WEB"
-       ],
-       "stack":"PyTorch, Detectron2, Flask, NodeMCU, Firebase, Scipy, Numpy, OpenCV, HTML/CSS/JS, Bootstrap"
-    },
-    {
-       "title":"SeqFetch-My Unwatched Anime Sequel List",
-       "desc":"Keeping track of Anime was hard for me and I wanted to make sure I've completed all the sequels of animes I've watched. So I developed SeqFetch a web app that takes your MyAnimeList ID and provides a list of sequels you missed based on the anime you have completed! SeqFetch is a simple but powerful app that helps you keep track of your favorite series and ensure you have a good time watching them.",
-       "tags":[
-          "WEB SCRAPING",
-          "WEB"
-       ],
-       "stack":"Requests, BeautifulSoup, Pandas, SQLite, HTML/CSS/JS, Bootstrap"
-    },
-    {
-       "title":"ChattY - Chat UI/Backend as a Service",
-       "desc":"What if we tell you that you can add a chat interface to your product without any hassle? Forget about us giving you the design, we'll provide you with everything! Literally everything! A backend and a UI, just connect your user database to ChattY and let the messages fly. That's what Chatty does it's an npm package that gives your app a chat UI kit to design or use a premade Chat UI and a backend handle to handle chats.",
-       "tags":[
-          "WEB"
-       ],
-       "stack":"Next.js(Frontend), React.js(UI-Kit), Node.js, WebSockets, Axios, MongoDB, TailwindCSS, TypeScript, JavaScript"
-    },
-    {
-       "title":"MSRNet-LowLight Image Enhancement",
-       "desc":"Implemented this paper. MSRNet is an network proposed by team at Huazhong University of Science and Technology, Wuhan that directly learns an end-to-end mapping between dark and bright images. The architecture was chosen keeping in mind the architecture should be lightweight with decent quality.",
-       "tags":[
-          "COMPUTER VISION",
-          "PAPER IMPLEMENTATION"
-       ],
-       "stack":"PyTorch"
-    },
-    {
-       "title":"Attention is All You Need",
-       "desc":"Implemented this paper. Attention is not a concept this proposes, how a standalone implementation of attention for Seq2Seq task is what This paper proposes which this introduces. This became the foundation for many new age models for wide range of tasks not limited to NLP.",
-       "tags":[
-          "NLP",
-          "PAPER IMPLEMENTATION"
-       ],
-       "stack":"PyTorch"
-    },
-    {
-       "title":"AutoCal- Voice Driven Handwriting Machine",
-       "desc":"AutoCal is a voice-driven handwriting machine that listens to you and turns it into text written on paper. With AutoCal, we give you an Applet you can you to speak into, then transmit the recognised text to AutoCal and let it write! What makes this special is that it was made on an extremely low budget. We used discarded DVD writers that served as the base of the movement system. We used NodeMCU instead of RaspberryPi to keep cost to minimum.",
-       "tags":[
-          "IOT",
-          "BLYNK"
-       ],
-       "stack":"Blynk, NodeMCU, Motors"
-    },
-    {
-       "title":"Smart City Demo",
-       "desc":"A mega project consisting of many mini-projects depicting how a modern day Smart City will look like. We implemented the following:- ",
-       "tags":[
-          "IOT"
-       ],
-       "stack":"Blynk, NodeMCU, Arduino, MQ-2(Smoke), DHT-11(Temperature), HC-SR04(Ultrasonic), Servo Motors, HC-SR501(Proximity)"
-    },
-    {
-       "title":"PiLock-Face Recognition Door Unlock via RaspberryPi",
-       "desc":"PiLock is a face recognition door unlock prototype deployed onm RaspberryPi to identify individuals and unlock the door. The system is designed for use in homes, offices, and other locations where access control is desired. The PiLock can be configured to only unlock for individuals added.",
-       "tags":[
-          "COMPUTER VISION",
-          "IOT"
-       ],
-       "stack":"PiCamera, RaspberryPi, PyThon, OpenCV, LBPH, Motors"
-    },
-    {
-       "title":"Deep Contrast Enhancement for OLED Displays",
-       "desc":"Implemented this paper. In this method, the power consumption is constrained by simply reducing the brightnessa certain ratio, whereas the perceived visual quality is preserved as much as possible by enhancing the contrast of the image using a convolutional neural network (CNN).",
-       "tags":[
-          "COMPUTER VISION",
-          "PAPER IMPLEMENTATION"
-       ],
-       "stack":"PyTorch"
-    },
-    {
-       "title":"Salient Object Detection API",
-       "desc":"A FastAPI based API that enables developers to detect and identify salient objects in images and use it remove the background from them. API makes it easy to add background removal capabilities to your applications without having to worry about the complexities of building and training your own machine learning models.",
-       "tags":[
-          "COMPUTER VISION",
-          "WEB"
-       ],
-       "stack":"FastAPI, PyTorch, TorchVision"
-    },
-    {
-       "title":"Line Following Robot",
-       "desc":"A simple autonomously guided robot that follows a line drawn on the ground to either detect a dark line on a white surface or a white line on a dark. This Project was created as a learning exercise for Arduino which became a project we participated in many competitions with.",
-       "tags":[
-          "ARDUINO"
-       ],
-       "stack":"Arduino, LDR, Motors, Motor Control Board"
-    },
-    {
-       "title":"Auto Garbage Disposal System",
-       "desc":"An automated garbage disposal system that helps make taking out the trash easier and more efficient. The system includes a wifi-controlled trash car prototype to automatically move to garbage bins of each house to collect garbage, and an automated garbage disposal bin to automatically dispose of trash when the trash truck arrives.",
-       "tags":[
-          "IOT"
-       ],
-       "stack":"NodeMCU, IR Sensor, Motors, Motor Control Board, Servo Motors"
-    },
-    {
-       "title":"Hindi Image Captioning via VIT+GPT2",
-       "desc":"This is an encoder-decoder image captioning model made with VIT encoder and GPT2-Hindi as a decoder. This is a first attempt at using ViT + GPT2-Hindi for image captioning task. We used the Flickr8k Hindi Dataset available on kaggle to train the model. This model was trained using HuggingFace course community week, organized by Huggingface.",
-       "tags":[
-          "CROSS MODAL GENERATION"
-       ],
-       "stack":"HuggingFace, PyTorch, HFTrainer"
-    },
-    {
-       "title":"Weather Changing in Image using CycleGANS",
-       "desc":"Implemented a model that changes the weather in an image using CycleGANS. With it, you can easily change the weather in any image to match your given image conditions. Whether you want to create a winter wonderland or a summer paradise, it makes it easy to change the weather in any image.",
-       "tags":[
-          "COMPUTER VISION"
-       ],
-       "stack":"PyTorch"
-    },
-    {
-       "title":"Automated Parking System",
-       "desc":"A system that automatically finds the license plate number from the vehicle footage and register it in the csv file. This saves time and manpower for the security department, by doing the tedious task of finding and inputting license plate numbers into the csv file for keeping parking records. This can be used on tolls as well were the work is of similar nature but the amount of vehicles is high, making it slow to do it manually.",
-       "tags":[
-          "COMPUTER VISION"
-       ],
-       "stack":"SQLite, Pandas, Tesseract-OCR, OpenCV"
-    },
-    {
-       "title":"LiveStats-You Statistics PlayGround",
-       "desc":"Learning is one thing and seeing what you learned in action is another thing. Keeping that in mind I created this package where you can input data and validate few statistical theorems like bessel's correction etc. Just input the data into any module you want to play around with and see the math come to life.",
-       "tags":[
-          "PYTHON PACKAGE"
-       ],
-       "stack":"Numpy, Matplotlib, Seaborn"
-    },
-    {
-       "title":"MouseBit-Direct DataLoader Creation on Custom Data",
-       "desc":"DataLoader creation itself is a one liner task however the process can comprise of many boilerplates to solve this issue I came up with MouseBit to make the whole process itself a one liner. Just input the data and config, it'll tackle everything from transformation to DataLoader creation on it's own.",
-       "tags":[
-          "PYTHON PACKAGE"
-       ],
-       "stack":"PyTorch"
-    },
-    {
-       "title":"OMR Scanning Application",
-       "desc":"A web app that takes input a filled OMR sheet, answer key and student details and outputs the score of the student by evaluating the OMR. Click the picture of OMR sheet and done. No need to get a full fledged OMR machine to do this task, no need to sit and check. Just practice and evaluate!",
-       "tags":[
-          "WEB",
-          "COMPUTER VISION"
-       ],
-       "stack":"Flask, OpenCV, Numpy"
-    },
-    {
-        "title":"Projects for Learning",
-        "desc":"I'm heavily driven by project based learning, applying what you learned exposes you to problem you would've never faced. I've created projects for everything I learned be that image classification on Oxford Flower Dataset, text classification on twitter dataset, neural networks from scratch, text summarization, Face generation with GANS, etc.",
-        "tags":[
-           "PBL"
-        ],
-        "stack":""
-    },
-    {
-        "title":"Freelance Projects",
-        "desc":"I was fortunate enough to have gotten a wide range of domains to work on in my freelancing. Many of these projects were domains I never explored but they became my bridge to it. I've worked a lot with people in higher education and research, helped them out with paper implementation and improvements to the existing work. I've helped people deploy their models onto their environment and help them come up with optimizing latency as well. Aside from that I've build a many of projects from scratch for people as well.",
-        "tags":[
-           "FREELANCE"
-        ],
-        "stack":""
-    }
- ]
+   {
+      "title":"Sift.ai - Personalized and Automated Resume Screening Tool",
+      "desc":"Sift AI is a powerful, easy-to-use tool designed to simplify the hiring process for businesses. When companies have too many job applications to look at, Sift AI steps in to help. It quickly goes through all the resumes and picks out the best candidates for the job. This means HR teams and company founders can save a lot of time because they only need to focus on interviewing the most promising applicants.",
+      "tags":[
+         "IR",
+         "NLP",
+         "WEB"
+      ],
+      "stack":"LangChain, HuggingFace, ChromaDB, ReactJS, TailwindCSS, AWS, Node.js"
+   },
+   {
+      "title": "Terse.ai - AudioBook Summarization and Sharing Platform",
+      "desc": "Terse.ai is a new audio book summarization and sharing platform. Terse allows users to quickly summarize audiobooks in a few minutes, creating a text-based summary that can be easily shared with others. You can read and hear summaries made public by users around the globe. This makes it easy for people to get a quick overview of the most important points from an audiobook, without having to listen to the entire thing.",
+      "tags": [
+         "AUDIO",
+         "NLP",
+         "WEB"
+      ],
+      "stack": "HuggingFace, TailwindCSS, PyTorch, Pytube, Flask, AWS, Moviepy, HTML/CSS/JS"
+   },
+   {
+      "title": "WeCare - Torn down Medicine Strip Prediction",
+      "desc": "The WeCare was created to help elderly people find and identify the medicine strip from torn strips. Wecare is designed with a simple and easy-to-use interface that allows users to quickly scan the torn strips and match them with the correct medicine. Once the strip is identified we also provide the target disease of the medicine along with side-effects in case the user forgot.",
+      "tags": [
+         "COMPUTER VISION",
+         "NLP",
+         "WEB",
+         "WEB SCRAPING"
+      ],
+      "stack": "OpenCV, Flask, Bootstrap, NLTK, Tesseract OCR, Requests, BeautifulSoup, HTML/CSS/JS"
+   },
+   {
+      "title": "Knots - Cyclone Speed Prediction from Satellite Images",
+      "desc": "Knots is a web app that uses satellite images to predict the intensity of a cyclone. It provides information on cyclone speed, it's severity, and countermeasures so users can make informed decisions about their safety. The app can be used by weather forecasters to provide early warning of a cyclone's speed and intensity. Along with that it provides a weather card that gives you real time details of your area including wind speed, temperature, humidity etc.",
+      "tags": [
+         "ML",
+         "WEB"
+      ],
+      "stack": "PyTorch, Flask, Pillow, WeatherAPI, Bootstrap, GCP, HTML/CSS/JS"
+   },
+   {
+      "title": "Social Distance Surveillance with Physical Alerts and Streaming",
+      "desc": "During the early stages of COVID-19, I built a security system that can monitor CCTV footages and tell which frame has violation of social distancing, it also provides live video streaming and physical alerts via alarm and NodeMCU. This system was created when social distancing was newly implemented. However, I wanted a system that would be able to be of practical use and not just a POC. Hence, we included an alarm system and streaming option so it could function like and an actual security system.",
+      "tags": [
+         "ML",
+         "IOT",
+         "WEB"
+      ],
+      "stack": "PyTorch, Detectron2, Flask, NodeMCU, Firebase, Scipy, Numpy, OpenCV, HTML/CSS/JS, Bootstrap"
+   },
+   {
+      "title": "SeqFetch-My Unwatched Anime Sequel List",
+      "desc": "Keeping track of Anime was hard for me and I wanted to make sure I've completed all the sequels of animes I've watched. So I developed SeqFetch a web app that takes your MyAnimeList ID and provides a list of sequels you missed based on the anime you have completed! SeqFetch is a simple but powerful app that helps you keep track of your favorite series and ensure you have a good time watching them.",
+      "tags": [
+         "WEB SCRAPING",
+         "WEB"
+      ],
+      "stack": "Requests, BeautifulSoup, Pandas, SQLite, HTML/CSS/JS, Bootstrap"
+   },
+   {
+      "title": "ChattY - Chat UI/Backend as a Service",
+      "desc": "What if we tell you that you can add a chat interface to your product without any hassle? Forget about us giving you the design, we'll provide you with everything! Literally everything! A backend and a UI, just connect your user database to ChattY and let the messages fly. That's what Chatty does it's an npm package that gives your app a chat UI kit to design or use a premade Chat UI and a backend handle to handle chats.",
+      "tags": [
+         "WEB"
+      ],
+      "stack": "Next.js(Frontend), React.js(UI-Kit), Node.js, WebSockets, Axios, MongoDB, TailwindCSS, TypeScript, JavaScript"
+   },
+   {
+      "title": "MSRNet-LowLight Image Enhancement",
+      "desc": "Implemented this paper. MSRNet is an network proposed by team at Huazhong University of Science and Technology, Wuhan that directly learns an end-to-end mapping between dark and bright images. The architecture was chosen keeping in mind the architecture should be lightweight with decent quality.",
+      "tags": [
+         "COMPUTER VISION",
+         "PAPER IMPLEMENTATION"
+      ],
+      "stack": "PyTorch"
+   },
+   {
+      "title": "Attention is All You Need",
+      "desc": "Implemented this paper. Attention is not a concept this proposes, how a standalone implementation of attention for Seq2Seq task is what This paper proposes which this introduces. This became the foundation for many new age models for wide range of tasks not limited to NLP.",
+      "tags": [
+         "NLP",
+         "PAPER IMPLEMENTATION"
+      ],
+      "stack": "PyTorch"
+   },
+   {
+      "title": "AutoCal- Voice Driven Handwriting Machine",
+      "desc": "AutoCal is a voice-driven handwriting machine that listens to you and turns it into text written on paper. With AutoCal, we give you an Applet you can you to speak into, then transmit the recognised text to AutoCal and let it write! What makes this special is that it was made on an extremely low budget. We used discarded DVD writers that served as the base of the movement system. We used NodeMCU instead of RaspberryPi to keep cost to minimum.",
+      "tags": [
+         "IOT",
+         "BLYNK"
+      ],
+      "stack": "Blynk, NodeMCU, Motors"
+   },
+   {
+      "title": "Smart City Demo",
+      "desc": "A mega project consisting of many mini-projects depicting how a modern day Smart City will look like. We implemented the following:- ",
+      "tags": [
+         "IOT"
+      ],
+      "stack": "Blynk, NodeMCU, Arduino, MQ-2(Smoke), DHT-11(Temperature), HC-SR04(Ultrasonic), Servo Motors, HC-SR501(Proximity)"
+   },
+   {
+      "title": "PiLock-Face Recognition Door Unlock via RaspberryPi",
+      "desc": "PiLock is a face recognition door unlock prototype deployed onm RaspberryPi to identify individuals and unlock the door. The system is designed for use in homes, offices, and other locations where access control is desired. The PiLock can be configured to only unlock for individuals added.",
+      "tags": [
+         "COMPUTER VISION",
+         "IOT"
+      ],
+      "stack": "PiCamera, RaspberryPi, PyThon, OpenCV, LBPH, Motors"
+   },
+   {
+      "title": "Deep Contrast Enhancement for OLED Displays",
+      "desc": "Implemented this paper. In this method, the power consumption is constrained by simply reducing the brightnessa certain ratio, whereas the perceived visual quality is preserved as much as possible by enhancing the contrast of the image using a convolutional neural network (CNN).",
+      "tags": [
+         "COMPUTER VISION",
+         "PAPER IMPLEMENTATION"
+      ],
+      "stack": "PyTorch"
+   },
+   {
+      "title": "Salient Object Detection API",
+      "desc": "A FastAPI based API that enables developers to detect and identify salient objects in images and use it remove the background from them. API makes it easy to add background removal capabilities to your applications without having to worry about the complexities of building and training your own machine learning models.",
+      "tags": [
+         "COMPUTER VISION",
+         "WEB"
+      ],
+      "stack": "FastAPI, PyTorch, TorchVision"
+   },
+   {
+      "title": "Line Following Robot",
+      "desc": "A simple autonomously guided robot that follows a line drawn on the ground to either detect a dark line on a white surface or a white line on a dark. This Project was created as a learning exercise for Arduino which became a project we participated in many competitions with.",
+      "tags": [
+         "ARDUINO"
+      ],
+      "stack": "Arduino, LDR, Motors, Motor Control Board"
+   },
+   {
+      "title": "Auto Garbage Disposal System",
+      "desc": "An automated garbage disposal system that helps make taking out the trash easier and more efficient. The system includes a wifi-controlled trash car prototype to automatically move to garbage bins of each house to collect garbage, and an automated garbage disposal bin to automatically dispose of trash when the trash truck arrives.",
+      "tags": [
+         "IOT"
+      ],
+      "stack": "NodeMCU, IR Sensor, Motors, Motor Control Board, Servo Motors"
+   },
+   {
+      "title": "Hindi Image Captioning via VIT+GPT2",
+      "desc": "This is an encoder-decoder image captioning model made with VIT encoder and GPT2-Hindi as a decoder. This is a first attempt at using ViT + GPT2-Hindi for image captioning task. We used the Flickr8k Hindi Dataset available on kaggle to train the model. This model was trained using HuggingFace course community week, organized by Huggingface.",
+      "tags": [
+         "CROSS MODAL GENERATION"
+      ],
+      "stack": "HuggingFace, PyTorch, HFTrainer"
+   },
+   {
+      "title": "Weather Changing in Image using CycleGANS",
+      "desc": "Implemented a model that changes the weather in an image using CycleGANS. With it, you can easily change the weather in any image to match your given image conditions. Whether you want to create a winter wonderland or a summer paradise, it makes it easy to change the weather in any image.",
+      "tags": [
+         "COMPUTER VISION"
+      ],
+      "stack": "PyTorch"
+   },
+   {
+      "title": "Automated Parking System",
+      "desc": "A system that automatically finds the license plate number from the vehicle footage and register it in the csv file. This saves time and manpower for the security department, by doing the tedious task of finding and inputting license plate numbers into the csv file for keeping parking records. This can be used on tolls as well were the work is of similar nature but the amount of vehicles is high, making it slow to do it manually.",
+      "tags": [
+         "COMPUTER VISION"
+      ],
+      "stack": "SQLite, Pandas, Tesseract-OCR, OpenCV"
+   },
+   {
+      "title": "LiveStats-You Statistics PlayGround",
+      "desc": "Learning is one thing and seeing what you learned in action is another thing. Keeping that in mind I created this package where you can input data and validate few statistical theorems like bessel's correction etc. Just input the data into any module you want to play around with and see the math come to life.",
+      "tags": [
+         "PYTHON PACKAGE"
+      ],
+      "stack": "Numpy, Matplotlib, Seaborn"
+   },
+   {
+      "title": "MouseBit-Direct DataLoader Creation on Custom Data",
+      "desc": "DataLoader creation itself is a one liner task however the process can comprise of many boilerplates to solve this issue I came up with MouseBit to make the whole process itself a one liner. Just input the data and config, it'll tackle everything from transformation to DataLoader creation on it's own.",
+      "tags": [
+         "PYTHON PACKAGE"
+      ],
+      "stack": "PyTorch"
+   },
+   {
+      "title": "OMR Scanning Application",
+      "desc": "A web app that takes input a filled OMR sheet, answer key and student details and outputs the score of the student by evaluating the OMR. Click the picture of OMR sheet and done. No need to get a full fledged OMR machine to do this task, no need to sit and check. Just practice and evaluate!",
+      "tags": [
+         "WEB",
+         "COMPUTER VISION"
+      ],
+      "stack": "Flask, OpenCV, Numpy"
+   },
+   {
+      "title": "Projects for Learning",
+      "desc": "I'm heavily driven by project based learning, applying what you learned exposes you to problem you would've never faced. I've created projects for everything I learned be that image classification on Oxford Flower Dataset, text classification on twitter dataset, neural networks from scratch, text summarization, Face generation with GANS, etc.",
+      "tags": [
+         "PBL"
+      ],
+      "stack": ""
+   },
+   {
+      "title": "Freelance Projects",
+      "desc": "I was fortunate enough to have gotten a wide range of domains to work on in my freelancing. Many of these projects were domains I never explored but they became my bridge to it. I've worked a lot with people in higher education and research, helped them out with paper implementation and improvements to the existing work. I've helped people deploy their models onto their environment and help them come up with optimizing latency as well. Aside from that I've build a many of projects from scratch for people as well.",
+      "tags": [
+         "FREELANCE"
+      ],
+      "stack": ""
+   }
+]

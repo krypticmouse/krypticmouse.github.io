@@ -162,7 +162,7 @@ function Hero() {
       )}
 			
 			<Stack align="center" className='mt-20' spacing={54}>
-				<Text className='dm title-font text-5xl md:text-6xl font-extrabold text-sky-800'>ML Engineer, DL Researcher & IoT Fan Boy</Text>
+				<Text className='dm title-font text-5xl md:text-6xl font-extrabold text-sky-800'>ML Engineer, NLP Researcher & IoT Fan Boy</Text>
 				<Image src='/dp.jpg' maw={240} radius='100%' alt=''/>
 				<Stack align="center" spacing={2}>
 					<Text className='dm title-font text-4xl md:text-5xl font-medium text-sky-700'>Neat Freak Coder with an obsession for one-liners</Text>

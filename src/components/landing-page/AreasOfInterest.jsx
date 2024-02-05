@@ -15,7 +15,8 @@ import {
 	IconArrowsLeftRight, 
 	IconDeviceDesktop, 
 	IconZoomExclamation, 
-	IconRobot 
+	IconRobot, 
+	IconSearch
 } from '@tabler/icons-react';
 
 const mockdata = [
@@ -32,10 +33,10 @@ const mockdata = [
 		icon: IconLanguage,
 	},
 	{
-		title: 'Generative Models',
+		title: 'Information Retrieval',
 		description:
-			"Magical isn't it to give a text and generate an image, like Stable Diffusion, or probably an audio sample based on the description, like AudioGen. Currently exploring an interesting aspect of it as an independent research project.",
-		icon: IconArrowsLeftRight,
+			"Information Retrieval is something I've been working on for a while now. I've seen the power of it and how it can be used to solve real world problems. I've worked on traditional IR models and also on modern ones. I love it!",
+		icon: IconSearch,
 	},
 	{
 		title: 'Model Deployment',

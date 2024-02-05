@@ -11,14 +11,14 @@ function WorkExperience() {
 				<Divider />
 				<div className='py-10'>
 					<Group>
-						<Image src='/work/educative.png' maw={88} className='mr-8' alt=''/>
+						<Image src='/work/researchrabbit.jpeg' maw={88} className='mr-8' alt=''/>
 						<Stack spacing={0}>
-							<Title className='text-sky-800 text-2xl title-font font-medium'>Course Author <span className='font-extrabold hover:text-sky-500'><a href='https://www.educative.io/' target='_blank'>@Educative</a></span></Title>
-							<Text className='text-sky-600 mb-4 text-xl'>October, 2022 - Present</Text>
+							<Title className='text-sky-800 text-2xl title-font font-medium'>NLP Engineer <span className='font-extrabold hover:text-sky-500'><a href='https://www.educative.io/' target='_blank'>SixDegrees AI(Venture by Research Rabbit)</a></span></Title>
+							<Text className='text-sky-600 mb-4 text-xl'>April, 2023 - Present</Text>
 							<List listStyleType='disc' className='text-sky-800 text-lg'>
-								<List.Item>Curate a curriculum and topic for the course.</List.Item>
-								<List.Item>Writing a course on PyTorch exploring and explaining each module in-depth.</List.Item>
-								<List.Item>Explaining added optimization in networks for training, inference and deployment.</List.Item>
+								<List.Item>Work on training LLMs, deploying them and using them to power SixAI pipepline.</List.Item>
+								<List.Item>Keep up with the latest research in LLMs and use them to improve the product performance.</List.Item>
+								<List.Item>Coming up with new ideas and product logic to improve the product performance.</List.Item>
 							</List>
 						</Stack>
 					</Group>
@@ -29,7 +29,7 @@ function WorkExperience() {
 						<Image src='/work/simplified.png' maw={88} className='mr-8' alt=''/>
 						<Stack spacing={0}>
 							<Title className='text-sky-800 text-2xl title-font font-medium'>Machine Learning Engineer <span className='font-extrabold hover:text-sky-500'><a href='https://www.simplified.com/' target='_blank'>@Simplified</a></span></Title>
-							<Text className='text-sky-600 mb-4 text-xl'>June, 2022 - Present</Text>
+							<Text className='text-sky-600 mb-4 text-xl'>June, 2022 - April, 2023</Text>
 							<List listStyleType='disc' className='text-sky-800 text-lg'>
 								<List.Item>Simplified is an AI-powered content creation platform for creators backed by tier 1 investors.</List.Item>
 								<List.Item>Research, implement and improve generative models to incorporate into the product.</List.Item>

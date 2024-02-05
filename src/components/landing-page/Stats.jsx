@@ -68,7 +68,7 @@ function Stats({ data }) {
 		},
 		{
 			"title": "Talks & Sessions",
-			"stats": "10+"
+			"stats": "50+"
 		},
 		{
 			"title": "Doubts Solved",

@@ -1,5 +1,16 @@
 [
-    {
+   {
+      "title":"Writing a Compiler in Rust #1: Lexical Analysis",
+      "desc":"as someone who has a Computer Science Degree, it's a bit shameful for me to admit that I never formally studied compilers, well in my defense it's because it was an elective and I chose an ML elective instead of Compiler Design. Although it is something that I've always enjoyed hearing a lot about...",
+      "tags":[
+         "RUST",
+         "COMPILER"
+      ],
+      "href":"https://krypticmouse.hashnode.dev/writing-a-compiler-lexical-analysis",
+      "img":"/blogs/hashnode.png",
+      "date":"Feburary 02, 2024"
+   },
+   {
        "title":"Transformers: Attention is all you need",
        "desc":"I guess it's safe to say that Attention Mechanism and Transformers is something that recently took over NLP. Not only did it show improvements over the SOTA models at the time but also overcome the shortcoming of the RNN models like LSTM and GRU. So let's go ahead and break down the sections of the paper, Attention is all you ...",
        "tags":[
