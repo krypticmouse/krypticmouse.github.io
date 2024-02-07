@@ -1,0 +1,9 @@
+[book]
+authors = ["Herumb Shandilya"]
+language = "en"
+multilingual = false
+src = "src"
+title = "A Small Book on Information Retrieval"
+
+[output.html]
+mathjax-support = true
