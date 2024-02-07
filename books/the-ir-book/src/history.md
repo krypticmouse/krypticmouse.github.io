@@ -73,8 +73,22 @@ Things were looking good with vector space models but there were issues with the
 
 ## Internet and IR
 
-The advent of the Internet and the World Wide Web in the early 1990s fundamentally transformed information retrieval, leading to the development of the first web search engines. Innovations like Archie, the first to index FTP archives, and later, WebCrawler and AltaVista, which offered full-page indexing and advanced search capabilities, revolutionized how digital information was organized and accessed.
+With the introduction of the internet the way we stored and accessed data changed quickly. We went from local data search to global data search. During this time, not only did the amount of information available vastly increase but it also introduced new challenges and opportunities for searching and retrieving information from a growing Internet.
 
-The emergence of Google in the late 1990s, with its PageRank algorithm, marked a significant leap forward, prioritizing web pages based on their link structures and relevance, setting a new standard for search engine efficiency and accuracy.
+It all started with the coming of the *first search engine* **Archie** in 1990 created by Alan Emtage. I was used for indexing FTP archives, allowing people to find specific files. Along with this search engines like **Veronica(1991)** and **Jughead(1992)** also came into the picture to serve Gopher protocol unlike FTP like Archie did.
+
+When World Wide Web came that's when things got even better with the introduction of web search engines:
+
+* **Aliweb(1993)**: Stands for "Archie Like Indexing for the Web". It was one of the first search engines for the WWW, but it required webmasters to submit their pages for indexing which lead to limited content coverage.
+    
+* **WebCrawler(1994)**: WebCrawler, developed by Brian Pinkerton, was the first search engine to index entire pages, making it possible for users to search for any word on a web page, which was a pretty big deal at the time.
+    
+* **Yahoo! (1994)**: Initially started as a directory by Jerry Yang and David Filo, Yahoo! evolved into a major portal offering search capabilities, but it relied on human-edited directories before shifting towards crawler-based listings in the early 2000s.
+    
+* **AltaVista (1995)**: AltaVista became one of the most popular search engines offering fast, relevant search results and pioneering advanced search techniques, including natural language queries.
+    
+* **Google (1998)**: Google introduced the PageRank algorithm, which improved search by ranking web pages using paired ranking and graph metrics. It uses anchor text to assign semantic context and the relationship between linked sites and their topics.
+    
+Later on, search engines started becoming a part of the products themselves! Now companies like Amazon, Twitter, etc. started including the search for product/information discovery via search queries. However, these semantic search capabilities became accessible and better with the arrival of ML/DL into IR.
 
 ## Modern Approach to IR
