@@ -9,4 +9,4 @@ description = "Diving into Information Retrieval and ColBERT"
 [output.html]
 mathjax-support = true
 default-theme = "light"
-preferred-dark-theme = "coal"
+preferred-dark-theme = "light"

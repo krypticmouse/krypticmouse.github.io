@@ -1,5 +1,15 @@
 # A Brief History of Information Retrieval
 
+> You have to know the past to understand the present.
+>
+> **― Carl Sagan**
+
+I have no idea who Carl Sagan is but he definitely got that part right! Well hello people of internet, welcome to the first chapter of this book whose completion date is and always will be a mystery. But I'm kinda happy to start this series or book or whatever this is. I thought I'll start by explaining about word vectors but that way we might never appreciate how far we've come.
+
+Which by the way is a miracle because I was the kid who'd be sleeping that Chemistry lesson on Plum Pudding Model. Well I get it now, history is important to know and that's why before diving into anything else I thought it'll be good to talk how things were and how they got better.
+
+## Meaning of Life, Retreivers and IR
+
 So before studying what Colbert it might be a good idea to learn what it is that Colbert or any other model of that category does. Colbert is a type of **Retriever Model.** These are models that are *designed* to find and **retrieve** the most relevant documents from a large collection or database of documents given a specific query.
 
 For example, if you ask the question "What is the meaning of life?", the retriever model will search through its database of documents looking for ones that are most relevant to answering that question. It will rank the documents based on how well they match the query using a scoring function.
@@ -87,8 +97,32 @@ When World Wide Web came that's when things got even better with the introductio
     
 * **AltaVista (1995)**: AltaVista became one of the most popular search engines offering fast, relevant search results and pioneering advanced search techniques, including natural language queries.
     
-* **Google (1998)**: Google introduced the PageRank algorithm, which improved search by ranking web pages using paired ranking and graph metrics. It uses anchor text to assign semantic context and the relationship between linked sites and their topics.
+* **Google (1998)**: Google introduced the PageRank algorithm, which improved search by ranking web pages using paired ranking and graph metrics. It uses anchor text to assign semantic context and the relationship between linked sites and their topics. The practice of optimizing websites to rank higher in search engine results began to take shape, aligning content with how search algorithms ranked sites. This came to be know as *Search Engine Optimization*, SEO for short.
     
 Later on, search engines started becoming a part of the products themselves! Now companies like Amazon, Twitter, etc. started including the search for product/information discovery via search queries. However, these semantic search capabilities became accessible and better with the arrival of ML/DL into IR.
 
+Alomg the same timeline, there was another algorithm that was introduced as an improvement to TF-IDF, i.e. Okapi BM25 which is very frequently used even today. It was introduced by Robertson and his team in 1994, BM25 was designed to address the limitations of TF-IDF, which tends to over-emphasize the importance of terms that appear frequently in a document. BM25 introduces a non-linear term frequency saturation function, which reduces the impact of term frequency on relevance as it increases.
+
+\\[ \text{BM25}(q, d) = \sum_{i=1}^{n} \text{IDF}(q_i) \times \frac{f(q_i, d) \times (k_1 + 1)}{f(q_i, d) + k_1 \times (1 - b + b \times \frac{|d|}{\text{avgdl}})} \\]
+
+As of now there are multiple variants of the original BM25 algorithm, but the core idea of using non-linear term frequency saturation function is still the same. This algorithm is still used in many search engines and is considered as one of the best ranking algorithms for search engines.
+
 ## Modern Approach to IR
+
+Post 2000s, Information Retrieval started seeing two major developments that improved search and retrieval capabilities:
+
+- The first was the introduction of Vertical Search Engines - these are niched search engines that focus on specific domain like travel, jobs, and products. These offered more refined and tailored results compared to general search engines. For example, someone looking for a job could use a vertical search engine dedicated to job listings, benefiting from results specifically relevant to job searches.
+
+- The second development was the incorporation of machine learning techniques to rank search results, known as Learning to Rank algorithms. In 2005, Microsoft introduced RankNet, followed by LambdaRank and LambdaMART, which used machine learning rather than hardcoded rules to determine the order and relevance of results. This enabled search engines to continuously improve their ranking capabilities based on data.
+
+Around the same time, Semantic Search and Natural Language Processing (NLP) techniques started being applied to understand the contextual meaning of queries. In 2012, Google's Word2Vec represented words as dense vectors that could capture semantic relationships between words. This was the first instance of words being represented as dense vectors. This was an improvement over sparse vector representations used in earlier systems. Dense word vectors allowed search engines to better grasp the underlying context and meaning of search queries, rather than just matching keywords.
+
+<p align="center">
+  <img src="./images/word2vec.png" alt="Word2Vec">
+</p>
+
+Later NLP models like Google's BERT in 2018 marked a breakthrough in contextual understanding of search queries based on the words' usage and relationships. With large language models continuing to advance NLP, search engines can now interpret queries with increasing sophistication. This has opened new possibilities like treating search as a generative problem and along with the growth of vector databases, semantic search is becoming more accessible.
+
+## From Me to You
+
+Information Retrieval has come a long way from the days of Dewey Decimal System to the current state of the art in Semantic Search. With the arrival of models like ColBERT, BGE, etc., the field is seeing a new era of retrieval models that are more efficient and effective than ever. I've never loved history as such but you gotta admit this one was pretty interesting, as for the next topic let's understand how words and sentences can be represented as Vectors!
