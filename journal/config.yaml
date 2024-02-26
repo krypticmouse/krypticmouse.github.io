@@ -39,8 +39,6 @@ params:
 
   label:
     text: "Herumb's Journal"
-    icon: /apple-touch-icon.png
-    iconHeight: 35
 
   # profile-mode
   profileMode:
