@@ -1,12 +1,9 @@
 ---
-author: 'Herumb Shandilya'
-title: 'LIMA: Less is More for Alignment'
-description: "What LIMA wants to address is that big instruction dataset and RLHF aren't necessary to produce high quality output. But aside from that it's an investigation on how much examples are needed to align a model output?"
-date: '2023-05-31'
-isPublished: true
+title: "LIMA: Less is More for Alignment"
+date: 2023-05-31
+draft: false
 ---
 
-# LIMA: Less Is More for Alignment
 I can't even being to explain how I felt reading this paper, the moment I finished it I shared it ASAP with everyone because it deserved it. Essentially, what LIMA wants to address is that big instruction dataset and RLHF aren't necessary to produce high quality output. 
 
 As I mentioned above, what LIMA wants to address is that big instruction dataset and RLHF aren't necessary to produce high quality output. But aside from that it's an investigation on how much examples are needed to align a model output? I'm gonna explain more soon but that's that basic idea of the paper. Let's just dive into it.
@@ -38,12 +35,10 @@ But But But!! That's not all, they found that the model trained on this data can
 
 So if I put in 1000 examples of any kind it'll work? Not really, from what they mentioned in paper the dataset should have: where the outputs (responses) are stylistically aligned with each other, but the inputs (prompts) are diverse. Basically the examples you choose have to be very selected and specifically with inputs that are diverse in domain and style, while the output being more homogenous in style. Infact this statement is backed by the follow paragraph from their ablation study:-
 
-> **Diversity** To test the effects of prompt diversity, while controlling for quality and quantity, we compare the effect of training on quality-filtered Stack Exchange data, which has heterogeneous prompts with excellent responses, and wikiHow data, which has homogeneous prompts with excellent responses. While we compare Stack Exchange with wikiHow as a proxy for diversity, we acknowledge that there may be other conflating factors when sampling data from two different sources. We sample 2,000 training examples from each source (following the same protocol from Section 2.1). Figure 5 shows that the more diverse Stack Exchange data yields significantly higher performance. 
+> _**Diversity** To test the effects of prompt diversity, while controlling for quality and quantity, we compare the effect of training on quality-filtered Stack Exchange data, which has heterogeneous prompts with excellent responses, and wikiHow data, which has homogeneous prompts with excellent responses. While we compare Stack Exchange with wikiHow as a proxy for diversity, we acknowledge that there may be other conflating factors when sampling data from two different sources. We sample 2,000 training examples from each source (following the same protocol from Section 2.1). Figure 5 shows that the more diverse Stack Exchange data yields significantly higher performance._
 > 
-> **Quality** To test the effects of response quality, we sample 2,000 examples from Stack Exchange without any quality or stylistic filters, and compare a model trained on this dataset to the one trained on our filtered dataset. Figure 5 shows that there is a significant 0.5 point difference between models trained on the filtered and unfiltered data sources.
+> _**Quality** To test the effects of response quality, we sample 2,000 examples from Stack Exchange without any quality or stylistic filters, and compare a model trained on this dataset to the one trained on our filtered dataset. Figure 5 shows that there is a significant 0.5 point difference between models trained on the filtered and unfiltered data sources._
 
 ## Conclusion
 
 It's fascinating to consider the implications of the LIMA paper. It challenges the traditional methods of alignment and opens up new possibilities in training large language models. However, it's worth noting that the results obtained are based on a specific model and training set, so it's possible that other models might behave differently. Also, it's important to remember that while a smaller instruction set might be effective, the quality of that instruction set is paramount. It will be exciting to see how this line of research develops in the future!
-
-***

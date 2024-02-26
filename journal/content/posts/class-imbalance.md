@@ -1,16 +1,12 @@
 ---
-author: 'Herumb Shandilya'
-title: 'Class Imbalance comes in Like a Lion'
-description: "Keeping aside the fact that I butchered one of the greatest Video Game quotes of all time class imbalance can be a tricky thing to handle especially if you are a beginner. When I first encountered class imbalance I treated it normally, I know right, and not just that I measured the accuracy to judge the performance. Needless to say, that went quite badly, and to avoid this happening to you let me help out in avoiding an embarrassing situation in front of your teacher or whoever you report to. "
-date: '2021-06-05'
-isPublished: true
+title: "Class Imbalance comes in Like a Lion"
+date: 2021-06-05
+draft: false
 ---
-import 'katex/dist/katex.min.css';
-import { InlineMath } from 'react-katex';
 
-> In a world without class imbalance we might've been heroes. 
->
-> \- Neural Networks
+> *In a world without class imbalance we might've been heroes.*
+> 
+> **- Neural Networks**
 
 Keeping aside the fact that I butchered one of the greatest Video Game quotes of all time class imbalance can be a tricky thing to handle especially if you are a beginner. When I first encountered class imbalance I treated it normally, I know right, and not just that I measured the accuracy to judge the performance. Needless to say, that went quite badly, and to avoid this happening to you let me help out in avoiding an embarrassing situation in front of your teacher or whoever you report to. 
 
@@ -23,7 +19,7 @@ We'll see how to tackle class imbalance in different domains like structured dat
 ## Loading Our Data
 I believe that the correct way to learn a concept is by applying what you learn in theory and that's why I'll be putting code for you to see how we are actually going to apply what we are talking about. For the purpose of this article I've decided to use the classic dataset used to teach class imbalance i.e. [Credit Card Fraud Detection](https://www.kaggle.com/mlg-ulb/creditcardfraud). 
 
-```python
+```
 df = pd.read_csv('/kaggle/input/creditcardfraud/creditcard.csv')
 
 X = df.drop('Class', axis = 1)
@@ -32,7 +28,7 @@ Y = df['Class']
 Y.value_counts()
 ``` 
 **Output:-**
-```text
+```
 0    284315
 1     492
 Name: Class, dtype: int64
@@ -64,7 +60,7 @@ MCC is designed for binary classification but it can be used for multi-class cla
 Well, I hope you were able to grasp the importance of proper metrics when dealing with an imbalanced dataset. So let's start by checking the performance of our baseline model. Now in order to score our model, we'll have to split the data into training and testing splits but our data is imbalanced so we can't just do random splits. We need the data to retain the original class ratio and for that, we have the **stratify** parameter in **train_test_split** itself. 
 
 
-```python
+```
 from sklearn.model_selection import train_test_split
 
 x_train, x_test, y_train, y_test = train_test_split(X, Y, 
@@ -76,7 +72,7 @@ x_train, x_test, y_train, y_test = train_test_split(X, Y,
 Well that was easy, wasn't it? Now let's go ahead and train our baseline model and check its baseline metrics using classification_report and confusion_matrix.
 
 
-```python
+```
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix
 
@@ -89,7 +85,7 @@ print(f'Confusion Matrix:-\n {confusion_matrix(y_test,y_pred)}\n')
 print(classification_report(y_test, y_pred))
 ``` 
 **Output:-**
-```text
+```
 Confusion Matrix:-
  [[71073     6]
  [   17   106]]
@@ -121,7 +117,7 @@ The weights are assigned to the class such that the minority class has a higher 
 In order to pass weights to the algorithm, you can simply pass the dictionary with key as class and value as the weight to the corresponding key to the **class_weight** parameter. Let's try doing this in our classifier.
 
 
-```python
+```
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix
 
@@ -134,7 +130,7 @@ print(f'Confusion Matrix:-\n {confusion_matrix(y_test,y_pred)}\n')
 print(classification_report(y_test, y_pred))
 ``` 
 **Output:-**
-```text
+```
               precision    recall  f1-score   support
 
            0       1.00      1.00      1.00     71079
@@ -153,7 +149,7 @@ Now one question that may arise in your mind is, what weights should I assign to
 
 Let's say you are a daredevil and wanna tune the weights then, you can try using **compute_class_weight()** utility in sklearn to compute class weights and use them as the weights for the algorithm. In my experience, it rarely gives the best result as compared to tuned ones. But tuning is actually pretty simple, below I'll tell you how to do it and I want you to try it out by redefining the param_grid according to what you think is the best. You can comment on your findings if you like too 😃
 
-```python
+```
 from sklearn.model_selection import GridSearchCV
 
 param_grid = {
@@ -172,7 +168,7 @@ print(classification_report(y_test, y_pred))
 In neural networks to you can train your model with assigned class weights to tackle the issue of class imbalance. The syntax is pretty similar in the sense you just pass the class weights to the network. In Tensorflow you pass weights in the fit() function and in PyTorch you pass weights in the Loss function.
 
 
-```python
+```
 # PyTorch - Pass weight tensor in loss function
 pytorch_weights = torch.tensor([0.99, 0.1])
 criterion = nn.NLLLoss(weight =  pytorch_weights)
@@ -194,7 +190,7 @@ No no I'm not talking about modifying the values of the entries but I'm talking 
 
 It'll be better If you install **imblearn** library since that's what we'll be using to implement the above. You can install it via the following command:-
 
-```text
+```
 pip install imblearn
 ``` 
 ### Undersampling - Fix for the Lazy
@@ -202,7 +198,7 @@ Random Undersampling is a way to balance class by removing entries from the majo
 
 ![raw.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1622826516604/8mEkvCM4q.png)
 
-```python
+```
 from imblearn.under_sampling import RandomUnderSampler
 
 us = RandomUnderSampler()
@@ -217,7 +213,7 @@ print(f'Confusion Matrix:-\n {confusion_matrix(y_test,y_pred)}\n')
 print(classification_report(y_test, y_pred))
 ``` 
 **Output:-**
-```text
+```
 Confusion Matrix:-
  [[68666  2413]
  [    8   115]]
@@ -240,7 +236,7 @@ This type of undersampling basically determines the samples from the majority cl
 - **Version - 2:**  Keeps the ones that have the minimum average distance from the farthest three minority class samples.
 - **Version - 3:**  Keeps the ones that have the minimum average distance from all minority class samples.
 
-```python
+```
 from imblearn.under_sampling import NearMiss
 
 nm_us = NearMiss(version = 3)
@@ -255,7 +251,7 @@ print(f'Confusion Matrix:-\n {confusion_matrix(y_test,y_pred)}\n')
 print(classification_report(y_test, y_pred))
 ``` 
 **Output:-**
-```text
+```
 Confusion Matrix:-
  [[68681  2398]
  [    8   115]]
@@ -274,7 +270,7 @@ I've tried quite a few examples and in most case version 3 really works better a
 #### Tomek Links Undersampling
 This type of undersampling has a simple yet neat approach it focuses on removing the majority sample of the Tomek link. Tomek link is defined as the points that are closest to each other and both belonging to different classes, kinda like Romeo and Juliet except here only one of them dies, an apology to all R&J fans. Anyways let's try our hand on Tomek links.
 
-```python
+```
 from imblearn.under_sampling import TomekLinks
 
 tomek_us = TomekLinks()
@@ -294,7 +290,7 @@ Here since only Tomek links are deleted the class balance isn't completely achie
 ### Random Oversampling - Jugaad
 This is the exact opposite of what we did in undersampling instead of removing points from the majority class we explode the minority class by filling data with samples from the minority class chosen at random with repetition and hence achieving class balance. There are ways to explode minority class samples smartly and logically like by generating synthetic data but we'll talk about them shortly.
 
-```python
+```
 from imblearn.over_sampling import RandomOverSampler
 
 os = RandomOverSampler()
@@ -309,7 +305,7 @@ print(f'Confusion Matrix:-\n {confusion_matrix(y_test,y_pred)}\n')
 print(classification_report(y_test, y_pred))
 ``` 
 **Output:-**
-```text
+```
 Confusion Matrix:-
  [[71072     7]
  [   17   106]]
@@ -335,7 +331,7 @@ SMOTE, or Synthetic Minority Oversampling TEchnique, is a way through which we o
 
 Take the above picture, which took me 30 mins to make, as an example, we only have 4 red points in the minority sample but if we join those points and add points that lie on the red line to the existing dataset then we can balance the class ratio. This basically how SMOTE works. Simple right! 
 
-```python
+```
 from imblearn.over_sampling import SMOTE
 
 smote = SMOTE()
@@ -350,7 +346,7 @@ print(f'Confusion Matrix:-\n {confusion_matrix(y_test,y_pred)}\n')
 print(classification_report(y_test, y_pred))
 ``` 
 **Output:-**
-```text
+```
 Confusion Matrix:-
  [[71066    13]
  [   14   109]]
@@ -375,28 +371,28 @@ ADASYN, or Adaptive Synthetic, is a way through which we oversample the data by 
 For example in the above image purple point will have more samples generated around it rather than the green arrow one. Let's understand the steps required in ADASYN:-
 
 1. Calculate the no. of points to be generated, denoted by G. Here beta is the balance factor which if kept 1 generates a point to achieve perfect class balance.
-<div className="w-full text-center mb-4">
-    <InlineMath math="G = ( n_M - n_m) * {\beta}" />
-</div>
-where n_M \<- No. of majority class samples and n_m \<- No. of minority class samples
+$$
+G = ( n_M - n_m) * {\beta}
+$$
+where n_M <- No. of majority class samples and n_m <- No. of minority class samples
 
 2. For all i that belong to minority class we find the ratio:-
-<div className="w-full text-center mb-4">
-    <InlineMath math="r_i = Δ_i / K" />
-</div>
+$$
+r_i = Δ_i / K
+$$
 where K is the no. of neighbors and Δ represents the no. of samples belonging to the majority class out of those K neighbors.
 
 3. Convert the above to probability distribution.
-<div className="w-full text-center mb-4">
-    <InlineMath math="\hat{r_i} = r_i / \sum{r_i}" />
-</div>
+$$
+\hat{r_i} = r_i / \sum{r_i}
+$$
 
 4. Calculate the no. of data points to be generated around each minority sample. Then for each minority sample, you generate gᵢ no. of samples. 
-<div className="w-full text-center mb-4">
-    <InlineMath math="g_i = \hat{r_i} * G" />
-</div>
+$$
+g_i = \hat{r_i} * G
+$$
 
-```python
+```
 from imblearn.over_sampling import ADASYN
 
 adasyn = ADASYN()
@@ -411,7 +407,7 @@ print(f'Confusion Matrix:-\n {confusion_matrix(y_test,y_pred)}\n')
 print(classification_report(y_test, y_pred))
 ``` 
 **Output:-**
-```text
+```
 Confusion Matrix:-
  [[71065    14]
  [   14   109]]

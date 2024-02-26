@@ -1,0 +1,104 @@
+baseURL: "https://www.herumbshandilya.com/"
+title: "Journal | Herumb Shandilya"
+theme: PaperMod
+LanguageCode: en-us
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production 
+  title: "Journal | Herumb Shandilya"
+  description: "A blog about technology, programming, and more programming."
+  author: "Herumb Shandilya"
+
+  defaultTheme: auto # dark, light
+  disableThemeToggle: false
+
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: false
+  ShowCodeCopyButtons: false
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+
+  label:
+    text: "Herumb's Journal"
+    icon: /apple-touch-icon.png
+    iconHeight: 35
+
+  # profile-mode
+  profileMode:
+    enabled: false # needs to be explicitly set
+    title: ExampleSite
+    subtitle: "This is subtitle"
+    imageUrl: "<img location>"
+    imageWidth: 120
+    imageHeight: 120
+    imageTitle: my image
+    buttons:
+      - name: Posts
+        url: posts
+      - name: Tags
+        url: tags
+
+  # home-info mode
+  homeInfoParams:
+    Title: "Hello People \U0001F44B"
+    Content: Welcome to my Journal. You probably came here to read some of my articles. I hope you find them useful. If you have any questions, feel free to ping me on Twitter. Not an expert, but I'll try to help you out.
+
+  socialIcons:
+    - name: x
+      url: "https://twitter.com/krypticmouse"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/herumb-shandilya/"
+    - name: github
+      url: "https://github.com/krypticmouse/"
+
+  cover:
+    hidden: true # hide everywhere but not in structured data
+    hiddenInList: true # hide on list pages and home
+    hiddenInSingle: true # hide on single page
+
+  # for search
+  # https://fusejs.io/api/options.html
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+    keys: ["title", "permalink", "summary", "content"]
+
+menu:
+  main:
+    - identifier: posts
+      name: Posts
+      url: /posts/
+      weight: 10
+    - identifier: ir_book
+      name: The Small Book of Information Retrieval
+      url: https://the-ir-book.herumbshandilya.com/
+      weight: 20
+    - identifier: portfolio
+      name: Portfolio
+      url: https://www.herumbshandilya.com/
+      weight: 30
+

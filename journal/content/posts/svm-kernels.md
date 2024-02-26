@@ -1,12 +1,8 @@
 ---
-author: 'Herumb Shandilya'
-title: 'Training SVM over Custom Kernels'
-description: "One thing that always intrigued me about ML is that the more you learn about it the more you realize how little you know. One such case that happened to me a few months ago when a person asked me if I could help him in SVM and me being me I was like sure not a big deal. It was a big deal."
-date: '2021-04-29'
-isPublished: true
+title: "Training SVM over Custom Kernels"
+date: 2021-04-29
+draft: false
 ---
-import 'katex/dist/katex.min.css';
-import { InlineMath } from 'react-katex';
 
 One thing that always intrigued me about ML is that the more you learn about it the more you realize how little you know. One such case that happened to me a few months ago when a person asked me if I could help him in SVM and me being me I was like sure not a big deal. It was a big deal.
 
@@ -18,12 +14,12 @@ Let's go ahead and try to understand a bit about how you can create your own ker
 
 Every ML Pipeline is basically non-existent without data. So let's start by getting our data. I'm a simple man so for the sake of simplicity I'll just make a dataset using the **make_classification** utility in **sklearn.datasets**.
 
-```python
+```
 from sklearn.datasets import make_classification
 
 x,y = make_classification(n_samples = 1000)
 print(x.shape, y.shape)
-``` 
+```
 
 Now that we have the data all sorted out let's go ahead and understand about working and use of kernels in SVM.
 
@@ -44,13 +40,13 @@ So now that we have a bit of an understanding of the use of kernels in SVM let's
 ## My Kernel, My Rules
 Every time you create an SVC() instance it has a kernel associated with it that handles the mapping part, if you don't specify it explicitly then it takes the kernel as RBF with looks like the following:-
 
-<div className="w-full text-center mb-4">
-    <InlineMath math="K(x_i,x_j) = e^{-{\gamma}||x_i-x_j||^2}      ,{\forall}{\gamma} > 0" />
-</div>
+$$
+K(x_i,x_j) = e^{-{\gamma}||x_i-x_j||^2}      ,{\forall}{\gamma} > 0
+$$
 
-<div className="w-full text-center">
-    <InlineMath math="||x_i-x_j||{\space}is{\space}the{\space}euclidean{\space}distance{\space}between{\space}x_i{\space}and{\space}x_j" />
-</div>
+$$
+||x_i-x_j||{\space}is{\space}the{\space}euclidean{\space}distance{\space}between{\space}x_i{\space}and{\space}x_j
+$$
 
 If you don't understand what's written above then it's fine you can forget it. The important thing to understand is how it works it takes 2 points and computes the RBF for them and stores them in their location in a gram matrix. Gram Matrix is what we'll use to define relationships among pairs for the given kernel. Now 2 ways to train SVM over custom kernel is to:-
 
@@ -63,20 +59,20 @@ For the innocent souls who are unaware of Gram Matrix, it is basically how your 
 
 Let's now implement a simple Linear Kernel Function and train our model over it. Linear Kernel looks like the following:-
 
-<div className="w-full text-center">
-    <InlineMath math="K(x_i,x_j) = x_i.x_j" />
-</div>
+$$
+K(x_i,x_j) = x_i \cdot x_j
+$$
 
 Simple right? All you have to do is just perform a dot product between the pairs. Let's create a function to do the same.
 
-```python
+```
 def linear_kernel(x_i, x_j):
     return x_i.dot(x_j.T)
 ``` 
 
 That was simple, wasn't it? Let's go ahead and create 2 classifiers one that uses the linear kernel defined in sklearn and the other that we created and then compare their performance. 
 
-```python
+```
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
 
@@ -88,8 +84,8 @@ clf2 = SVC(kernel = 'linear')
 clf2.fit(x,y)
 print(f'Accuracy on Inbuilt Kernel: {accuracy_score(y, clf2.predict(x))}')
 ``` 
-```text 
 **Output:-**
+``` 
 Accuracy on Custom Kernel: 0.961
 Accuracy on Inbuilt Kernel: 0.961
 ```
@@ -100,7 +96,7 @@ Well, the results are the same. That was pretty awesome, wasn't it? Now let's tr
 You can define your own kernels by either giving the kernel as a function, as we saw in the above example, or by precomputing the Gram matrix. We'll first make a function that makes gram matrix given data and function and then make function to compute RBF.
 
 
-```python
+```
 import numpy as np
 def get_gram(x1, x2, kernel):
     return np.array([[kernel(_x1, _x2) for _x2 in x2] for _x1 in x1])
@@ -116,7 +112,7 @@ Now that we have pre-requisites all set let's train our models and compare. Two 
 Now things are a bit different if you have a testing set. For example, if we have x_train and x_test then gram matrix to pass in fit() is computed between x_train and x_train but for predicting on x_test it is computed between x_test and x_train.
 
 
-```python
+```
 import numpy as np
 from sklearn.model_selection import train_test_split
 
@@ -136,13 +132,14 @@ clf2 = SVC(kernel = 'rbf')
 clf2.fit(x_train,y_train)
 print(f'Accuracy on Inbuilt Kernel: {accuracy_score(y_test, clf2.predict(x_test))}')
 ``` 
-```text
+**Output:-**
+```
 Accuracy on Custom Kernel: 0.912
 Accuracy on Inbuilt Kernel: 0.904
 ``` 
 
 # Code
-```python
+```
 import numpy as np
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
