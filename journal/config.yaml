@@ -1,6 +1,6 @@
 baseURL: "https://www.herumbshandilya.com/"
 title: "Journal | Herumb Shandilya"
-theme: PaperMod
+theme: ["PaperMod"]
 languageCode: "en-us"
 
 enableRobotsTXT: true
