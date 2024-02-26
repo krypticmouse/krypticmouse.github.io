@@ -40,9 +40,6 @@ Please fill the template below
 **Expected behavior**:
 <!-- A clear and concise description of what you expected to happen. -->
 
-**Repo/Source where this issue can be reproduced**:
-<!-- Please link source code of website where the said issue can be reproduced -->
-
 **Screenshots**
 <!-- If applicable, add screenshots to help explain your problem. -->
 

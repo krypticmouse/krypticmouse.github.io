@@ -27,13 +27,17 @@
     font-weight: 700;
 }
 
-.logo a img, .logo a svg {
+.logo a img {
     display: inline;
     vertical-align: middle;
     pointer-events: none;
     transform: translate(0, -10%);
     border-radius: 6px;
     margin-inline-end: 8px;
+}
+
+#theme-toggle svg {
+    height: 18px;
 }
 
 button#theme-toggle {

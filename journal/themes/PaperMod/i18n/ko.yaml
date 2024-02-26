@@ -9,11 +9,6 @@
     one : "1 분"
     other: "{{ .Count }} 분"
 
-- id: words
-  translation:
-    one : "단어"
-    other: "{{ .Count }} 단어"
-
 - id: toc
   translation: "목차"
 
@@ -21,13 +16,10 @@
   translation: "번역"
 
 - id: home
-  translation: "홈"
-
-- id: edit_post
-  translation: "편집"
+  translation: "홈페이지"
 
 - id: code_copy
   translation: "복사"
 
 - id: code_copied
-  translation: "복사 완료!"
+  translation: "복사완료!"

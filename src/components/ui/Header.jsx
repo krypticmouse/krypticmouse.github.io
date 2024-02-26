@@ -32,7 +32,7 @@ function HeaderSimple() {
               <a href="/projects">
                 <Text className="font-bold hover:text-sky-500">Projects</Text>
               </a>
-              <a href="/journal">
+              <a href="https://journal.herumbshandilya.com">
                 <Text className="font-bold hover:text-sky-500">Journal</Text>
               </a>
           </Group>

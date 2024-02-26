@@ -1,18 +1,13 @@
 - id: prev_page
-  translation: "Prev"
+  translation: "Prev Page"
 
 - id: next_page
-  translation: "Next"
+  translation: "Next Page"
 
 - id: read_time
   translation:
     one : "1 min"
     other: "{{ .Count }} min"
-
-- id: words
-  translation:
-    one : "word"
-    other: "{{ .Count }} words"
 
 - id: toc
   translation: "Table of Contents"
@@ -22,9 +17,6 @@
 
 - id: home
   translation: "Home"
-
-- id: edit_post
-  translation: "Edit"
 
 - id: code_copy
   translation: "copy"

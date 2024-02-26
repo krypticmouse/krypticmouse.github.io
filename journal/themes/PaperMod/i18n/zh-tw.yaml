@@ -1,18 +1,13 @@
 - id: prev_page
-  translation: "上一頁"
+  translation: "上一篇"
 
 - id: next_page
-  translation: "下一頁"
+  translation: "下一篇"
 
 - id: read_time
   translation:
     one : "1 分鐘"
     other: "{{ .Count }} 分鐘"
-
-- id: words
-  translation:
-    one: "字"
-    other: "{{ .Count }} 字"
 
 - id: toc
   translation: "目錄"
@@ -22,9 +17,6 @@
 
 - id: home
   translation: "首頁"
-
-- id: edit_post
-  translation: "編輯"
 
 - id: code_copy
   translation: "複製"

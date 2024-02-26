@@ -1,21 +1,16 @@
 - id: prev_page
-  translation: "Page précédente"
+  translation: "Page Précédente"
 
 - id: next_page
-  translation: "Page suivante"
+  translation: "Page Suivante"
 
 - id: read_time
   translation:
     one : "1 min"
     other: "{{ .Count }} min"
 
-- id: words
-  translation:
-    one : "mot"
-    other: "{{ .Count }} mots"
-
 - id: toc
-  translation: "Table des matières"
+  translation: "Table des Matières"
 
 - id: translations
   translation: "Traductions"
@@ -27,7 +22,7 @@
   translation: "Modifier"
 
 - id: code_copy
-  translation: "Copier"
+  translation: "copier"
 
 - id: code_copied
-  translation: "Copié !"
+  translation: "copié!"
