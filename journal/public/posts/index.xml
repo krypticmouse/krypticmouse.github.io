@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Journal | Herumb Shandilya</title>
-    <link>https://www.herumbshandilya.com/</link>
-    <description>Recent content on Journal | Herumb Shandilya</description>
+    <title>Posts on Journal | Herumb Shandilya</title>
+    <link>https://www.herumbshandilya.com/posts/</link>
+    <description>Recent content in Posts on Journal | Herumb Shandilya</description>
     <generator>Hugo -- gohugo.io</generator>
     
     <lastBuildDate>Mon, 26 Feb 2024 23:54:26 +0530</lastBuildDate>
-    <atom:link href="https://www.herumbshandilya.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.herumbshandilya.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Writing a Compiler in Rust #1: Lexical Analysis</title>
       <link>https://www.herumbshandilya.com/posts/rust-compiler-1/</link>
