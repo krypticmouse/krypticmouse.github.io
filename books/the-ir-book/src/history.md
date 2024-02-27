@@ -36,7 +36,7 @@ But the issue is we suffer from loss of parts of memory so unethical and high la
 
 ## Pre Computer Retrievers
 
-The earliest records of large-scale non-human retrieval go back to Libraries or more specifically the invention of the Dewey Decimal System. In 1976, a librarian named Melvil Dewey invented this system of organizing books in the library. Why was this such a big deal?
+The earliest records of large-scale non-human retrieval go back to Libraries or more specifically the invention of the Dewey Decimal System. In 1876, a librarian named Melvil Dewey invented this system of organizing books in the library. Why was this such a big deal?
 
 You see during those days books were arranged either alphabetically or by height in a haphazard manner, making it difficult for people to find specific books. The Dewey categorizes books based on subject, then subdivides these categories into divisions based on more specific topics, and assigns a unique numerical code called **call number** to each book.
 
