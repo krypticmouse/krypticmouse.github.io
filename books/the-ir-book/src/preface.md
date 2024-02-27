@@ -11,6 +11,6 @@ I won't say it's hard but it's annoying for sure. Anyways, it seems like ColBERT
   <img src="./images/smug.png" alt="Smug" width="300px">
 </p>
 
-I've never written a book before so I thought why not do it now! Main Idea is it introduce ColBERT to anyone who wants to or has been working in the field of Information Retrieval. But what is IR anyway? We'll learn about that along with it's rich history too! But wait what is ColBERT anyway?
+I've never written a book before so I thought why not do it now! Main Idea is to introduce ColBERT to anyone who wants to or has been working in the field of Information Retrieval. But what is IR anyway? We'll learn about that along with it's rich history too! But wait what is ColBERT anyway?
 
 Unlike the usual Bi-Encoders and Cross Encoders we know, ColBERT introduces a new mechanism that brings the best of both worlds. Oh but wait, what is a Bi-Encoder? Heck, what is an Encoder here anyway? Wait what even is this domain? Well boy, you gotta buckle up cuz this one's gonna be good.

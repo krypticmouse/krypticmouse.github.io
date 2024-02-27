@@ -101,7 +101,7 @@ When World Wide Web came that's when things got even better with the introductio
     
 Later on, search engines started becoming a part of the products themselves! Now companies like Amazon, Twitter, etc. started including the search for product/information discovery via search queries. However, these semantic search capabilities became accessible and better with the arrival of ML/DL into IR.
 
-Alomg the same timeline, there was another algorithm that was introduced as an improvement to TF-IDF, i.e. Okapi BM25 which is very frequently used even today. It was introduced by Robertson and his team in 1994, BM25 was designed to address the limitations of TF-IDF, which tends to over-emphasize the importance of terms that appear frequently in a document. BM25 introduces a non-linear term frequency saturation function, which reduces the impact of term frequency on relevance as it increases.
+Along the same timeline, there was another algorithm that was introduced as an improvement to TF-IDF, i.e. Okapi BM25 which is very frequently used even today. It was introduced by Robertson and his team in 1994, BM25 was designed to address the limitations of TF-IDF, which tends to over-emphasize the importance of terms that appear frequently in a document. BM25 introduces a non-linear term frequency saturation function, which reduces the impact of term frequency on relevance as it increases.
 
 \\[ \text{BM25}(q, d) = \sum_{i=1}^{n} \text{IDF}(q_i) \times \frac{f(q_i, d) \times (k_1 + 1)}{f(q_i, d) + k_1 \times (1 - b + b \times \frac{|d|}{\text{avgdl}})} \\]
 
