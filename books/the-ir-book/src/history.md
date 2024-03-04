@@ -1,6 +1,12 @@
 # A Brief History of Information Retrieval
 
-> You have to know the past to understand the present.
+***
+
+<!-- toc -->
+
+***
+
+> *You have to know the past to understand the present.*
 >
 > **― Carl Sagan**
 

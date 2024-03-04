@@ -10,3 +10,7 @@ description = "Diving into Information Retrieval and ColBERT"
 mathjax-support = true
 default-theme = "light"
 preferred-dark-theme = "light"
+
+[preprocessor.toc]
+command = "mdbook-toc"
+renderer = ["html"]
