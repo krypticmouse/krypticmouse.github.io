@@ -1,6 +1,6 @@
 ---
 title: "Writing a Compiler in Rust #1: Lexical Analysis"
-date: 2024-02-26T23:54:26+05:30
+date: 2024-02-26
 draft: false
 ---
 
