@@ -9,12 +9,27 @@ function WorkExperience() {
 			</Title>
 			<SimpleGrid cols={1} spacing="xs">
 				<Divider />
+					<div className='py-10'>
+						<Group>
+							<Image src='/work/FRL.jpg' maw={88} className='mr-8' alt=''/>
+							<Stack spacing={0}>
+								<Title className='text-sky-800 text-2xl title-font font-medium'>Researcher <span className='font-extrabold hover:text-sky-500'><a href='https://www.educative.io/' target='_blank'>Fundamental Research Lab</a></span></Title>
+								<Text className='text-sky-600 mb-4 text-xl'>July, 2025 - September, 2025</Text>
+								<List listStyleType='disc' className='text-sky-800 text-lg'>
+									<List.Item>Worked on building training and evaluation pipelines for post-training LLMs for Tool Use.</List.Item>
+									<List.Item>Building an general agentic evaluation framework over hosted environments. Added support for 15+ environments.</List.Item>
+									<List.Item>Help setting up distributed infrastructure for cluster training.</List.Item>
+								</List>
+							</Stack>
+						</Group>
+					</div>
+				<Divider />
 				<div className='py-10'>
 					<Group>
 						<Image src='/work/researchrabbit.jpeg' maw={88} className='mr-8' alt=''/>
 						<Stack spacing={0}>
 							<Title className='text-sky-800 text-2xl title-font font-medium'>NLP Engineer <span className='font-extrabold hover:text-sky-500'><a href='https://www.educative.io/' target='_blank'>SixDegrees AI(Venture by Research Rabbit)</a></span></Title>
-							<Text className='text-sky-600 mb-4 text-xl'>April, 2023 - Present</Text>
+							<Text className='text-sky-600 mb-4 text-xl'>April, 2023 - September, 2024</Text>
 							<List listStyleType='disc' className='text-sky-800 text-lg'>
 								<List.Item>Work on training LLMs, deploying them and using them to power SixAI pipepline.</List.Item>
 								<List.Item>Keep up with the latest research in LLMs and use them to improve the product performance.</List.Item>

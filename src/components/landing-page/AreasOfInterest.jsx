@@ -21,27 +21,27 @@ import {
 
 const mockdata = [
 	{
-		title: 'Computer Vision',
+		title: 'ML Systems',
 		description:
-			"A bit closer to my heart being the first domain I explored. I explored this before I dived deep into ML so I've worked on traditional algorithms as well. Recently Diffusion Models are starting to capture my interest again.",
+			"Systems became an area of major interest for me this year. I've worked on project in Rust, CUDA and Triton to name a few. I'm currently working building DSRs which is a Rust port of DSPy and building SparkPuppies which is a collection of performance optimal kernels for Sparse Matrix Operations.",
 		icon: IconEye,
 	},
 	{
-		title: 'Natural Language Processing',
+		title: 'LLM Post-Training',
 		description:
-			"I Love NLP, everything about it is amazing. NLP has been my core area of interest for a while. I've done variety of projects on it, given talks on it. I love it. Currently, I'm looking into optimization of LLMs and their working.",
+			"The fun is after pretraining ends! In my current and past works, I've worked on post-training techniques and building infrastructure for various downstream tasks like Tool Use, etc. I'm currently working on finding techniques to improve output format adaptation in LLMs.",
 		icon: IconLanguage,
 	},
 	{
 		title: 'Information Retrieval',
 		description:
-			"Information Retrieval is something I've been working on for a while now. I've seen the power of it and how it can be used to solve real world problems. I've worked on traditional IR models and also on modern ones. I love it!",
+			"Information Retrieval is something I've been working on for a while now. I've seen the power of it and how it can be used to solve real world problems. I've worked on traditional IR models and also on modern ones. I've researched deeply on training retrieval models for LLM routing. I love it!",
 		icon: IconSearch,
 	},
 	{
-		title: 'Model Deployment',
+		title: 'Performance Optimization',
 		description:
-			"I loving deploying models on anything in my sight. I've deployed stuff on Edge devices, Web, GUI, and deployed models as API. Being experimenting on model optimizations to improve latency betchmarks on given infrastructure.",
+			"Performance is as important as model itself. The limitations of research should be around the ideas and not the infrastructure. Building fast and efficient research infrastructure is something I'm passionate about and have been doing in labs for the past few years.", 
 		icon: IconDeviceDesktop,
 	},
 	{
@@ -53,7 +53,7 @@ const mockdata = [
 	{
 		title: 'Reinforcement Learning',
 		description:
-			"Reinforcement Learning was my gateway to ML, so it has always been something I wanted to try. After reading AlphaTensor I got more fascinated with it, currently learning it from a great course by HuggingFace!",
+			"Reinforcement Learning was my gateway to ML, so it has always been something I wanted to try. After reading AlphaTensor I got more fascinated with it. Currently, I'm working with RL for LLM post-training team at Stanford.",
 		icon: IconRobot,
 	},
 ];

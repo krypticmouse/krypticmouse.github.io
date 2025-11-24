@@ -162,11 +162,11 @@ function Hero() {
       )}
 			
 			<Stack align="center" className='mt-20' spacing={54}>
-				<Text className='dm title-font text-5xl md:text-6xl font-extrabold text-sky-800'>ML Engineer, NLP Researcher & IoT Fan Boy</Text>
+				<Text className='dm title-font text-5xl md:text-6xl font-extrabold text-sky-800'>ML Engineer, NLP Researcher & GPU Whisperer</Text>
 				<Image src='/dp.jpg' maw={240} radius='100%' alt=''/>
 				<Stack align="center" spacing={2}>
-					<Text className='dm title-font text-4xl md:text-5xl font-medium text-sky-700'>Neat Freak Coder with an obsession for one-liners</Text>
-					<Text className='dm title-font text-3xl md:text-4xl font-regular text-sky-600'>P.S. I stalk PyTorch in my free time</Text>
+					<Text className='dm title-font text-4xl md:text-5xl font-medium text-sky-700'>Neat Freak Coder obsessed with Systems</Text>
+					<Text className='dm title-font text-3xl md:text-4xl font-regular text-sky-600'>Working on Rust and CUDA these days</Text>
 				</Stack>
 				<Image src='/Background.png' maw={640} alt=''/>
 			</Stack>

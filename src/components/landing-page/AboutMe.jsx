@@ -8,17 +8,15 @@ function AboutMe() {
           Hi, I’m Herumb. Thanks for dropping by.
         </Text>
         <Text className="font-regular text-lg md:text-xl text-white">
-          I'm currently working as an{' '}
-          <strong>NLP Engineer at Research Rabbit & Six Degrees AI</strong> where most of my task is
-          currently revolving around training LLMs, deploying them and using them to power SixAI pipepline. 
-          I'm a blog writer and researcher as well and am currently working on projects like ColBERT and DSPy
-          at Stanford with Omar Khattab.
+          I'm currently working as a{' '}
+          <strong>Research Assistant at CRFM (Centre for Research in Foundation Models) Lab at Stanford University</strong> where most of my task is
+          currently revolving around building infrastructure for evaluating and post-training LLMs. 
+          I'm working in other labs including Hazy Research and Scaling Intelligence Lab with Jon Saad Falcon on various projects ranging from multi model inference, LLM routing, Agent Evaluations, etc.
           <br />
           <br />
-          In my free time, write posts on Twitter or
-          LinkedIn trying to introduce topics less known to beginners. Solving
-          doubts and teaching people is something I love a lot so if you have
-          any questions feel free to DM, I'll try my very best to help you!
+          In my free time, I (try to) write posts on Twitter or
+          LinkedIn trying to introduce topics less known to beginners. Teaching people is something I love a lot so if you have
+          any questions feel free to DM, I'll try my very best to help you out!
           <br />
           <br />
           I hate sports but I love sports anime and I love beatboxing as well.{' '}

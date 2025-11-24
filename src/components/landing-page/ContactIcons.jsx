@@ -61,8 +61,8 @@ function ContactIcon({
 }
 
 const MOCKDATA = [
-  { title: 'Email', description: 'herumbshandilya123@gmail.com', icon: IconAt },
-  { title: 'Discord', description: 'krypticmouse#5719', icon: IconBrandDiscord },
+  { title: 'Email', description: 'herumb@stanford.edu', icon: IconAt },
+  { title: 'Discord', description: 'krypticmouse', icon: IconBrandDiscord },
   { title: 'Preferred Mode', description: 'Twitter DM', icon: IconBrandTwitterFilled }
 ];
 
