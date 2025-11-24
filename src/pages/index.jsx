@@ -5,8 +5,10 @@ import Hero from '@/components/landing-page/Hero'
 import AboutMe from '@/components/landing-page/AboutMe'
 import AreasOfInterest from '@/components/landing-page/AreasOfInterest'
 import Stats from '@/components/landing-page/Stats'
+import Cohorts from '@/components/landing-page/Cohorts'
+import ResearchExperience from '@/components/landing-page/ResearchExperience'
 import WorkExperience from '@/components/landing-page/WorkExperience'
-import Testimonials from '@/components/landing-page/Testimonial'
+import Publications from '@/components/landing-page/Publications'
 import ContactMe from '@/components/landing-page/ContactMe'
 
 export default function Home() {
@@ -24,8 +26,10 @@ export default function Home() {
         <AboutMe />
         <AreasOfInterest />
         <Stats />
+        <ResearchExperience />
+        <Cohorts />
         <WorkExperience />
-        <Testimonials />
+        <Publications />
         <ContactMe />
         <Footer />
       </main>

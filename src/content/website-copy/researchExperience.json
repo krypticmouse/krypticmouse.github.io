@@ -1,0 +1,67 @@
+[
+   {
+      "institution": "Stanford University",
+      "displayName": "Stanford University",
+      "institutionUrl": "https://www.stanford.edu/",
+      "image": "/work/stanford.jpeg",
+      "imageRadius": 0,
+      "employmentType": "Part-time",
+      "totalDuration": "2 yrs 7 mos",
+      "roles": [
+         {
+            "position": "Research Assistant",
+            "period": "Sep 2025 - Present",
+            "duration": "3 mos",
+            "projects": [
+               {
+                  "lab": "CRFM",
+                  "advisors": ["David Hall", "Percy Liang"],
+                  "description": "Working on The Marin Project's RL Infrastructure and Output Format Adaptation"
+               }
+            ]
+         },
+         {
+            "position": "Research Collaborator",
+            "period": "May 2023 - Present",
+            "duration": "2 yrs 7 mos",
+            "projects": [
+               {
+                  "lab": "Future Data Systems Lab",
+                  "advisors": ["Omar Khattab", "Chris Potts"],
+                  "description": "Working on DSPy and ColBERT"
+               },
+               {
+                  "lab": "Hazy Research Lab",
+                  "advisors": ["Jon Saad Falcon", "Azalia Mirhoseini"],
+                  "description": "Working on Inference Systems"
+               }
+            ]
+         },
+         {
+            "position": "Research Assistant",
+            "period": "Sep 2024 - Jun 2025",
+            "duration": "10 mos",
+            "projects": [
+               {
+                  "lab": "CRFM",
+                  "advisors": ["David Hall", "Percy Liang"],
+                  "description": "Worked on The Marin Project for Open LLM Training and Research"
+               }
+            ]
+         },
+         {
+            "position": "Research Assistant",
+            "period": "Jun 2024 - Sep 2024",
+            "duration": "4 mos",
+            "projects": [
+               {
+                  "lab": "SNAP Labs",
+                  "advisors": ["Shirley Wu", "Jure Leskovec"],
+                  "description": "Worked on LLM Chain optimization"
+               }
+            ]
+         }
+      ]
+   }
+]
+

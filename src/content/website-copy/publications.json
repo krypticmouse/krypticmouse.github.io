@@ -1,0 +1,83 @@
+[
+   {
+      "title": "Aya dataset: An open-access collection for multilingual instruction tuning",
+      "authors": ["S Singh", "F Vargus", "D D'souza", "BF Karlsson", "A Mahendiran", "WY Ko", "H Shandilya", "..."],
+      "venue": "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics",
+      "year": "2024",
+      "lab": "Cohere Labs",
+      "citations": 162,
+      "links": {
+         "arxiv": "https://arxiv.org/abs/2402.06619"
+      }
+   },
+   {
+      "title": "Gepa: Reflective prompt evolution can outperform reinforcement learning",
+      "authors": [
+         "Lakshya A Agrawal",
+         "Shangyin Tan",
+         "Dilara Soylu",
+         "Noah Ziems",
+         "Rishi Khare",
+         "Krista Opsahl-Ong",
+         "Arnav Singhvi",
+         "Herumb Shandilya",
+         "Michael J Ryan",
+         "Meng Jiang",
+         "Christopher Potts",
+         "Koushik Sen",
+         "Alexandros G. Dimakis",
+         "Ion Stoica",
+         "Dan Klein",
+         "Matei Zaharia",
+         "Omar Khattab"
+      ],
+      "venue": "arXiv preprint arXiv:2507.19457",
+      "year": "2025",
+      "lab": "Future Data Systems Lab",
+      "citations": 35,
+      "links": {
+         "arxiv": "https://arxiv.org/abs/2507.19457"
+      }
+   },
+   {
+      "title": "Adapting to the low-resource double-bind: investigating low-compute methods on low-resource African languages",
+      "authors": ["C Leong", "H Shandilya", "BFP Dossou", "AL Tonja", "J Mathew", "AH Omotayo", "..."],
+      "venue": "arXiv preprint arXiv:2303.16985",
+      "year": "2023",
+      "lab": "Masakhane NLP",
+      "citations": 8,
+      "links": {
+         "arxiv": "https://arxiv.org/abs/2303.16985"
+      }
+   },
+   {
+      "title": "Optimas: Optimizing compound ai systems with globally aligned local rewards",
+      "authors": ["S Wu", "P Sarthi", "S Zhao", "A Lee", "H Shandilya", "AM Grobelnik", "N Choudhary", "..."],
+      "venue": "arXiv preprint arXiv:2507.03041",
+      "year": "2025",
+      "lab": "SNAP Labs",
+      "citations": 5,
+      "links": {
+         "arxiv": "https://arxiv.org/abs/2507.03041"
+      }
+   },
+   {
+      "title": "Perceiving the level of depression from web text",
+      "authors": ["SS Bisht", "H Shandilya", "V Gupta", "S Agrawal", "S Jain"],
+      "venue": "Artificial Intelligence, Machine Learning, and Mental Health in Pandemics",
+      "year": "2022",
+      "citations": 2,
+      "links": {}
+   },
+   {
+      "title": "Intelligence per Watt: Measuring Intelligence Efficiency of Local AI",
+      "authors": ["J Saad-Falcon", "A Narayan", "HO Akengin", "J Griffin", "H Shandilya", "..."],
+      "venue": "arXiv preprint arXiv:2511.07885",
+      "year": "2025",
+      "lab": "Hazy Research Lab",
+      "citations": 0,
+      "links": {
+         "arxiv": "https://arxiv.org/abs/2511.07885"
+      }
+   }
+]

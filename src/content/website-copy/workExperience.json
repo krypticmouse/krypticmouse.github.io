@@ -1,0 +1,133 @@
+[
+   {
+      "company": "Fundamental Research Lab",
+      "displayName": "@Fundamental Research Lab",
+      "companyUrl": "http://fundamentalresearchlabs.com/",
+      "position": "Researcher",
+      "period": "July, 2025 - September, 2025",
+      "image": "/work/FRL.jpg",
+      "responsibilities": [
+         "Worked on building training and evaluation pipelines for post-training LLMs for Tool Use.",
+         "Building an general agentic evaluation framework over hosted environments. Added support for 15+ environments.",
+         "Help setting up distributed infrastructure for cluster training."
+      ]
+   },
+   {
+      "company": "SixDegrees AI(Venture by Research Rabbit)",
+      "displayName": "@SixDegrees AI",
+      "companyUrl": "https://sixhq.ai",
+      "position": "NLP Engineer",
+      "period": "April, 2023 - September, 2024",
+      "image": "/work/researchrabbit.jpeg",
+      "responsibilities": [
+         "Work on training LLMs, deploying them and using them to power SixAI pipepline.",
+         "Keep up with the latest research in LLMs and use them to improve the product performance.",
+         "Coming up with new ideas and product logic to improve the product performance."
+      ]
+   },
+   {
+      "company": "Simplified",
+      "displayName": "@Simplified",
+      "companyUrl": "https://www.simplified.com/",
+      "position": "Machine Learning Engineer",
+      "period": "June, 2022 - April, 2023",
+      "image": "/work/simplified.png",
+      "responsibilities": [
+         "Simplified is an AI-powered content creation platform for creators backed by tier 1 investors.",
+         "Research, implement and improve generative models to incorporate into the product.",
+         "Train and deploy models for image editing models for the Design Platform.",
+         "Setting up infrastructure and deployment strategies to deploy and scale models."
+      ],
+      "additionalRoles": [
+         {
+            "position": "Data Science Intern",
+            "period": "January, 2022 - June, 2022",
+            "responsibilities": [
+               "Creating and Optimizing GPT-3 prompts and finding new usecases for the same.",
+               "Train and deploy models for image editing models for the Design Platform.",
+               "Working with SEO team for trend analysis and data scraping for landing pages creation."
+            ]
+         }
+      ]
+   },
+   {
+      "company": "CrowdANALYTIX",
+      "displayName": "@CrowdANALYTIX",
+      "companyUrl": "https://www.crowdanalytix.com/",
+      "position": "Data Science Intern",
+      "period": "July, 2021 - January, 2022",
+      "image": "/work/crowdanalytix.png",
+      "responsibilities": [
+         "Researching and fine-tuning models for given task.",
+         "Supporting model deployment team in model code analysis and optimizations for DeployX.",
+         "Part of Platform Data Team.",
+         "Experimentation with deep learning models & architecture for DeployX.",
+         "Any other assignment communicated by team lead over email as needed."
+      ]
+   },
+   {
+      "company": "CAIR, DRDO",
+      "displayName": "@CAIR, DRDO",
+      "companyUrl": "https://www.drdo.gov.in/labs-and-establishments/centre-artificial-intelligence-robotics-cair",
+      "position": "NLP Research Intern",
+      "period": "April, 2021 - August, 2021",
+      "image": "/work/drdo.png",
+      "responsibilities": [
+         "Building and Training Language Models for the provided task.",
+         "Deploying model as an API via Django and a GUI interface to interact.",
+         "Tasks belonged to Audio and NLP Domain.",
+         "Task information confidential."
+      ]
+   },
+   {
+      "company": "Omdena",
+      "displayName": "@Omdena",
+      "companyUrl": "https://omdena.com/",
+      "position": "Jr. ML Engineer",
+      "period": "March, 2021 - May, 2021",
+      "image": "/work/omdena.png",
+      "responsibilities": [
+         "Building Sustainable Livestock Farming Computer Vision Models on Edge Device.",
+         "Implemented and Experimented chicken detector based on YOLO, Mask-RCNN, etc.",
+         "Also Implemented object tracking of the movement of each chicken frame by frame.",
+         "The model runs on the hardware Raspberry Pi 4 with a Google Coral Edge-TPU."
+      ]
+   },
+   {
+      "company": "GeeksforGeeks",
+      "displayName": "@GeeksforGeeks",
+      "companyUrl": "https://auth.geeksforgeeks.org/user/herumbshandilya/articles",
+      "position": "Technical Content Intern",
+      "period": "Dec, 2020 - July, 2021",
+      "image": "/work/gfg.png",
+      "imageRadius": 100,
+      "responsibilities": [
+         "Writing articles related to Machine Learning explaining the process.",
+         "Writing code related to the topic on which the blog was written.",
+         "Topics Included: PyTorch Lightning, Model Evaluation, Deep Learning, R Lang, etc."
+      ]
+   },
+   {
+      "company": "Coding Ninjas",
+      "displayName": "@Coding Ninjas",
+      "companyUrl": "https://www.codingninjas.com/",
+      "position": "Data Science and Machine Learning Teaching Assistant",
+      "period": "May, 2020 - September, 2020",
+      "image": "/work/cn.jpeg",
+      "responsibilities": [
+         "Mentored a group of students in their course Data Science and Machine Learning.",
+         "Evaluated and improved the projects developed by students as a part of the course."
+      ],
+      "additionalRoles": [
+         {
+            "position": "Data Science Intern",
+            "period": "December, 2019 - April, 2020",
+            "responsibilities": [
+               "Mentored a group of students in their course Data Structure and Algorithm using C++.",
+               "Served as an influential contributor to projects developed by the students."
+            ]
+         }
+      ]
+   }
+]
+

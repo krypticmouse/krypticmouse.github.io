@@ -1,5 +1,68 @@
 [
    {
+      "title": "SparkPuppies: Collection of Sparse Kernel Designs",
+      "desc": "A collection of sparse kernel designs. SparkPuppies provides foundational building blocks and utilities for working with sparse kernels in machine learning and computational applications, enabling efficient sparse kernel operations and optimizations.",
+      "tags": [
+         "KERNELS",
+         "SPARSE",
+         "LIBRARY",
+         "ML"
+      ],
+      "stack": "CUDA"
+   },
+   {
+      "title": "DSRs: A rewrite of DSPy with Rust in mind",
+      "desc": "DSRs is a Rust rewrite of DSPy that preserves its high-level abstractions while giving us native async and zero-cost safety. Built a rust crate that can work with multiple LLM providers and use a block-like mechanism for building LLM pipelines.",
+      "tags": [
+         "RUST",
+         "NLP",
+         "LIBRARY"
+      ],
+      "stack": "Rust, Tokio, Async"
+   },
+   {
+      "title": "DSPy: Programming—not prompting—Language Models [Core Maintainer]",
+      "desc": "Built support for native Data Loading [DataLoaders], Synthetic Data Generation [Synthesizer], Agent Optimization [Avatar]. Adding multithreading and multiprocessing support to allow batched requests in DSPy. Building dev friendly docs.",
+      "tags": [
+         "NLP",
+         "LIBRARY",
+         "OPTIMIZATION"
+      ],
+      "stack": "Python, PyTorch, Multiprocessing"
+   },
+   {
+      "title": "Scaling Hyperbolic Embeddings for Dendocentric Learning",
+      "desc": "Working on training, ablations, and quantization of Hyperbolic BiEncoders to enable fast retrieval through nano-dendrites. Created complete infrastructure for end-to-end training and evaluation of hyperbolic retrievers through projection methods and Reimann optimization.",
+      "tags": [
+         "IR",
+         "EMBEDDINGS",
+         "ML"
+      ],
+      "stack": "PyTorch, Hyperbolic Geometry"
+   },
+   {
+      "title": "Pirate: Distributed Training and Evaluation Framework for Retrievers",
+      "desc": "Built a library to enable efficient and up-to-date triple mining techniques, training and evaluation framework to remove any bottleneck arising from library usage in IR research. Implemented various methods for triple mining pretraining and training of retriever models.",
+      "tags": [
+         "IR",
+         "FRAMEWORK",
+         "ML"
+      ],
+      "stack": "Python, PyTorch, Distributed Training"
+   },
+   {
+      "title": "RingSAGE: Improving Graph-Level Tasks with Virtual Nodes for Molecular Rings",
+      "desc": "A novel Graph Machine Learning algorithm that introduces virtual nodes to explicitly represent molecular rings during the message-passing stage of Graph Neural Networks (GNNs). This approach addresses the limitation of traditional GNNs in uniformly treating molecular graphs, thereby missing unique ring properties crucial for determining molecular characteristics like hydrophobicity, solubility, and bioavailability. The model outperformed standard GNNs on the ZINC dataset for molecular drug solubility prediction.",
+      "tags": [
+         "GRAPH ML",
+         "GNN",
+         "MOLECULAR GRAPHS",
+         "DEEP LEARNING",
+         "RESEARCH"
+      ],
+      "stack": "PyTorch, Graph Neural Networks, Cycle Detection"
+   },
+   {
       "title":"Sift.ai - Personalized and Automated Resume Screening Tool",
       "desc":"Sift AI is a powerful, easy-to-use tool designed to simplify the hiring process for businesses. When companies have too many job applications to look at, Sift AI steps in to help. It quickly goes through all the resumes and picks out the best candidates for the job. This means HR teams and company founders can save a lot of time because they only need to focus on interviewing the most promising applicants.",
       "tags":[
