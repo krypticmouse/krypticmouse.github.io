@@ -1,6 +1,6 @@
 baseURL: "https://journal.herumbshandilya.com"
 title: "Journal | Herumb Shandilya"
-theme: ["PaperMod"]
+theme: ["hugo-admonitions","PaperMod"]
 languageCode: "en-us"
 
 enableRobotsTXT: true
@@ -13,6 +13,7 @@ minify:
   minifyOutput: true
 
 params:
+  math: true
   env: production 
   title: "Journal | Herumb Shandilya"
   description: "A blog about technology, programming, and more programming."
