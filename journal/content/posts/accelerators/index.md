@@ -1,7 +1,7 @@
 ---
 title: "Parallelism in CPUs: "
 date: 2025-01-03
-draft: false
+draft: true
 ShowToc: true
 ---
 
