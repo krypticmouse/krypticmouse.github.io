@@ -416,7 +416,6 @@ In such situations where scaling execution components is more beneficial than sp
 
 ## Multi Processing
 
-<<<<<<< HEAD:journal/content/posts/cpu-parallelism/index.md
 When we do multithreading on a single core, the process for executing program is spawned and multiple threading inside that process are spawned to do certain task. Now our CPU until now can only handle two threads at a time but there is no software limit since context switching handles these multi thread execution for us. We understand threads and what they do but what is a process?
 
 You'll find people saying *"a program in execution is a process"*. But what does it mean? We know during the execution the program is loaded into memory and then executed in CPU potentially involving ILP, context switching etc. These executions need resources like ALU for computing, registers and memory for data related instructions, etc. When you execute the program, the OS will allocate these resources to the running program, and this allocation of resources bundled with the execution is what we call a **process**.
@@ -500,6 +499,3 @@ SIMD, ILP, multithreading, multiprocessing, GPUs, whatever are just tools and li
 ### Syncronization Mishaps
 
 ## From Me to You
-=======
-## The Modern CPU
->>>>>>> f714a58c3792604dfb0120887f58f7b449e62fff:journal/content/posts/accelerators/index.md
