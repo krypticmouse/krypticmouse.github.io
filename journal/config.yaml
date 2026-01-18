@@ -92,12 +92,8 @@ menu:
       name: Posts
       url: /posts/
       weight: 10
-    - identifier: ir_book
-      name: The Small Book of Information Retrieval
-      url: https://the-ir-book.herumbshandilya.com/
-      weight: 20
     - identifier: portfolio
       name: Portfolio
       url: https://www.herumbshandilya.com/
-      weight: 30
+      weight: 20
 

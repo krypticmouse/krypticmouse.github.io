@@ -1,7 +1,7 @@
 ---
-title: "Parallelism in CPUs: "
-date: 2025-01-03
-draft: false
+title: "Making CPUs Go Brrr: A Hardware Perspective to Parallel Computing"
+date: 2025-01-21
+draft: true
 ShowToc: true
 ---
 
@@ -299,12 +299,203 @@ For now let's briefly skim what this program is doing, SIMD Programming can be a
 * **Without SIMD:** 8 iterations, 8 separate add instructions
 * **With SIMD (256-bit):** 1 iteration, 1 vectorized add instruction operating on 8 values
 
-Of course is not all perfect, you can't using conditional without getting a performance hit due to Divergent Execution, lanes are limited, etc. So at this point we need to face the truth folks...Single Thread Free Lunch is done for. Good news is we got used to a new era of **Parallel Computing on Multi Core Processor**.
+Of course is not all perfect, you can't using conditional without getting a performance hit due to Divergent Execution, lanes are limited, etc. 
 
-On hardware end, we scaled the number of threads a core can run and number of cores that are there. Software developers would also need to write concurrent programs that can utilize multiple cores effectively. This is where multi-threading, parallel algorithms, and concurrent programming models become essential. We'll 
+>[!IDEA] Divergent Execution
+>
+
+So at this point we need to face the truth folks...Single Thread Free Lunch is done for. Good news is we got used to a new era of **Parallel Computing on Multi Core Processor**.
+
+On hardware end, we scaled the number of threads a core can run and number of cores that are there. Software developers would also need to write concurrent programs that can utilize multiple cores effectively. This is where multi-threading, parallel algorithms, and concurrent programming models become essential.
 
 ## Multi Threading
+When you start executing a program it becomes a **process**, elaborating more it basically means that when you execute that program binary the OS will load the instruction to main memory as we stated before and line by line executes that program. Now this program in execution works with registers and ALUs and Caches and what not. Basically it need resources to work, when a process is created it is allocated resources it can use to execute.
+
+Now when the execution is actually happening, the process needs a way to keep track of where it is in the program and what it's doing. This is where threads come in. A thread is the smallest unit of execution within a process. When a process is created, it starts with at least one thread (called the main thread) that runs through the program's instructions. So when you execute this program:
+
+```c
+#include <stdio.h>
+
+int main() {
+	int a[] = {1,2,3,4,5,6};
+	int b[] = {1,2,3,4,5,6};
+
+	int arr_size = sizeof(a) / sizeof(int);
+	int c[arr_size];
+    int d[arr_size]
+
+	for(int i = 0; i < arr_size; i++)
+		c[i] = a[i] + b[i];
+
+    // Yes I know this is dumb
+	for(int i = 0; i < arr_size; i++)
+		c[i] = a[i] * b[i];
+
+	return 0;
+}
+```
+
+The OS will spawn one program with one thread to execute this. But what does it mean to execute something on same thread? Each program needs to keep track of three things during execution:
+
+* Program Counter that.... This is usually stored in `rip` register.
+* Program Stack that holds the information about variables, methods, etc. This is usually stored in register `rsp` register.
+* Registers to work on...
+
+Oki! So basically executing on same thread means working on same register or more specifically same state of registers. When a program is being executed on a thread the state and storage of the register keeps changing, this "state of registers" is called **execution context**. So unless your hardware can support existence of multiple *execution context* on it you can't truely do multithreading. Despite that, it is possible to multiple *software* threads each doing a different task on different execution context:
+
+```c
+#include <stdio.h>
+#include <pthread.h>
+
+typedef struct {
+    int *a;
+    int *b;
+    int *out;
+    int n;
+} Args;
+
+void *add(void *p) {
+    Args *x = p;
+    for (int i = 0; i < x->n; i++)
+        x->out[i] = x->a[i] + x->b[i];
+    return 0;
+}
+
+void *mul(void *p) {
+    Args *x = p;
+    for (int i = 0; i < x->n; i++)
+        x->out[i] = x->a[i] * x->b[i];
+    return 0;
+}
+
+int main() {
+    int a[] = {1,2,3,4,5,6};
+    int b[] = {1,2,3,4,5,6};
+
+    int arr_size = sizeof(a)/sizeof(a[0]);
+    int c[arr_size];
+    int d[arr_size];
+
+    Args add_args = {a, b, c, n};
+    Args mul_args = {a, b, d, n};
+
+    pthread_t t1, t2;
+    pthread_create(&t1, 0, add, &add_args);
+    pthread_create(&t2, 0, mul, &mul_args);
+
+    pthread_join(t1, 0);
+    pthread_join(t2, 0);
+
+    return 0;
+}
+```
+
+In the program above the OS will still spawn a single process and executed instruction on same thread. But how are separate execution contexts for both the threads being handled? On software end we do spawn two threads, but on hardware end only get gets executed at time and the execution switches rapidly between thread 1 and thread 2. For example, when the threads are spawned there will be a queue that tell which thread can execute for some amount of cycles.
+
+This switch happens frequently and very fast. In each switch the execution context of the old thread is saved and the execution context of the new thread is loaded and th finally the thread starts executing. 
+
+This switching is what we call **Context Switching* and is usually handled by the OS scheduler. Context switching has an extra overhead from saving and loading the execution context which is why having too many threads can actually slow execution.
+
+> [!INFO]
+> Note that ILP and SIMD don't disappear in multithreading, they work alongside it! Each thread can still execute multiple instructions per cycle (ILP) and process data in parallel using SIMD instructions. Multithreading adds another layer of parallelism on top of these existing mechanisms to execute different, and potentially independent, tasks simultaneously. 
+
+This is not the only overhead that can delay execution in multithread setup. Often these spawned, thread might end up fighting each other for same resource like cache, memory, etc. and cause even more delays. This is what we call **Resource Contention**. Reminds me of me and my sister fighting for TV remote...good days.
+
+![Thread Fight](./imgs/Sibling-Rivalry.jpg)
+
+>[!IDEA] Synchronization
+> Let's see
+
+Why am I telling you all this though? To realize that scaling up software thread is not always the answer to making things fast. So getting back to the `pthread` program we have two threads running on our CPU which right now can only run one thread at a time via Context Switching. This is because our CPU only has enough registers to hold execution context of one thread at a time. So do we make this CPU Run multiple threads then? Occam's Razor, just add more registers:
+
+![Hyperthreading](./imgs/CPU%20Execution%20-%20Hyper%20Threading.png)
+
+With enough registers to hold two execution context we can now run two threads at the same time now! Our CPU now has two *hardware threads*. This way of making core support running more threads, like via scaling components like registers, is called *Hyperthreading*. But there is one issue, yes we can run two threads at a time which fixed Context Switching but we still can have contention since they still share ALU.
+
+In such situations where scaling execution components is more beneficial than splitting the task across the threads we can leverage **MultiProcessing**.
 
 ## Multi Processing
 
-## The Modern CPU
+When we do multithreading on a single core, the process for executing program is spawned and multiple threading inside that process are spawned to do certain task. Now our CPU until now can only handle two threads at a time but there is no software limit since context switching handles these multi thread execution for us. We understand threads and what they do but what is a process?
+
+You'll find people saying *"a program in execution is a process"*. But what does it mean? We know during the execution the program is loaded into memory and then executed in CPU potentially involving ILP, context switching etc. These executions need resources like ALU for computing, registers and memory for data related instructions, etc. When you execute the program, the OS will allocate these resources to the running program, and this allocation of resources bundled with the execution is what we call a **process**.
+
+But what does allocation mean? When you spawn a process, the OS needs to remember what resources the process owns. The OS maintains this information in a data structure called the **Process Control Block (PCB)**. Each process has its own PCB that stores:
+
+* Process ID (PID)
+* Process state (running, waiting, etc.)
+* Program counter and register values
+* Memory management information (page tables, memory limits)
+* Open file descriptors
+* Scheduling information (priority, CPU time used)
+* Parent process ID
+
+So instead of having one process with multiple threads fighting over shared resources, we can just spawn multiple processes right? Each process would get its own copy of everything. This is what we call multiprocessing! 
+
+However, unless hardware can support execution of multiple processes at once we are essentially going back to context switching. For context switching between processes, OS saves the thread's execution context to its PCB and loads the next process's context from its PCB. So what would it take to execute multiple processes simultaneously on a CPU? Again, Occam's Razor, just add more cores!!
+
+![CPU Execution - Multiprocessing](./imgs/CPU%20Execution%20-%20MultiProcessing.png)
+
+Instead of having one core juggling multiple processes via context switching, we just add more cores! Each core is essentially a complete CPU with its own control units, ALUs, registers, and L1/L2 caches. Now Process 1 can run on Core 1 and Process 2 can run on Core 2 truly in parallel. No context switching needed between processes, no fighting over ALUs.
+
+But wait, how does this even work? Cores are multiple now yes but you still have a single RAM and allocation on this memory can still have collisions right? For Example, when your process uses memory address `0x1000`, how does the OS ensure it doesn't accidentally access another process's data at that same address? Simple, we'll use fake memory or more formally have a **Virtual Memory** that maps to actual physical memory.
+
+More specifically, each process doesn't actually work with physical RAM addresses directly. Instead, it works with virtual addresses that the CPU translates to physical addresses using something called **page table**. So when Process A accesses address `0x1000`, it might map to physical address `0x5000`, while Process B's address `0x1000` maps to `0x8000`. Different physical locations, same virtual address.
+
+>[!IDEA] Virtual Memory and Demand Paging
+>
+
+To do multiprocessing in C++, we use a system call named `fork` which creates a new process to execute the instruction coming after it. Let's check out an example:
+
+```cpp
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+int main() {
+    int a[] = {1,2,3,4,5,6};
+    int b[] = {1,2,3,4,5,6};
+    int arr_size = sizeof(a)/sizeof(a[0]);
+
+    pid_t pid = fork();
+    
+    if (pid == 0) {
+        // Child process: do addition
+        int c[arr_size];
+        for(int i = 0; i < arr_size; i++)
+            c[i] = a[i] + b[i];
+        return 0;
+    } else {
+        // Parent process: do multiplication
+        int d[arr_size];
+        for(int i = 0; i < arr_size; i++)
+            d[i] = a[i] * b[i];
+        wait(NULL);
+        return 0;
+    }
+}
+```
+
+Now we have two independent processes potentially running on two different cores with zero contention for registers or ALUs! Modern CPUs typically have 4, 8, 16, or even more cores. And remember hyperthreading? Each of those cores can often run 2 hardware threads simultaneously. So an 8-core CPU with hyperthreading can execute 16 threads at the same time!
+
+It was a big ride friends but finally, finally we solved parallelism, did we? Well no... Parallel programming is not a free ride, you don't magically see gain from SIMD, multi-threading or whatever. It all comes at a cost of overheads, code complexity, and multiple pitfalls. Good news is that if you learn good parallel programming all this is usually managable.
+
+## Parallel Pitfalls...and maybe fixes
+
+After all this blabbering of mine, that you all have read patiently(hopefully), we finally came to conclusion that there is no "one way" to speeding up program with parallel programming. That doesn't mean it's bad it just means that you'll need to evaluate the needs of the program to understand the needs of program and the hardware you'll be working with.
+
+SIMD, ILP, multithreading, multiprocessing, GPUs, whatever are just tools and like every tool, if you use them wrong, you can very easily make things slower instead of faster. To not fell into that hell hole(it literally is one) we'll need to understand how to write good concurrent code and to do that we need to see what all can go wrong and how we(or hardware) can fix it.
+
+### Work(-Life?) Imbalance
+
+### Freaking Overheads: Parallelism as a Data Movement Problem
+
+### Race Conditions
+
+### Cache Coherence
+
+### False Sharing
+
+### Syncronization Mishaps
+
+## From Me to You

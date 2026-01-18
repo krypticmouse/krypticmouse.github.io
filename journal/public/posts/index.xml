@@ -6,21 +6,8 @@
     <description>Recent content in Posts on Journal | Herumb Shandilya</description>
     <generator>Hugo -- 0.154.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://journal.herumbshandilya.com/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Parallelism in CPUs: </title>
-      <link>https://journal.herumbshandilya.com/posts/accelerators/</link>
-      <pubDate>Fri, 03 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://journal.herumbshandilya.com/posts/accelerators/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;You’re absolutely right. I can’t execute anything fast alone.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Everyone has their flaws &amp;amp; imperfections, but that’s what drives us to work together&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;To make up for those flaws. Together, we complete the job faster.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;- &lt;strong&gt;Gintoki Sakata, Gintama&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Parallelism is kinda like that too, bunch of worker doing there work in chunks and if needed accumulating the results to get the final answer. Wasn&amp;rsquo;t always like this though. Anyways, AI is everywhere these days and there are people who build AI and people who build with AI. At the heart of it both aim for the same thing, building better and &lt;strong&gt;faster&lt;/strong&gt; systems.&lt;/p&gt;</description>
-    </item>
     <item>
       <title>The Aya Project: My Experience and Learnings</title>
       <link>https://journal.herumbshandilya.com/posts/the-aya-project-trials/</link>
@@ -100,6 +87,13 @@
       <guid>https://journal.herumbshandilya.com/posts/svm-kernels/</guid>
       <description>&lt;p&gt;One thing that always intrigued me about ML is that the more you learn about it the more you realize how little you know. One such case that happened to me a few months ago when a person asked me if I could help him in SVM and me being me I was like sure not a big deal. It was a big deal.&lt;/p&gt;
 &lt;p&gt;Most of us might be familiar with training models. Few of us might be familiar with when to use which model. But when it comes to the details of these models we might fail to utilize them. In SVM, most of us might use the default RBF, a few of us might play with other kernels to find a better model and chosen ones might understand the working and purpose of these kernels. But can you create a kernel of your own?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://journal.herumbshandilya.com/posts/simd-programming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://journal.herumbshandilya.com/posts/simd-programming/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>
