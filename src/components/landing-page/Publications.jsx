@@ -1,109 +1,79 @@
-import { Text, Box, Stack, createStyles, rem, Title, Group, Anchor } from '@mantine/core';
+import { useInView } from '@/hooks/useInView';
+import { Separator } from '@/components/ui/separator';
 import publicationsData from '../../content/website-copy/publications.json';
 
-const useStyles = createStyles((theme) => ({
-	item: {
-		display: 'flex',
-		alignItems: 'flex-start',
-		borderRadius: theme.radius.md,
-		border: `${rem(1)} solid ${theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]}`,
-		padding: theme.spacing.md,
-		marginBottom: theme.spacing.xs,
-		cursor: 'default',
-		backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
-		gap: rem(16),
-	},
+function getPublicationUrl(publication) {
+  if (!publication.links) return null;
+  return publication.links.arxiv || publication.links.paper || publication.links.code || null;
+}
 
-	year: {
-		fontSize: rem(16),
-		fontWeight: 600,
-		width: rem(50),
-		textAlign: 'left',
-		flexShrink: 0,
-		color: theme.colorScheme === 'dark' ? theme.colors.gray[5] : theme.colors.gray[6],
-	},
+function PublicationRow({ publication, index }) {
+  const [ref, isInView] = useInView({ threshold: 0.15 });
+  const url = getPublicationUrl(publication);
 
-	content: {
-		flex: 1,
-	},
+  const content = (
+    <div
+      className={`py-5 md:py-6 grid grid-cols-[45px_1fr] md:grid-cols-[60px_1fr] gap-3 md:gap-6 items-baseline group -mx-4 px-4 rounded transition-colors reveal-hidden ${url ? 'hover:bg-background/[0.03] cursor-pointer' : ''} ${isInView ? 'animate-fade-up' : ''}`}
+      style={{ animationDelay: `${index * 60}ms` }}
+    >
+      <span className="text-[13px] font-medium text-background/35 tabular-nums">
+        {publication.year}
+      </span>
+      <div className="min-w-0">
+        <p className={`text-sm md:text-[15px] font-medium leading-snug ${url ? 'group-hover:underline underline-offset-4 decoration-background/20 group-hover:decoration-background/60 transition-colors' : ''}`}>
+          {publication.title}
+        </p>
+        {publication.lab && (
+          <p className="text-[11px] font-medium uppercase tracking-wider text-background/35 mt-1">
+            {publication.lab}
+          </p>
+        )}
+      </div>
+    </div>
+  );
 
-	title: {
-		fontSize: rem(16),
-		fontWeight: 500,
-		marginBottom: rem(4),
-		color: theme.colorScheme === 'dark' ? theme.white : theme.colors.gray[9],
-		lineHeight: 1.4,
-	},
-
-	lab: {
-		fontSize: rem(13),
-		fontWeight: 700,
-		marginBottom: rem(4),
-		color: theme.colorScheme === 'dark' ? theme.colors.gray[4] : theme.colors.gray[6],
-		lineHeight: 1.4,
-	},
-
-	links: {
-		display: 'inline-flex',
-		gap: rem(8),
-		marginTop: rem(4),
-	},
-}));
-
-function PublicationItem({ publication, index }) {
-	const { classes } = useStyles();
-
-	return (
-		<div className={classes.item}>
-			<Text className={classes.year}>{publication.year}</Text>
-			<div className={classes.content}>
-				<Text className={classes.title}>{publication.title}</Text>
-				{publication.lab && (
-					<Text className={classes.lab}>{publication.lab}</Text>
-				)}
-				{publication.links && (publication.links.arxiv || publication.links.paper || publication.links.code) && (
-					<div className={classes.links}>
-						{publication.links.arxiv && (
-							<Anchor href={publication.links.arxiv} target="_blank" rel="noopener noreferrer" size="xs" className="text-sky-600 hover:text-sky-500">
-								arXiv
-							</Anchor>
-						)}
-						{publication.links.paper && (
-							<Anchor href={publication.links.paper} target="_blank" rel="noopener noreferrer" size="xs" className="text-sky-600 hover:text-sky-500">
-								Paper
-							</Anchor>
-						)}
-						{publication.links.code && (
-							<Anchor href={publication.links.code} target="_blank" rel="noopener noreferrer" size="xs" className="text-sky-600 hover:text-sky-500">
-								Code
-							</Anchor>
-						)}
-					</div>
-				)}
-			</div>
-		</div>
-	);
+  return (
+    <div ref={ref}>
+      {url ? (
+        <a href={url} target="_blank" rel="noopener noreferrer" className="block">
+          {content}
+        </a>
+      ) : (
+        content
+      )}
+      <Separator className="bg-background/[0.07]" />
+    </div>
+  );
 }
 
 export default function Publications() {
-	// Sort by year descending (newest first)
-	const sortedPublications = [...publicationsData].sort((a, b) => {
-		return parseInt(b.year) - parseInt(a.year);
-	});
+  const [headerRef, headerInView] = useInView({ threshold: 0.3 });
+  const sortedPublications = [...publicationsData].sort(
+    (a, b) => parseInt(b.year) - parseInt(a.year)
+  );
 
-	return (
-		<Box className="py-24 bg-sky-800">
-			<Box className='w-3/4 sm:w-1/2 mx-auto'>
-				<Title order={2} className='title-font text-5xl font-bold text-white mb-12' ta="center">
-					Publications
-				</Title>
-				<Stack spacing={0}>
-					{sortedPublications.map((publication, index) => (
-						<PublicationItem key={index} publication={publication} index={index} />
-					))}
-				</Stack>
-			</Box>
-		</Box>
-	);
+  return (
+    <section className="bg-foreground text-background py-24 md:py-32">
+      <div className="mx-auto max-w-3xl px-6 sm:px-8">
+        <div
+          ref={headerRef}
+          className={`mb-14 reveal-hidden ${headerInView ? 'animate-fade-up' : ''}`}
+        >
+          <p className="text-[11px] font-medium uppercase tracking-[0.25em] text-background/40 mb-3">
+            Research output
+          </p>
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
+            Publications
+          </h2>
+        </div>
+
+        <div>
+          <Separator className="bg-background/[0.07]" />
+          {sortedPublications.map((publication, index) => (
+            <PublicationRow key={index} publication={publication} index={index} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
-

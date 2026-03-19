@@ -33,7 +33,7 @@ function Layout({ children, ...props }) {
 			</MDXProvider>
 			<Footer />
 		</>
-	)
+	);
 }
 
 export default Layout;

@@ -1,14 +1,12 @@
 import Head from 'next/head';
 import Header from '@/components/ui/Header';
 import Footer from '@/components/ui/Footer';
-import { Text, Stack, SimpleGrid } from '@mantine/core';
 import blogList from '../content/website-copy/blogs.json';
 import BlogCard from '@/components/ui/BlogCard';
+import { useInView } from '@/hooks/useInView';
 
 export default function Blog() {
-  const cards = blogList.map((blog, index) => (
-    <BlogCard {...blog} key={index} />
-  ));
+  const [headerRef, headerInView] = useInView({ threshold: 0.3 });
 
   return (
     <>
@@ -23,23 +21,28 @@ export default function Blog() {
       </Head>
       <main>
         <Header />
-        <div className="mx-auto mb-24 px-4 md:px-10 lg:mx-96">
-          <Stack align="center" className="mt-12" spacing={0}>
-            <Text className="title-font text-4xl md:text-7xl font-extrabold text-sky-800">
-              Blogs
-            </Text>
-            <Text className="dm title-font text-xl md:text-2xl font-medium mt-4 italic text-sky-600 text-opacity-60">
-              "Knowledge brings liberation."
-            </Text>
-          </Stack>
-          <SimpleGrid
-            cols={2}
-            spacing="xl"
-            mt={50}
-            breakpoints={[{ maxWidth: 'md', cols: 1 }]}
+        <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-24">
+          <div
+            ref={headerRef}
+            className={`mt-16 md:mt-24 mb-12 reveal-hidden ${headerInView ? 'animate-fade-left' : ''}`}
           >
-            {cards}
-          </SimpleGrid>
+            <p className="text-[11px] font-medium uppercase tracking-[0.25em] text-muted-foreground mb-3">
+              Writing
+            </p>
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tighter">
+              Blogs
+            </h1>
+            <p className="text-sm mt-4 italic text-muted-foreground">
+              &ldquo;Knowledge brings liberation.&rdquo;
+            </p>
+          </div>
+
+          <div>
+            {blogList.map((blog, index) => (
+              <BlogCard {...blog} index={index} key={index} />
+            ))}
+            <div className="border-t" />
+          </div>
         </div>
         <Footer />
       </main>

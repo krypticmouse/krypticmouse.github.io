@@ -1,177 +1,75 @@
-import {
-	createStyles,
-	Image,
-	Text,
-	Stack
-} from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
+import { useInView } from '@/hooks/useInView';
+import { IconBrandTwitter, IconBrandLinkedin, IconBrandGithub } from '@tabler/icons-react';
 
-const useStyles = createStyles((theme) => ({
-  dots: {
-    position: 'absolute',
-    color: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[5],
-  },
-
-  dotsLeft: {
-    left: 0,
-    top: 0,
-  },
-}));
-
-function Dots({ size = 185, radius = 2.5, ...others }) {
-  return (
-    <svg
-      aria-hidden
-      xmlns="http://www.w3.org/2000/svg"
-      fill="currentColor"
-      viewBox="0 0 185 185"
-      width={size}
-      height={size}
-      {...others}
-    >
-      <rect width="5" height="5" rx={radius} />
-      <rect width="5" height="5" x="60" rx={radius} />
-      <rect width="5" height="5" x="120" rx={radius} />
-      <rect width="5" height="5" x="20" rx={radius} />
-      <rect width="5" height="5" x="80" rx={radius} />
-      <rect width="5" height="5" x="140" rx={radius} />
-      <rect width="5" height="5" x="40" rx={radius} />
-      <rect width="5" height="5" x="100" rx={radius} />
-      <rect width="5" height="5" x="160" rx={radius} />
-      <rect width="5" height="5" x="180" rx={radius} />
-      <rect width="5" height="5" y="20" rx={radius} />
-      <rect width="5" height="5" x="60" y="20" rx={radius} />
-      <rect width="5" height="5" x="120" y="20" rx={radius} />
-      <rect width="5" height="5" x="20" y="20" rx={radius} />
-      <rect width="5" height="5" x="80" y="20" rx={radius} />
-      <rect width="5" height="5" x="140" y="20" rx={radius} />
-      <rect width="5" height="5" x="40" y="20" rx={radius} />
-      <rect width="5" height="5" x="100" y="20" rx={radius} />
-      <rect width="5" height="5" x="160" y="20" rx={radius} />
-      <rect width="5" height="5" x="180" y="20" rx={radius} />
-      <rect width="5" height="5" y="40" rx={radius} />
-      <rect width="5" height="5" x="60" y="40" rx={radius} />
-      <rect width="5" height="5" x="120" y="40" rx={radius} />
-      <rect width="5" height="5" x="20" y="40" rx={radius} />
-      <rect width="5" height="5" x="80" y="40" rx={radius} />
-      <rect width="5" height="5" x="140" y="40" rx={radius} />
-      <rect width="5" height="5" x="40" y="40" rx={radius} />
-      <rect width="5" height="5" x="100" y="40" rx={radius} />
-      <rect width="5" height="5" x="160" y="40" rx={radius} />
-      <rect width="5" height="5" x="180" y="40" rx={radius} />
-      <rect width="5" height="5" y="60" rx={radius} />
-      <rect width="5" height="5" x="60" y="60" rx={radius} />
-      <rect width="5" height="5" x="120" y="60" rx={radius} />
-      <rect width="5" height="5" x="20" y="60" rx={radius} />
-      <rect width="5" height="5" x="80" y="60" rx={radius} />
-      <rect width="5" height="5" x="140" y="60" rx={radius} />
-      <rect width="5" height="5" x="40" y="60" rx={radius} />
-      <rect width="5" height="5" x="100" y="60" rx={radius} />
-      <rect width="5" height="5" x="160" y="60" rx={radius} />
-      <rect width="5" height="5" x="180" y="60" rx={radius} />
-      <rect width="5" height="5" y="80" rx={radius} />
-      <rect width="5" height="5" x="60" y="80" rx={radius} />
-      <rect width="5" height="5" x="120" y="80" rx={radius} />
-      <rect width="5" height="5" x="20" y="80" rx={radius} />
-      <rect width="5" height="5" x="80" y="80" rx={radius} />
-      <rect width="5" height="5" x="140" y="80" rx={radius} />
-      <rect width="5" height="5" x="40" y="80" rx={radius} />
-      <rect width="5" height="5" x="100" y="80" rx={radius} />
-      <rect width="5" height="5" x="160" y="80" rx={radius} />
-      <rect width="5" height="5" x="180" y="80" rx={radius} />
-      <rect width="5" height="5" y="100" rx={radius} />
-      <rect width="5" height="5" x="60" y="100" rx={radius} />
-      <rect width="5" height="5" x="120" y="100" rx={radius} />
-      <rect width="5" height="5" x="20" y="100" rx={radius} />
-      <rect width="5" height="5" x="80" y="100" rx={radius} />
-      <rect width="5" height="5" x="140" y="100" rx={radius} />
-      <rect width="5" height="5" x="40" y="100" rx={radius} />
-      <rect width="5" height="5" x="100" y="100" rx={radius} />
-      <rect width="5" height="5" x="160" y="100" rx={radius} />
-      <rect width="5" height="5" x="180" y="100" rx={radius} />
-      <rect width="5" height="5" y="120" rx={radius} />
-      <rect width="5" height="5" x="60" y="120" rx={radius} />
-      <rect width="5" height="5" x="120" y="120" rx={radius} />
-      <rect width="5" height="5" x="20" y="120" rx={radius} />
-      <rect width="5" height="5" x="80" y="120" rx={radius} />
-      <rect width="5" height="5" x="140" y="120" rx={radius} />
-      <rect width="5" height="5" x="40" y="120" rx={radius} />
-      <rect width="5" height="5" x="100" y="120" rx={radius} />
-      <rect width="5" height="5" x="160" y="120" rx={radius} />
-      <rect width="5" height="5" x="180" y="120" rx={radius} />
-      <rect width="5" height="5" y="140" rx={radius} />
-      <rect width="5" height="5" x="60" y="140" rx={radius} />
-      <rect width="5" height="5" x="120" y="140" rx={radius} />
-      <rect width="5" height="5" x="20" y="140" rx={radius} />
-      <rect width="5" height="5" x="80" y="140" rx={radius} />
-      <rect width="5" height="5" x="140" y="140" rx={radius} />
-      <rect width="5" height="5" x="40" y="140" rx={radius} />
-      <rect width="5" height="5" x="100" y="140" rx={radius} />
-      <rect width="5" height="5" x="160" y="140" rx={radius} />
-      <rect width="5" height="5" x="180" y="140" rx={radius} />
-      <rect width="5" height="5" y="160" rx={radius} />
-      <rect width="5" height="5" x="60" y="160" rx={radius} />
-      <rect width="5" height="5" x="120" y="160" rx={radius} />
-      <rect width="5" height="5" x="20" y="160" rx={radius} />
-      <rect width="5" height="5" x="80" y="160" rx={radius} />
-      <rect width="5" height="5" x="140" y="160" rx={radius} />
-      <rect width="5" height="5" x="40" y="160" rx={radius} />
-      <rect width="5" height="5" x="100" y="160" rx={radius} />
-      <rect width="5" height="5" x="160" y="160" rx={radius} />
-      <rect width="5" height="5" x="180" y="160" rx={radius} />
-      <rect width="5" height="5" y="180" rx={radius} />
-      <rect width="5" height="5" x="60" y="180" rx={radius} />
-      <rect width="5" height="5" x="120" y="180" rx={radius} />
-      <rect width="5" height="5" x="20" y="180" rx={radius} />
-      <rect width="5" height="5" x="80" y="180" rx={radius} />
-      <rect width="5" height="5" x="140" y="180" rx={radius} />
-      <rect width="5" height="5" x="40" y="180" rx={radius} />
-      <rect width="5" height="5" x="100" y="180" rx={radius} />
-      <rect width="5" height="5" x="160" y="180" rx={radius} />
-      <rect width="5" height="5" x="180" y="180" rx={radius} />
-    </svg>
-  );
-}
+const socialLinks = [
+  { icon: IconBrandTwitter, href: 'https://twitter.com/krypticmouse/', label: 'Twitter' },
+  { icon: IconBrandLinkedin, href: 'https://www.linkedin.com/in/herumb-s-740163131/', label: 'LinkedIn' },
+  { icon: IconBrandGithub, href: 'https://github.com/krypticmouse', label: 'GitHub' },
+];
 
 function Hero() {
-	const { classes } = useStyles();
-  const isMediumScreen = useMediaQuery('(max-width: 992px)');
-	return (
-		<>
-      {
-        !isMediumScreen && (
-        <>
-          <Dots className={classes.dots} style={{ left: 50, top: 400 }} />
-          <Dots className={classes.dots} style={{ left: 250, top: 400 }} />
-          <Dots className={classes.dots} style={{ left: 50, top: 200 }} />
-          <Dots className={classes.dots} style={{ left: 250, top: 200 }} />
-          <Dots className={classes.dots} style={{ left: 50, top: 600 }} />
-          <Dots className={classes.dots} style={{ left: 250, top: 600 }} />
-        </>
-      )}
-      {
-        !isMediumScreen && (
-        <>
-          <Dots className={classes.dots} style={{ right: 50, top: 400 }} />
-          <Dots className={classes.dots} style={{ right: 250, top: 400 }} />
-          <Dots className={classes.dots} style={{ right: 50, top: 200 }} />
-          <Dots className={classes.dots} style={{ right: 250, top: 200 }} />
-          <Dots className={classes.dots} style={{ right: 50, top: 600 }} />
-          <Dots className={classes.dots} style={{ right: 250, top: 600 }} />
-        </>
-      )}
-			
-			<Stack align="center" className='mt-20' spacing={54}>
-				<Text className='dm title-font text-5xl md:text-6xl font-extrabold text-sky-800'>ML Engineer, NLP Researcher & GPU Whisperer</Text>
-				<Image src='/dp.jpg' maw={240} radius='100%' alt=''/>
-				<Stack align="center" spacing={2}>
-					<Text className='dm title-font text-4xl md:text-5xl font-medium text-sky-700'>Neat Freak Coder obsessed with Systems</Text>
-					<Text className='dm title-font text-3xl md:text-4xl font-regular text-sky-600'>Working on Rust and CUDA these days</Text>
-				</Stack>
-				<Image src='/Background.png' maw={640} alt=''/>
-			</Stack>
-		</>
-	);
+  const [leftRef, leftInView] = useInView({ threshold: 0.2 });
+  const [rightRef, rightInView] = useInView({ threshold: 0.2 });
+
+  return (
+    <section className="min-h-[85vh] flex items-center">
+      <div className="mx-auto max-w-5xl px-6 sm:px-8 w-full py-20 md:py-0">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-12 md:gap-20 items-center">
+          <div
+            ref={leftRef}
+            className={`order-2 md:order-1 reveal-hidden ${leftInView ? 'animate-fade-left' : ''}`}
+          >
+            <p className="text-[11px] font-medium uppercase tracking-[0.25em] text-muted-foreground mb-6">
+              ML Engineer & Researcher
+            </p>
+
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.95]">
+              Herumb
+              <br />
+              Shandilya
+            </h1>
+
+            <div className="mt-8 space-y-1">
+              <p className="text-lg md:text-xl text-muted-foreground">
+                NLP Researcher <span className="italic">&amp; GPU Whisperer</span>
+              </p>
+              <p className="text-base text-muted-foreground/70">
+                Neat freak coder obsessed with systems. Currently on Rust and CUDA.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-1 mt-8">
+              {socialLinks.map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-md p-2.5 text-muted-foreground hover:text-foreground transition-colors"
+                  aria-label={label}
+                >
+                  <Icon size={18} stroke={1.5} />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div
+            ref={rightRef}
+            className={`order-1 md:order-2 flex justify-center md:justify-end reveal-hidden ${rightInView ? 'animate-fade-right' : ''}`}
+          >
+            <div className="relative md:-mt-10">
+              <img
+                src="/dp.jpg"
+                className="h-52 w-52 md:h-72 md:w-72 rounded-2xl object-cover grayscale shadow-2xl"
+                alt="Herumb Shandilya"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Hero;

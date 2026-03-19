@@ -1,98 +1,71 @@
-import {
-  Card,
-  Avatar,
-  Text,
-  Group,
-  Badge,
-  createStyles,
-  rem,
-} from '@mantine/core';
-import PropTypes from 'prop-types';
+import { useInView } from '@/hooks/useInView';
+import { Badge } from '@/components/ui/badge';
 
-const useStyles = createStyles((theme) => ({
-  card: {
-    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
-  },
+function ProjectCard({ title, desc, tags, stack, href, index = 0 }) {
+  const [ref, isInView] = useInView({ threshold: 0.1 });
 
-  section: {
-    borderBottom: `${rem(1)} solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
-    }`,
-    paddingLeft: theme.spacing.md,
-    paddingRight: theme.spacing.md,
-    paddingBottom: theme.spacing.md,
-  },
+  const stackItems = stack ? stack.split(', ').filter(Boolean) : [];
 
-  like: {
-    color: theme.colors.red[6],
-  },
+  const inner = (
+    <div className="grid grid-cols-1 md:grid-cols-[1fr_200px] gap-4 md:gap-10 items-start">
+      <div>
+        <h3 className={`text-lg md:text-xl font-semibold tracking-tight leading-snug mb-2 ${href ? 'group-hover:underline underline-offset-4 decoration-border group-hover:decoration-foreground transition-colors' : ''}`}>
+          {title}
+        </h3>
+        <p className="text-[13px] text-muted-foreground leading-relaxed max-w-xl">
+          {desc}
+        </p>
+      </div>
 
-  label: {
-    textTransform: 'uppercase',
-    fontSize: theme.fontSizes.xs,
-    fontWeight: 700,
-  },
-}));
+      <div className="space-y-3 md:pt-0">
+        <div>
+          <p className="text-[9px] font-medium uppercase tracking-widest text-muted-foreground mb-1.5">
+            Domain
+          </p>
+          <div className="flex flex-wrap gap-1">
+            {tags.map((label) => (
+              <Badge key={label} variant="secondary" className="text-[9px] uppercase tracking-widest font-medium rounded-sm">
+                {label}
+              </Badge>
+            ))}
+          </div>
+        </div>
 
-const propsType = ProjectCard.propTypes = {
-  tags: PropTypes.array,
-	stack: PropTypes.array,
-  title: PropTypes.string,
-	desc: PropTypes.string,
-}
+        {stackItems.length > 0 && (
+          <div>
+            <p className="text-[9px] font-medium uppercase tracking-widest text-muted-foreground mb-1.5">
+              Stack
+            </p>
+            <p className="text-[12px] text-foreground/70 leading-relaxed">
+              {stack}
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 
-function ProjectCard(props) {
-  const { classes, theme } = useStyles();
+  const sharedClass = `group border-t py-8 md:py-10 hover:bg-muted/30 -mx-6 px-6 transition-colors duration-300 reveal-hidden ${isInView ? 'animate-fade-up' : ''}`;
 
-  const tags = props.tags.map((label) => (
-    <Badge
-      color={theme.colorScheme === 'dark' ? 'dark' : 'gray'}
-      key={label}
+  return href ? (
+    <a
+      ref={ref}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`block ${sharedClass}`}
+      style={{ animationDelay: `${index * 60}ms` }}
     >
-      {label}
-    </Badge>
-  ));
-
-	const stack = props.stack.split(", ").map((label) => (
-    <Badge
-      color={theme.colorScheme === 'dark' ? 'dark' : 'gray'}
-      key={label}
+      {inner}
+    </a>
+  ) : (
+    <div
+      ref={ref}
+      className={sharedClass}
+      style={{ animationDelay: `${index * 60}ms` }}
     >
-      {label}
-    </Badge>
-  ));
-
-  return (
-    <Card withBorder miw={256} radius="md" p="md" className={classes.card}>
-      <Card.Section className={classes.section} mt="md">
-        <Group position="apart" mt="md">
-          <Text fz="lg" fw={500} className='text-xl font-extrabold text-sky-700'>
-            {props.title}
-          </Text>
-        </Group>
-        <Text fz="sm" mt="xs" className='text-lg text-gray-500'>
-          {props.desc}
-        </Text>
-      </Card.Section>
-
-      <Card.Section className={classes.section}>
-        <Text mt="md" className={classes.label} c="dimmed">
-          Domain
-        </Text>
-        <Group spacing={7} mt={5}>
-          {tags}
-        </Group>
-      </Card.Section>
-
-			<Card.Section className={classes.section}>
-        <Text mt="md" className={classes.label} c="dimmed">
-          Teck Stack
-        </Text>
-        <Group spacing={7} mt={5}>
-          {stack}
-        </Group>
-      </Card.Section>
-    </Card>
+      {inner}
+    </div>
   );
 }
 

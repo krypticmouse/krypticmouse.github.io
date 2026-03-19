@@ -1,14 +1,12 @@
 import Head from 'next/head';
 import Header from '@/components/ui/Header';
 import Footer from '@/components/ui/Footer';
-import { Text, Stack, SimpleGrid } from '@mantine/core';
 import ProjectCard from '@/components/ui/ProjectCard';
 import projectList from '../content/website-copy/projects.json';
+import { useInView } from '@/hooks/useInView';
 
 export default function Projects() {
-  const cards = projectList.map((project, index) => (
-    <ProjectCard {...project} key={index} />
-  ));
+  const [headerRef, headerInView] = useInView({ threshold: 0.3 });
 
   return (
     <>
@@ -23,23 +21,28 @@ export default function Projects() {
       </Head>
       <main>
         <Header />
-        <div className="mx-auto mb-24 px-4 md:px-10 lg:mx-96">
-          <Stack align="center" className="mt-12" spacing={0}>
-            <Text className="title-font text-4xl md:text-7xl font-extrabold text-sky-800">
-              Projects
-            </Text>
-            <Text className="dm title-font text-xl md:text-2xl font-medium mt-4 italic text-sky-600 text-opacity-60">
-              "My Experiments with ML and stuff."
-            </Text>
-          </Stack>
-          <SimpleGrid
-            cols={2}
-            spacing="xl"
-            mt={50}
-            breakpoints={[{ maxWidth: 'md', cols: 1 }]}
+        <div className="mx-auto max-w-4xl px-6 sm:px-8 mb-24">
+          <div
+            ref={headerRef}
+            className={`mt-16 md:mt-24 mb-12 reveal-hidden ${headerInView ? 'animate-fade-left' : ''}`}
           >
-            {cards}
-          </SimpleGrid>
+            <p className="text-[11px] font-medium uppercase tracking-[0.25em] text-muted-foreground mb-3">
+              Building
+            </p>
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tighter">
+              Projects
+            </h1>
+            <p className="text-sm mt-4 italic text-muted-foreground">
+              &ldquo;My Experiments with ML and stuff.&rdquo;
+            </p>
+          </div>
+
+          <div>
+            {projectList.map((project, index) => (
+              <ProjectCard {...project} index={index} key={index} />
+            ))}
+            <div className="border-t" />
+          </div>
         </div>
         <Footer />
       </main>

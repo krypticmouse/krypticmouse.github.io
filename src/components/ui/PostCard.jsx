@@ -1,56 +1,21 @@
-import { createStyles, Card, Image, Avatar, Text, Group } from '@mantine/core';
-
-const useStyles = createStyles((theme) => ({
-  card: {
-    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
-  },
-
-  title: {
-    fontWeight: 700,
-    fontFamily: `Open Sans, sans-serif`,
-    lineHeight: 1.2,
-  },
-
-  body: {
-    padding: theme.spacing.md,
-  },
-}));
-
-function PostCard({
-  category,
-  title,
-  date,
-  author,
-  description,
-}) {
-  const { classes } = useStyles();
+function PostCard({ category, title, date, author, description }) {
   return (
-    <Card withBorder radius="md" p={0} className={classes.card}>
-      <Group noWrap spacing={0}>
-        <div className={classes.body}>
-          <Text transform="uppercase" color="dimmed" weight={700} size="xs">
-            {category}
-          </Text>
-          <Text className={`text-sky-600 ${classes.title}`} mt="xs" mb="md">
-            {title}
-          </Text>
-          <Text size="sm" color="dimmed">
-            {description}
-          </Text>
-          <Group noWrap spacing="xs">
-            <Group spacing="xs" noWrap>
-              <Text className="text-sky-900" size="xs">{author}</Text>
-            </Group>
-            <Text size="xs" color="dimmed">
-              •
-            </Text>
-            <Text className="text-sky-900" size="xs" color="dimmed">
-              {date}
-            </Text>
-          </Group>
-        </div>
-      </Group>
-    </Card>
+    <div className="group border rounded-lg p-5 hover:bg-muted/30 transition-colors duration-300">
+      <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
+        {category}
+      </p>
+      <h3 className="text-base font-semibold tracking-tight mt-2 mb-2 leading-snug group-hover:underline underline-offset-2">
+        {title}
+      </h3>
+      <p className="text-[13px] text-muted-foreground leading-relaxed">
+        {description}
+      </p>
+      <div className="flex items-center gap-2 mt-3 text-[11px] text-muted-foreground">
+        <span className="font-medium text-foreground">{author}</span>
+        <span>·</span>
+        <span>{date}</span>
+      </div>
+    </div>
   );
 }
 

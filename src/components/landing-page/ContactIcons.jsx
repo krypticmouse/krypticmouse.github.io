@@ -1,74 +1,39 @@
-import { createStyles, ThemeIcon, Text, SimpleGrid, Box, Stack } from '@mantine/core';
 import { IconBrandDiscord, IconBrandTwitterFilled, IconAt } from '@tabler/icons-react';
 
+const CONTACT_DATA = [
+  { title: 'Email', description: 'herumb@stanford.edu', icon: IconAt },
+  { title: 'Discord', description: 'krypticmouse', icon: IconBrandDiscord },
+  { title: 'Preferred', description: 'Twitter DM', icon: IconBrandTwitterFilled },
+];
 
-const useStyles = createStyles((theme, { variant }) => ({
-  wrapper: {
-    display: 'flex',
-    alignItems: 'center',
-    color: theme.white,
-  },
-
-  icon: {
-    marginRight: theme.spacing.md,
-    backgroundImage:
-      variant === 'gradient'
-        ? `linear-gradient(135deg, ${theme.colors[theme.primaryColor][4]} 0%, ${
-            theme.colors[theme.primaryColor][6]
-          } 100%)`
-        : 'none',
-    backgroundColor: 'transparent',
-  },
-
-  title: {
-    color: variant === 'gradient' ? theme.colors.gray[6] : theme.colors[theme.primaryColor][0],
-  },
-
-  description: {
-    color: variant === 'gradient' ? theme.black : theme.white,
-  },
-}));
-
-function ContactIcon({
-  icon: Icon,
-  title,
-  description,
-  variant = 'gradient',
-  className,
-  ...others
-}) {
-  const { classes, cx } = useStyles({ variant });
+function ContactIcon({ icon: Icon, title, description, variant }) {
+  const isDark = variant === 'dark';
   return (
-    <div className={cx(classes.wrapper, className)} {...others}>
-      {variant === 'gradient' ? (
-        <ThemeIcon size={40} radius="md" className={classes.icon}>
-          <Icon size="1.5rem" />
-        </ThemeIcon>
-      ) : (
-        <Box mr="md">
-          <Icon size="1.5rem" />
-        </Box>
-      )}
-
+    <div className="flex items-center gap-4">
+      <Icon
+        size={16}
+        className={`flex-shrink-0 ${isDark ? 'text-background/40' : 'text-muted-foreground'}`}
+      />
       <div>
-        <Text size="xs" className={classes.title}>
+        <p className={`text-[10px] font-medium uppercase tracking-wider ${isDark ? 'text-background/40' : 'text-muted-foreground'}`}>
           {title}
-        </Text>
-        <Text className={classes.description}>{description}</Text>
+        </p>
+        <p className={`text-sm ${isDark ? 'text-background/80' : 'text-foreground/80'}`}>
+          {description}
+        </p>
       </div>
     </div>
   );
 }
 
-const MOCKDATA = [
-  { title: 'Email', description: 'herumb@stanford.edu', icon: IconAt },
-  { title: 'Discord', description: 'krypticmouse', icon: IconBrandDiscord },
-  { title: 'Preferred Mode', description: 'Twitter DM', icon: IconBrandTwitterFilled }
-];
-
-function ContactIconsList() {
-  const items = MOCKDATA.map((item, index) => <ContactIcon key={index} variant="white" {...item} />);
-  return <Stack>{items}</Stack>;
+function ContactIconsList({ variant = 'light' }) {
+  return (
+    <div className="space-y-4">
+      {CONTACT_DATA.map((item, index) => (
+        <ContactIcon key={index} variant={variant} {...item} />
+      ))}
+    </div>
+  );
 }
 
 export default ContactIconsList;

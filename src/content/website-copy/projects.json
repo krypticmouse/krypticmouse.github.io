@@ -1,14 +1,15 @@
 [
    {
-      "title": "SparkPuppies: Collection of Sparse Kernel Designs",
-      "desc": "A collection of sparse kernel designs. SparkPuppies provides foundational building blocks and utilities for working with sparse kernels in machine learning and computational applications, enabling efficient sparse kernel operations and optimizations.",
+      "title": "Synapse: Configuration Language for Memory Systems",
+      "desc": "A domain-specific language (.mnm files) and runtime for building memory systems for AI agents. Define schemas, event handlers, queries, and update policies declaratively, which compiles into a multi-backend runtime.",
       "tags": [
-         "KERNELS",
-         "SPARSE",
-         "LIBRARY",
-         "ML"
+         "DSL",
+         "AGENTS",
+         "MEMORY",
+         "SYSTEMS"
       ],
-      "stack": "CUDA"
+      "stack": "Rust, SQLite, Qdrant, Neo4j",
+      "href": "https://github.com/krypticmouse/synapse"
    },
    {
       "title": "DSRs: A rewrite of DSPy with Rust in mind",
@@ -18,7 +19,8 @@
          "NLP",
          "LIBRARY"
       ],
-      "stack": "Rust, Tokio, Async"
+      "stack": "Rust, Tokio, Async",
+      "href": "https://github.com/krypticmouse/dsrs"
    },
    {
       "title": "DSPy: Programming—not prompting—Language Models [Core Maintainer]",
@@ -28,7 +30,8 @@
          "LIBRARY",
          "OPTIMIZATION"
       ],
-      "stack": "Python, PyTorch, Multiprocessing"
+      "stack": "Python, PyTorch, Multiprocessing",
+      "href": "https://github.com/stanfordnlp/dspy"
    },
    {
       "title": "Scaling Hyperbolic Embeddings for Dendocentric Learning",
