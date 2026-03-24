@@ -90,16 +90,26 @@ function TableOfContents({ headings }) {
       {/* Desktop TOC sidebar */}
       <aside className="hidden xl:block shrink-0">
         <div className="sticky top-8">
-          <button
-            onClick={() => setDesktopOpen(!desktopOpen)}
-            className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.25em] text-muted-foreground hover:text-foreground transition-colors mb-4"
-          >
-            <IconChevronRight
-              size={14}
-              className={`transition-transform duration-200 ${desktopOpen ? 'rotate-90' : ''}`}
-            />
-            On this page
-          </button>
+          {desktopOpen ? (
+            <button
+              onClick={() => setDesktopOpen(false)}
+              className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.25em] text-muted-foreground hover:text-foreground transition-colors mb-4"
+            >
+              <IconChevronRight
+                size={14}
+                className="rotate-90 transition-transform duration-200"
+              />
+              On this page
+            </button>
+          ) : (
+            <button
+              onClick={() => setDesktopOpen(true)}
+              className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors"
+              aria-label="Open table of contents"
+            >
+              <IconList size={16} />
+            </button>
+          )}
           <div
             className={`overflow-hidden transition-all duration-300 ease-in-out ${
               desktopOpen ? 'max-h-[80vh] opacity-100 w-56' : 'max-h-0 opacity-0 w-0'
@@ -110,7 +120,7 @@ function TableOfContents({ headings }) {
                 <li key={h.id}>
                   <a
                     href={`#${h.id}`}
-                    className={`block py-1 text-[12.5px] leading-snug transition-colors whitespace-nowrap ${
+                    className={`block py-1 text-[12.5px] leading-snug transition-colors ${
                       h.depth === 3 ? 'pl-6' : 'pl-3'
                     } ${
                       activeId === h.id
@@ -165,9 +175,14 @@ export default function BlogPost({ frontmatter, html, headings }) {
               </Link>
 
               <header className="mb-12">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter leading-[1.1] mb-4">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter leading-[1.1] mb-3">
                   {frontmatter.title}
                 </h1>
+                {frontmatter.subtitle && (
+                  <p className="text-lg sm:text-xl text-muted-foreground font-bold tracking-tight mb-4">
+                    {frontmatter.subtitle}
+                  </p>
+                )}
                 <p className="text-[13px] text-muted-foreground">
                   {formatDate(frontmatter.date)}
                   <span className="mx-2">·</span>

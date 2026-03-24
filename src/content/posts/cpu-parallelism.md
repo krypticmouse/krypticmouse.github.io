@@ -1,5 +1,6 @@
 ---
-title: "Making CPUs Go Brrr: A Hardware Perspective to Parallel Computing"
+title: "Making CPUs Go Brrr"
+subtitle: "A Hardware Perspective to Parallel Computing"
 date: 2025-01-21
 draft: false
 desc: "From clock frequencies to ILP, SIMD, multithreading, and multiprocessing — how CPUs evolved to execute programs faster and why the free lunch ended."

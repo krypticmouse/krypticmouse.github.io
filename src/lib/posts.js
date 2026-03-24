@@ -45,6 +45,7 @@ export function getPostBySlug(slug) {
   return {
     frontmatter: {
       title: data.title || slug,
+      subtitle: data.subtitle || '',
       date: data.date ? new Date(data.date).toISOString() : null,
       desc: data.desc || '',
       tags: data.tags || [],
