@@ -397,7 +397,7 @@ This switch happens frequently and very fast. In each switch the execution conte
 
 This switching is what we call **Context Switching* and is usually handled by the OS scheduler. Context switching has an extra overhead from saving and loading the execution context which is why having too many threads can actually slow execution.
 
-> [!INFO]
+> [!INFO] Info 
 > Note that ILP and SIMD don't disappear in multithreading, they work alongside it! Each thread can still execute multiple instructions per cycle (ILP) and process data in parallel using SIMD instructions. Multithreading adds another layer of parallelism on top of these existing mechanisms to execute different, and potentially independent, tasks simultaneously. 
 
 This is not the only overhead that can delay execution in multithread setup. Often these spawned, thread might end up fighting each other for same resource like cache, memory, etc. and cause even more delays. This is what we call **Resource Contention**. Reminds me of me and my sister fighting for TV remote...good days.
