@@ -1,5 +1,16 @@
 [
    {
+      "company": "MixedBread",
+      "displayName": "@MixedBread",
+      "companyUrl": "https://mixedbread.com/",
+      "position": "Research Engineer",
+      "period": "April, 2026 - Present",
+      "image": "/work/mixedbread.png",
+      "responsibilities": [
+         "Building Infrastructure for Retrieval Systems."
+      ]
+   },
+   {
       "company": "Fundamental Research Lab",
       "displayName": "@Fundamental Research Lab",
       "companyUrl": "http://fundamentalresearchlabs.com/",

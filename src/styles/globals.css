@@ -44,3 +44,70 @@
 .blog {
   font-family: "Open Sans", sans-serif;
 }
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+.callout {
+  border-left: 3px solid hsl(var(--border));
+  border-radius: 6px;
+  background: hsl(var(--muted));
+  padding: 0.75rem 1.25rem 1rem;
+  margin: 1.5em 0;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.callout > *:last-child {
+  margin-bottom: 0;
+}
+
+.callout-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+
+.callout-icon {
+  font-style: normal;
+}
+
+.callout-note,
+.callout-info {
+  border-left-color: #3b82f6;
+}
+
+.callout-tip,
+.callout-idea {
+  border-left-color: #a855f7;
+}
+
+.callout-important {
+  border-left-color: #ec4899;
+}
+
+.callout-warning,
+.callout-caution {
+  border-left-color: #f59e0b;
+}
+
+.prose .math-display {
+  display: block;
+  text-align: center;
+  margin: 1.5em 0;
+  overflow-x: auto;
+}
+
+.prose .math-inline {
+  display: inline;
+}

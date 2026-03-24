@@ -1,5 +1,6 @@
 import { useInView } from '@/hooks/useInView';
 import { Separator } from '@/components/ui/separator';
+import DotGrid from '@/components/ui/DotGrid';
 
 const cohorts = [
   {
@@ -65,8 +66,9 @@ function Cohorts() {
   const [headerRef, headerInView] = useInView({ threshold: 0.3 });
 
   return (
-    <section className="bg-foreground text-background py-24 md:py-32">
-      <div className="mx-auto max-w-3xl px-6 sm:px-8">
+    <section className="bg-foreground text-background py-24 md:py-32 relative overflow-hidden">
+      <DotGrid variant="dark" />
+      <div className="mx-auto max-w-3xl px-6 sm:px-8 relative z-10">
         <div
           ref={headerRef}
           className={`mb-14 reveal-hidden ${headerInView ? 'animate-fade-up' : ''}`}

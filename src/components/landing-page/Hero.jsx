@@ -1,5 +1,6 @@
 import { useInView } from '@/hooks/useInView';
 import { IconBrandTwitter, IconBrandLinkedin, IconBrandGithub } from '@tabler/icons-react';
+import DotGrid from '@/components/ui/DotGrid';
 
 const socialLinks = [
   { icon: IconBrandTwitter, href: 'https://twitter.com/krypticmouse/', label: 'Twitter' },
@@ -12,8 +13,9 @@ function Hero() {
   const [rightRef, rightInView] = useInView({ threshold: 0.2 });
 
   return (
-    <section className="min-h-[85vh] flex items-center">
-      <div className="mx-auto max-w-5xl px-6 sm:px-8 w-full py-20 md:py-0">
+    <section className="min-h-[85vh] flex items-center relative overflow-hidden">
+      <DotGrid variant="light" />
+      <div className="mx-auto max-w-5xl px-6 sm:px-8 w-full py-20 md:py-0 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-12 md:gap-20 items-center">
           <div
             ref={leftRef}

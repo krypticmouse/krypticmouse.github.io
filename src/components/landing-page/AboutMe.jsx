@@ -1,6 +1,7 @@
 import { useInView } from '@/hooks/useInView';
 import { AnimatedNumber } from '@/components/ui/AnimatedNumber';
 import { Separator } from '@/components/ui/separator';
+import DotGrid from '@/components/ui/DotGrid';
 
 const stats = [
   { title: 'Blogs', value: '30+' },
@@ -15,8 +16,9 @@ function AboutMe() {
   const [rightRef, rightInView] = useInView({ threshold: 0.15 });
 
   return (
-    <section className="bg-foreground text-background py-24 md:py-32">
-      <div className="mx-auto max-w-5xl px-6 sm:px-8">
+    <section className="bg-foreground text-background py-24 md:py-32 relative overflow-hidden">
+      <DotGrid variant="dark" />
+      <div className="mx-auto max-w-5xl px-6 sm:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-16 md:gap-20">
           <div
             ref={leftRef}
@@ -30,23 +32,29 @@ function AboutMe() {
             </h2>
             <div className="text-[15px] text-background/65 leading-[1.85] space-y-6">
               <p>
-                I&apos;m currently working as a{' '}
-                <strong className="text-background font-medium">
-                  Research Assistant at CRFM (Centre for Research in Foundation Models) Lab at Stanford University
+                I&apos;m joining{' '}
+                <strong className="text-background font-semibold">
+                  MixedBread
                 </strong>{' '}
-                where most of my task is currently revolving around building infrastructure for evaluating and post-training LLMs.
-                I&apos;m working in other labs including Hazy Research and Scaling Intelligence Lab with Jon Saad Falcon on various
-                projects ranging from multi model inference, LLM routing, Agent Evaluations, etc.
+                as a Research Engineer, building infrastructure for retrieval systems. Before this I spent time at Stanford&apos;s{' '}
+                <strong className="text-background font-semibold">CRFM</strong>,{' '}
+                <strong className="text-background font-semibold">Hazy Research</strong>,{' '}
+                <strong className="text-background font-semibold">Scaling Intelligence Lab</strong>, and{' '}
+                <strong className="text-background font-semibold">Brains in Silicon</strong>{' '}
+                working on LLM evaluation, post-training, multi-model inference, routing, and agent evals.
               </p>
               <p>
-                In my free time, I (try to) write posts on Twitter or LinkedIn trying to introduce topics less known to beginners.
-                Teaching people is something I love a lot so if you have any questions feel free to DM, I&apos;ll try my very best
-                to help you out!
+                At Brains on Silicon, I built training methods for scalable and efficient hyperbolic retrievers
+                on nanodendrite-based hardware inference, enabling zero-latency retrieval.
               </p>
               <p>
-                I hate sports but I love sports anime and I love beatboxing as well.{' '}
-                <strong className="text-background font-medium">
-                  Ping me if you are looking for research collaborators, let&apos;s brainstorm together!
+                I write threads on Twitter and LinkedIn breaking down topics that don&apos;t
+                get enough beginner-friendly coverage. If something confuses you, feel free toDM me. Seriously.
+              </p>
+              <p>
+                Zero interest in sports, unreasonable interest in sports anime, and I beatbox.{' '}
+                <strong className="text-background font-semibold">
+                  Always down to brainstorm! Hit me up if you want a research collaborator.
                 </strong>
               </p>
             </div>

@@ -4,7 +4,7 @@ import * as Collapsible from '@radix-ui/react-collapsible';
 import { IconMenu2, IconX } from '@tabler/icons-react';
 import { cn } from '@/lib/utils';
 
-function HeaderSimple() {
+function HeaderSimple({ sticky = true }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const scrolledRef = useRef(false);
   const [scrolled, setScrolled] = useState(false);
@@ -24,13 +24,13 @@ function HeaderSimple() {
   const navLinks = [
     { href: '/blogs', label: 'Blogs', external: false },
     { href: '/projects', label: 'Projects', external: false },
-    { href: 'https://journal.herumbshandilya.com', label: 'Journal', external: true },
   ];
 
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 w-full transition-all duration-300',
+        'top-0 z-50 w-full transition-all duration-300',
+        sticky ? 'sticky' : 'relative',
         scrolled
           ? 'bg-background/80 backdrop-blur-md border-b'
           : 'bg-transparent'

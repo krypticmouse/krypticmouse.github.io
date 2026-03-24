@@ -4,14 +4,16 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { IconBrandTwitter, IconBrandLinkedin } from '@tabler/icons-react';
 import ContactIconsList from './ContactIcons';
+import DotGrid from '@/components/ui/DotGrid';
 
 function ContactMe() {
   const [leftRef, leftInView] = useInView({ threshold: 0.15 });
   const [rightRef, rightInView] = useInView({ threshold: 0.15 });
 
   return (
-    <section className="py-24 md:py-32">
-      <div className="mx-auto max-w-5xl px-6 sm:px-8">
+    <section className="py-24 md:py-32 relative overflow-hidden">
+      <DotGrid variant="light" />
+      <div className="mx-auto max-w-5xl px-6 sm:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-16 md:gap-20">
           <div
             ref={leftRef}
