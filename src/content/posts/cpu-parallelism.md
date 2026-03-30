@@ -5,6 +5,7 @@ date: 2025-01-21
 draft: false
 desc: "From clock frequencies to ILP, SIMD, multithreading, and multiprocessing — how CPUs evolved to execute programs faster and why the free lunch ended."
 tags: ["SYSTEMS", "CPU", "PARALLEL COMPUTING"]
+image: "/blog-imgs/cpu-parallelism/meta_image.png"
 ---
 
 > *You’re absolutely right. I can’t execute anything fast alone.*
@@ -15,11 +16,13 @@ tags: ["SYSTEMS", "CPU", "PARALLEL COMPUTING"]
 > 
 > \- **Gintoki Sakata, Gintama**
 
-Parallelism is kinda like that too, bunch of worker doing there work in chunks and if needed accumulating the results to get the final answer. Wasn't always like this though. Anyways, AI is everywhere these days and there are people who build AI and people who build with AI. At the heart of it both aim for the same thing, building better and **faster** systems.
+Parallelism is kinda like that too, bunch of worker doing there work in chunks and if needed accumulating the results to get the final 
+answer. Wasn't always like this though. Anyways, AI is everywhere these days and there are people who build AI and people who build with 
+AI. At the heart of it both aim for the same thing, building better and **faster** systems.
 
-Making better systems, task metric wise, is a matter of research(build-evaluate-improve) but building a faster system like faster training loops or faster inference pipelines is a matter of engineering. More specifically, for faster systems you can either build a faster algorithm, like Flash Attention, or you can build better hardware that optimizes for speed of execution, like AI Accelerators. This blog focuses on the former, we'll see how we can make algorithms faster and how each of them works on hardware level i.e. CPUs.
+Most of "performance" talks end up being around optimization of GPU kernels or custom chips like Cerebras' WSM, Groq's LPU, that whole lane. CPUs barely get any attention man!! Which is so odd because a lot of what those accelerators do still runs on variations of ideas the CPU had first.
 
-In up coming blogs we'll talk about the latter, more specifically looking at the working of AI accelerator chips like LPUs, GPUs, TPUs, WSE-3 etc. But before all that let's under how execution/computation happens and how we can make it faster on software level!
+This blog is about going back to the CPU, its architecture and how it actually runs your code, from a single instruction all the way to throwing work across multiple cores. If you understand the CPU, everything else is just a derivative.
 
 ## Single Thread Execution
 
@@ -68,8 +71,19 @@ It basically means Intel's Kaby Lake makes `4.9e9` cycles per second. Higher the
 
 For simplicity, let's assume each instruction takes ~1 cycle. In reality, modern CPUs can execute multiple instructions per cycle, and some instructions take longer depending on their latency and dependencies. With only ~15 instructions, the execution time is effectively negligible, on the order of a few nanoseconds.
 
-> [!IDEA] CISC and RISC Instruction sets
-> ISC hai toh RISC hai
+> [!IDEA] CISC and RISC Instruction Sets
+> We casually said "each instruction takes ~1 cycle" but that overshadows a major question: *what even counts as a single instruction?* That depends on the **Instruction Set Architecture (ISA)**. An ISA is basically the specification that defines what instructions, registers, and addressing modes a CPU supports. There are two major philosophies:
+>
+> * **CISC (Complex Instruction Set Computing):** x86. This is used by Intel and AMD, it packs a lot of simple instructions into one instruction. Take a look at `addl -0xc(%rbp), %eax` from our example above. That single instruction reads a value from memory *and* adds it to a register. Internally the CPU might break it down into multiple atomic operations(loading, arithmetics, etc.), called **micro operations(μops)**, that take several cycles to finish.
+>
+> * **RISC (Reduced Instruction Set Computing)**: ARM, RISC-V. This is used by Apple Silicon and takes the opposite approach. Each instruction does exactly one simple thing. That same *memory read and add* would be two separate instructions in ARM:
+> ```
+> ldr w1, [x29, #-12]   // load value from memory into register
+> add w0, w0, w1         // now add the two registers
+> ```
+> More instructions total, but each one is dead simple and (ideally) completes in 1 cycle. This regularity also makes pipelining and ILP (which we'll get to soon) much easier to pull off in hardware.
+>
+> So which wins? None, LMAO. CISC is used a lot by desktops and servers (Intel/AMD) and RISC it used a lot in mobile and Apple Silicon in your Mac. RISC-V is gaining traction in both these days but not like world domination at the time of writing. Fun fact: modern CISC processors actually decode their complex instructions into RISC-like μops internally, so the line between the two is blurrier than ever.
 
 ### How CPU executes program?
 
@@ -89,15 +103,44 @@ Let's say the instruction fetched is: `addl    -0xc(%rbp), %eax`. The ALU(our ex
 
 The *execution state* of the thread is stored in registers which are small but crazy fast ephemeral storage. Aside from this you have cache hierarchies that CPU manages to "save" the data so it can be fetched quickly. Why bother with different cache and memory hierarchy? If you are interested you can read the following blob.
 
-> [!IDEA] Working and Need of Caches
-> This is a summary using the `IDEA` callout!
-
 ![CPU Execution - Level 4](/blog-imgs/cpu-parallelism/CPU%20Execution%20-%20Level%204.png)
+
+> [!IDEA] Working and Need of Caches
+> Registers are crazy fast but have tiny memory size. Your program's data lives in **RAM** which can be gigabytes, but RAM is **slow** ~100-200 cycles per access vs ~1 cycle for a register. If the CPU went to RAM every time it needed data, it'd spend most of its time just waiting. To bridge this gap we add a small, not as small as registers, but fast memory called a **cache** that stores copies of recently accessed data so the CPU can grab it in a few cycles instead of hundreds. When the CPU needs a value, it checks the cache first. If it finds it there we call it a **cache hit**. If not we call it a **cache miss**, and it goes to RAM, fetches the data, and stores a copy in the cache for next time.
+>
+> Now, one cache isn't enough because of a physical tradeoff: smaller memory is faster, larger memory is slower (shorter wires, fewer transistors to search through). So instead of one big cache, CPUs stack multiple levels:
+>
+> | Level | Typical Size | Latency (cycles) | Shared? |
+> |-------|-------------|-------------------|---------|
+> | **L1** | 32-64 KB | ~3-5 | Per core |
+> | **L2** | 256 KB - 2 MB | ~12-15 | Per core |
+> | **L3** | 8-64 MB | ~30-40 | Shared across cores |
+> | **RAM** | 8-128 GB | ~100-200 | Shared across everything |
+>
+> The CPU checks L1 first, then L2, then L3, and finally RAM. Each level is slower than the last because of physical distance and size. L1 is smallest and sits right next to the execution units with the shortest wires, L2 is further away and larger, and L3 is the largest, furthest out, and shared across cores so it also deals with cross-core coordination overhead. L1 and L2 are there per core, L3 is shared. Most CPUs also split L1 into **L1i** (instruction cache) and **L1d** (data cache) so fetching the next instruction and loading data can happen simultaneously.
+>
+> This layering is what makes cache misses costly but survivable. A miss in L1 that hits in L2 costs ~10 extra cycles which is not great, but kinda ok still. A miss that falls through to L3 costs ~30-40 cycles. But a miss that goes all the way to RAM stalls the pipeline for 100+ cycles that's hundreds of instructions worth of time just *waiting for data*.
+>
+> Regardless of level, all caches store data in **cache lines** in chunks of 64 bytes. When a miss happens, the CPU doesn't fetch just the single byte it needs it grabs the entire 64-byte line. Why? Because programs tend to access nearby memory in sequence, so by fetching a whole chunk the next few accesses are likely already cached. Each line also carries a **tag** (which RAM address it's a copy of) and other metadata so the cache knows what it's holding.
+>
+> All of this work around what gets cached, what gets evicted and which level holds what is managed entirely by hardware. You don't get a frontend to say "put this in L1" or "pin this cache line." The cache is invisible to your program. What you *can* control is how you access memory, and that matters a lot because every cache miss is wasted cycles. Sequential array access plays nicely with cache lines, each 64-byte fetch covers multiple elements, so you get a burst of hits after each miss. Random pointer chasing through a linked list causes a miss on nearly every access because the next node could be anywhere in memory, blowing through all cache levels each time. Same algorithm, same Big-O, but potentially 10-100x performance difference just from cache behavior. Writing code that minimizes these misses is what people call **cache-aware programming**, and it's one of the bigger gains you can have for performance.
 
 It starts by **fetching** the next instruction, pulling it from memory (likely from a small but incredibly quick instruction cache). Once fetched, it **decodes** it i.e. the CPU’s logic interprets what that instruction means: maybe it’s an addition, a comparison, or a write to memory. Finally, it **executes** the operation, carrying it out on the data stored in its tiny working memory called *registers*.
 
-> [!IDEA] How do you pass the signal/data around?
-> Buses
+> [!IDEA] Brief history of sending signal around
+> How does control unit "passes" a command to the ALU, how does ALU "loads" from registers and how does data physically move between components? Overall, it's all done via **buses** which are basically sets of wires that connect different parts of the CPU. But the design and configuration of those buses that has changed a lot over the decades.
+>
+> **Era 1: The Three-Bus Problem.** Early CPUs had three primary buses: a **data bus** (carries actual values), an **address bus** (tells the memory system *where* to read/write), and a **control bus** (carries signals like "this is a read" or "interrupt"). All components shared these wires and took turns using them. Simple, but slow since you're waiting for the bus to be free.
+>
+> **Era 2: Front Side Bus.** Starting with Intel's Pentium Pro (1995), the CPU connected to the rest of the system through the **Front Side Bus (FSB)**. The FSB fed into a chip called the **Northbridge** which handled the high-speed stuff: RAM and the graphics slots. The Northbridge then connected to a second chip called the **Southbridge** (I/O Controller Hub) which handled slower I/O: USB, SATA, etc. FSB speeds went from 66 MHz all the way up to over 1 GHz, but it was still fundamentally a shared bus every memory access from the CPU had to go through it.
+>
+> **Era 3: Integration.** In 2008, Intel's Nehalem moved the memory controller *into* the CPU die itself (AMD actually did this earlier with the Athlon 64 in 2003). The FSB was replaced by **QPI (QuickPath Interconnect)**, a point-to-point link and Northbridge essentially disappeared. What remained of the Southbridge became the **PCH (Platform Controller Hub)**, connected to the CPU via **DMI (Direct Media Interface)**.
+>
+> **Modern CPUs** kept going with this integration trend the graphics interface and other high-speed connections also moved onto the CPU die. At this point, pretty much everything the Northbridge used to do now lives inside the CPU itself. There's no front side bus anymore because there's nothing external left to bus *to*. CPU has direct dedicated pins for memory and high-speed devices. The Southbridge stuff is still separate though, just not called "Southbridge" anymore.
+>
+> As for how components talk to each other *inside* the core, i.e registers to ALU, control unit to execution units, that's all dedicated point-to-point wiring now, not shared buses. The internal bus fabric that ties together cores, caches, and the memory controller is proprietary and not publicly documented.
+>
+> Unless you're under NDA designing IP for their chips, you won't see those specs. In which case reach out to me and let me know, it'll be our secret 🤫.
 
 So that's how execution happens, but how do you make it fast? Two words, Clock...Frequency.
 
@@ -136,7 +179,21 @@ A CPU core is just a giant collection transistor. NO READ THIS CAREFULLY!!! **A 
 These transistors can store two states 0 and 1. When you execute code these transistors change these state from 0 to 1 or 1 to 0. The CPU is driven by a clock which ticks at a fixed rate. This clock period is chosen so that all transistor switching and signal propagation inside the CPU can complete before the next tick. A cycle is one tick of the CPU clock and as we saw before the number of cycles CPU can do in 1 second is clock frequency.
 
 > [!IDEA] How TF does a CPU Clock work?
-> Quartz crystal oscillator, Phase locked loop
+> We keep saying "clock" but what even is a clock? A clock is anything that produces a steady, periodic tick. Your wristwatch has one, your wall clock has one, and your CPU has one too!! The job is the same everywhere: give the system a reliable sense of *when* to do the next thing. In a CPU, every tick tells the digital logic "move one step forward". More specifically, latch new values into registers, commit ALU results, advance the pipeline. Without it, different parts of the chip would update at random times and nothing would work.
+>
+> Now, almost every clock you've interacted with wristwatches, motherboards, microcontrollers, or whatever uses a **quartz crystal** to generate that tick. Why quartz? Because of the **piezoelectric effect**!! Piezoelectricity is a physical property of certain materials where mechanical stress produces voltage, and conversely, applying voltage causes mechanical deformation. Quartz happens to exhibit this very strongly.
+>
+> Why? That's more of a chemistry topic but it's mainly because because quartz's crystal lattice lacks a center of symmetry. So when you compress or stretch it, the positive and negative charges in the lattice shift unevenly and end up producing a net voltage across the faces.
+>
+> Back to topic, when you put a quartz crystal in a circuit and apply voltage to it the crystal physically deforms. When the voltage is removed it springs back and generates voltage in the other direction. This back-and-forth creates a vibration at the crystal's **natural resonant frequency**, which depends on how the crystal is cut and shaped. The circuit picks up that vibration as a repeating electrical signal. That whole setup, i.e crystal plus the driving circuit, is called a **quartz crystal oscillator**. We use quartz because its resonant frequency is pretty stable and way more precise than anything you could build out of analog stuff only.
+>
+> But like everything in this world there is a catch. The crystal's frequency is usually in the scale of `hundreds of MHz` and CPUs these days run in GHz. We need to multiply that frequency up. So CPUs uses **quartz crystal oscillator** provide the stable low-frequency reference and a **PLL (Phase-Locked Loop)** takes that **reference** and scales it up to GHz speeds. The PLL has three parts:
+>
+> 1. **VCO (Voltage-Controlled Oscillator):** A *separate* oscillator from the quartz crystal which is not stable on its own, but tunable. It generates a clock whose frequency depends on the input voltage. Higher voltage = faster clock. The crystal gives stability, the VCO gives speed.
+> 2. **Frequency Divider:** Takes the VCO's fast output and counts every N ticks, emitting one tick per N (e.g. one tick per 35), so a `3.5 GHz` signal becomes `100 MHz`. This way it can be compared against the `100 MHz` reference clock.
+> 3. **Phase Detector:** Compares the divided-down VCO signal against the reference crystal signal and outputs an error voltage: "you're too fast" or "you're too slow."
+>
+> That error voltage feeds back into the VCO, nudging it faster or slower until the divided-down output matches the reference exactly. At that point the loop is "locked" and the VCO is now producing a stable clock at exactly `reference × multiplier`. So a `100 MHz` crystal with a `×35` multiplier gives you `3.5 GHz`. That final signal is what defines the CPU cycle, so when we say a CPU runs at `4 GHz` its this clock circuitry is generating roughly `4 billion` ticks per second.
 
 Now the states 0 and 1 is usually decided by voltage in transistors. To change the state we need to change the voltage and this is what limit the speed. So if we decide to increase this clock frequency we'll need to make this faster. Few ways to do that are:
 
@@ -303,8 +360,19 @@ For now let's briefly skim what this program is doing, SIMD Programming can be a
 
 Of course is not all perfect, you can't using conditional without getting a performance hit due to Divergent Execution, lanes are limited, etc. 
 
->[!IDEA] Divergent Execution
+> [!IDEA] Divergent Execution
+> SIMD works great when every lane does the same thing. But what happens when you have a conditional block? Say you want to do this element-wise:
+> ```c
+> for (int i = 0; i < 8; i++) {
+>     if (a[i] > 0)
+>         c[i] = a[i] + b[i];
+>     else
+>         c[i] = 0;
+> }
+> ```
+> The SIMD unit can't branch differently per lane because in SIMD it's one instruction for all lanes, that's the whole point. So instead of branching, the hardware computes **both** results for **all** lanes unconditionally. It calculates `a[i] + b[i]` for all 8 lanes, and it also prepares the `0` result for all 8 lanes. Then it computes a mask which lanes satisfy `a[i] > 0` and uses that mask to **select** per lane: keep the sum where the mask is true, keep zero where the mask is false.
 >
+> The wasted work is obvious: every lane computed both the addition *and* the zero, but only one result per lane is actually used. In the worst case (50/50 split), you're doing 2x the work compared to scalar code. This is what we call **divergent execution** where the lanes "want" to diverge but hardware forces them to compute everything, discarding half the results. The more uniform your branching pattern, the less you pay. The more divergent, the closer SIMD degrades toward (or past) scalar performance.
 
 So at this point we need to face the truth folks...Single Thread Free Lunch is done for. Good news is we got used to a new era of **Parallel Computing on Multi Core Processor**.
 
@@ -405,8 +473,42 @@ This is not the only overhead that can delay execution in multithread setup. Oft
 
 ![Thread Fight](/blog-imgs/cpu-parallelism/Sibling-Rivalry.jpg)
 
->[!IDEA] Synchronization
-> Let's see
+> [!IDEA] Synchronization
+> Resource contention isn't just about hardware resources like ALUs and cache. Threads often need to access the same *data*, and that's where things get really dangerous. Say two threads both try to increment a shared counter:
+> ```c
+> int counter = 0;
+>
+> void *increment(void *arg) {
+>     for (int i = 0; i < 100000; i++)
+>         counter++;  // read -> modify -> write
+>     return NULL;
+> }
+> ```
+> If two threads run `increment` simultaneously, you'd expect `counter` to end up at `200000`. But it won't. Thread A reads `counter` (say `5`), thread B also reads it (`5`), both add 1, both write back `6`. You lost an increment. Run this enough times and you'll get a different wrong answer each time. This is a **race condition**, where the result depends on the timing of execution, which is non-deterministic.
+>
+> The `counter++` line is the problem. It looks like one operation but it's actually three: read, modify, write. The piece of code that accesses shared data like this and *must not* be executed by multiple threads at the same time is called a **critical section**. The goal of synchronization is to ensure only one thread is inside a critical section at any given time.
+>
+> The most basic way to protect a critical section is with a **lock**. Before entering the critical section, a thread *acquires* the lock. If no one else holds it, the thread proceeds. If another thread already holds it, the requesting thread **blocks** (waits) until the lock is released. Once done, it *releases* the lock so others can enter:
+> ```c
+> pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+>
+> void *increment(void *arg) {
+>     for (int i = 0; i < 100000; i++) {
+>         pthread_mutex_lock(&lock);    // acquire
+>         counter++;                     // critical section
+>         pthread_mutex_unlock(&lock);  // release
+>     }
+>     return NULL;
+> }
+> ```
+> Now `counter` will always be `200000`. The **mutex (mutual exclusion lock)** guarantees only one thread is in the critical section at a time. Simple and safe, but if you hold it too long you serialize your "parallel" program back into sequential execution.
+>
+> Mutexes aren't the only option though. In practice, locks come in different flavors:
+>
+> * **Semaphore:** A generalized lock that allows up to N threads to access a resource simultaneously. A mutex is basically a semaphore with N=1. Useful when you have a pool of resources (like database connections) and can allow limited concurrent access.
+> * **Atomic Operations:** Instead of using a lock at all, some operations can be made **atomic** at the hardware level, meaning they complete in a single indivisible step. Our counter example could just use `atomic_fetch_add(&counter, 1)` which increments and returns the old value in one instruction that no other thread can interrupt. Much faster than a mutex for simple operations, but limited to what the hardware supports (usually single reads, writes, or read-modify-writes on aligned values).
+>
+> As you can see there is a tradeoff here. Too little synchronization gives you race conditions and corrupted data. Too much synchronization kills parallelism because threads spend all their time waiting for locks. Getting this balance right is one of the hardest parts of concurrent programming, and bugs from getting it wrong (deadlocks, livelocks, data races) are kinda difficult to reproduce and debug because they depend on timing.
 
 Why am I telling you all this though? To realize that scaling up software thread is not always the answer to making things fast. So getting back to the `pthread` program we have two threads running on our CPU which right now can only run one thread at a time via Context Switching. This is because our CPU only has enough registers to hold execution context of one thread at a time. So do we make this CPU Run multiple threads then? Occam's Razor, just add more registers:
 
@@ -444,8 +546,16 @@ But wait, how does this even work? Cores are multiple now yes but you still have
 
 More specifically, each process doesn't actually work with physical RAM addresses directly. Instead, it works with virtual addresses that the CPU translates to physical addresses using something called **page table**. So when Process A accesses address `0x1000`, it might map to physical address `0x5000`, while Process B's address `0x1000` maps to `0x8000`. Different physical locations, same virtual address.
 
->[!IDEA] Virtual Memory and Demand Paging
+> [!IDEA] Virtual Memory and Demand Paging
+> So we said each process gets its own virtual address space and the CPU translates virtual addresses to physical ones. But how does this all happen? There's a piece of hardware inside the CPU called the **MMU (Memory Management Unit)**. On every memory access, your program says "give me the value at address `0x1000`" which MMU catches and translates `0x1000` to whatever physical address it actually maps to, and fetches from there. The program never sees a physical address.
 >
+> Ofcourse for this translation MMU needs a lookup table to know which virtual address maps where. That table is called a **page table**. The OS divides virtual memory and physical memory into fixed-size chunks called **pages** (typically 4 KB). The page table is a data structure that maps each virtual page to a physical page called a **frame**. Each process gets their own page table. When the CPU accesses a virtual address, the hardware splits it into two parts: which page it belongs to, and where within that page the byte sits. It looks up the page number in the table to find the physical frame, and the position within the page stays the same since pages and frames are the same size.
+>
+> This lookup happens on every single memory access, so it needs to be fast. The CPU has a small dedicated cache for page table entries called the **Translation Lookaside Buffer(TLB)**. If the mapping is in the TLB, translation takes 1-2 cycles. If not the CPU has to walk the page table in memory, which can take tens of cycles.
+>
+> Now this is where **demand paging** comes in. When a process starts, the OS doesn't load all of its data into physical RAM. It sets up the page table entries but marks most pages as "not present." When the process first tries to access one of those pages, the CPU triggers a **page fault**, the OS steps in, loads that page from disk into a physical frame, updates the page table entry, and lets the process continue. The program never knows this happened.
+>
+> This is pretty dope!!! Because it means you can run programs whose total memory footprint is larger than your actual RAM!!! The OS just keeps the actively used pages in RAM and leaves the rest on disk. If RAM fills up, it picks a page to **swap out** by writing to disk using some method similar to cache eviction, making room for the newly needed page. The tradeoff is if your program's working set doesn't fit in RAM, you start hitting disk on every page fault, and disk is millions of times slower than RAM. This is called **thrashing** and it will drag your system to a halt.
 
 To do multiprocessing in C++, we use a system call named `fork` which creates a new process to execute the instruction coming after it. Let's check out an example:
 

@@ -25,6 +25,7 @@ export function getAllPosts() {
         date: data.date ? new Date(data.date).toISOString() : null,
         desc: data.desc || '',
         tags: data.tags || [],
+        image: data.image || null,
         readingTime,
       };
     })
@@ -49,7 +50,9 @@ export function getPostBySlug(slug) {
       date: data.date ? new Date(data.date).toISOString() : null,
       desc: data.desc || '',
       tags: data.tags || [],
+      image: data.image || null,
       readingTime,
+      wordCount,
     },
     content,
   };

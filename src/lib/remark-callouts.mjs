@@ -2,6 +2,10 @@ import { visit } from 'unist-util-visit';
 
 const calloutRegex = /^\[!(\w+)\]\s*(.*)?/;
 
+function slugify(text) {
+  return 'nugget-' + text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
 const ICONS = {
   note: '&#9432;',
   info: '&#9432;',
@@ -41,14 +45,26 @@ export default function remarkCallouts() {
 
       const titleNode = {
         type: 'paragraph',
-        data: { hName: 'p', hProperties: { className: 'callout-title' } },
-        children: [{ type: 'html', value: `<span class="callout-icon">${icon}</span>` }, { type: 'text', value: title }],
+        data: { hName: 'summary', hProperties: { className: 'callout-title' } },
+        children: [
+          { type: 'html', value: `<span class="callout-icon">${icon}</span>` },
+          { type: 'text', value: title },
+          { type: 'html', value: '<span class="callout-chevron">&#9656;</span>' },
+        ],
       };
 
-      node.children.unshift(titleNode);
+      const contentWrapper = {
+        type: 'blockquote',
+        data: { hName: 'div', hProperties: { className: 'callout-content' } },
+        children: [...node.children],
+      };
+
+      node.children = [titleNode, contentWrapper];
       node.data = node.data || {};
-      node.data.hName = 'div';
-      node.data.hProperties = { className: `callout callout-${type}` };
+      node.data.hName = 'details';
+      const props = { className: `callout callout-${type}`, id: slugify(title) };
+      if (type === 'info') props.open = true;
+      node.data.hProperties = props;
     });
   };
 }

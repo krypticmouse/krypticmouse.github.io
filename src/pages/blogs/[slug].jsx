@@ -5,6 +5,7 @@ import Header from '@/components/ui/Header';
 import Footer from '@/components/ui/Footer';
 import { getAllPosts, getPostBySlug } from '@/lib/posts';
 import { IconArrowLeft, IconList, IconChevronRight } from '@tabler/icons-react';
+import NuggetsModal from '@/components/ui/NuggetsModal';
 import 'katex/dist/katex.min.css';
 import 'highlight.js/styles/atom-one-dark.css';
 
@@ -14,6 +15,16 @@ function formatDate(iso) {
     month: 'long',
     day: 'numeric',
   });
+}
+
+const DEFAULT_SITE_ORIGIN = 'https://krypticmouse.github.io';
+
+function absoluteOgImageUrl(image) {
+  if (!image) return null;
+  if (/^https?:\/\//i.test(image)) return image;
+  const base = (process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_ORIGIN).replace(/\/$/, '');
+  const path = image.startsWith('/') ? image : `/${image}`;
+  return `${base}${path}`;
 }
 
 function TableOfContents({ headings }) {
@@ -140,11 +151,13 @@ function TableOfContents({ headings }) {
   );
 }
 
-export default function BlogPost({ frontmatter, html, headings }) {
+export default function BlogPost({ frontmatter, html, headings, nuggets }) {
+  const ogImageAbsolute = absoluteOgImageUrl(frontmatter.image);
+
   return (
     <>
       <Head>
-        <title>{frontmatter.title} | Herumb Shandilya</title>
+        <title>{`${frontmatter.title} | Herumb Shandilya`}</title>
         <meta name="description" content={frontmatter.desc} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/Krypticmouse.jpeg" />
@@ -157,9 +170,12 @@ export default function BlogPost({ frontmatter, html, headings }) {
           <meta property="article:published_time" content={new Date(frontmatter.date).toISOString()} />
         )}
 
-        <meta name="twitter:card" content="summary" />
+        {ogImageAbsolute && <meta property="og:image" content={ogImageAbsolute} />}
+
+        <meta name="twitter:card" content={ogImageAbsolute ? 'summary_large_image' : 'summary'} />
         <meta name="twitter:title" content={frontmatter.title} />
         <meta name="twitter:description" content={frontmatter.desc} />
+        {ogImageAbsolute && <meta name="twitter:image" content={ogImageAbsolute} />}
       </Head>
       <main>
         <Header sticky={false} />
@@ -187,7 +203,18 @@ export default function BlogPost({ frontmatter, html, headings }) {
                   {formatDate(frontmatter.date)}
                   <span className="mx-2">·</span>
                   {frontmatter.readingTime} min read
+                  <span className="mx-2">·</span>
+                  {frontmatter.wordCount.toLocaleString()} words
                 </p>
+                {frontmatter.image && (
+                  <div className="mt-8 rounded-lg overflow-hidden border border-border/60 bg-muted/20">
+                    <img
+                      src={frontmatter.image}
+                      alt=""
+                      className="w-full h-auto block"
+                    />
+                  </div>
+                )}
               </header>
 
               <div
@@ -213,6 +240,7 @@ export default function BlogPost({ frontmatter, html, headings }) {
 
             <TableOfContents headings={headings} />
           </div>
+          <NuggetsModal nuggets={nuggets} />
         </div>
         <Footer />
       </main>
@@ -234,6 +262,7 @@ export async function getStaticProps({ params }) {
   const { unified } = await import('unified');
   const remarkParse = (await import('remark-parse')).default;
   const remarkMath = (await import('remark-math')).default;
+  const remarkGfm = (await import('remark-gfm')).default;
   const remarkCallouts = (await import('@/lib/remark-callouts.mjs')).default;
   const remarkRehype = (await import('remark-rehype')).default;
   const rehypeRaw = (await import('rehype-raw')).default;
@@ -242,7 +271,10 @@ export async function getStaticProps({ params }) {
   const rehypeSlug = (await import('rehype-slug')).default;
   const rehypeStringify = (await import('rehype-stringify')).default;
 
+  const { toHtml } = await import('hast-util-to-html');
+
   const headings = [];
+  const nuggets = [];
 
   function getTextContent(node) {
     if (node.type === 'text') return node.value;
@@ -258,6 +290,39 @@ export async function getStaticProps({ params }) {
         headings.push({ id, text, depth: parseInt(node.tagName.charAt(1), 10) });
       }
     }
+
+    if (
+      node.type === 'element' &&
+      node.tagName === 'details' &&
+      (node.properties?.className || []).some((c) => c === 'callout')
+    ) {
+      const classes = node.properties.className || [];
+      const typeClass = classes.find((c) => c.startsWith('callout-'));
+      const type = typeClass ? typeClass.replace('callout-', '') : 'note';
+      const id = node.properties.id;
+
+      const summary = node.children?.find((c) => c.tagName === 'summary');
+      const titleParts = summary
+        ? summary.children
+            .filter((c) => !(c.tagName === 'span' && (c.properties?.className || []).some(
+              (cls) => cls === 'callout-icon' || cls === 'callout-chevron'
+            )))
+            .map(getTextContent)
+            .join('')
+            .trim()
+        : '';
+      const title = titleParts;
+
+      const contentDiv = node.children?.find(
+        (c) => c.tagName === 'div' && (c.properties?.className || []).includes('callout-content')
+      );
+      const html = contentDiv ? toHtml(contentDiv.children) : '';
+
+      if (id && title) {
+        nuggets.push({ id, type, title, html });
+      }
+    }
+
     if (node.children) node.children.forEach(walkTree);
   }
 
@@ -267,6 +332,7 @@ export async function getStaticProps({ params }) {
 
   const result = await unified()
     .use(remarkParse)
+    .use(remarkGfm)
     .use(remarkMath)
     .use(remarkCallouts)
     .use(remarkRehype, { allowDangerousHtml: true })
@@ -283,6 +349,7 @@ export async function getStaticProps({ params }) {
       frontmatter,
       html: String(result),
       headings,
+      nuggets,
     },
   };
 }
